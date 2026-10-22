@@ -14875,10 +14875,10 @@ function mine(){
   const card=(k,hi,b,d,base)=>`<div><div class="k${hi?' hi':''}">${k} ${b}</div><div class="d">${d}</div><div class="b">${base}</div></div>`;
   const R_=' <span class="badge real">真</span>',M_=' <span class="badge sim">模擬</span>';
   document.getElementById('m-kpi').innerHTML=
-    card(D.work_h_median!=null?D.work_h_median+' 小時':'—',D.work_h_median>12,R_,`${DD(DL.day)} 一台車一天在路上（中位數）`,'一天的正常工時加上加班，最多 12 小時')+
-    card(D.buses?`${D.over12} / ${D.buses} 台`:'—',false,R_,`${DD(DL.day)} 一天開超過 12 小時的車`,D.buses?'同一人開，會超過每天 12 小時的上限。所以推定中途換駕駛。':'')+
-    card(S0?(shaky?(sim.fit>0?'≤ ':'≥ '):'')+pct(1-S0[2]):'—',false,M_,'排不進休息的駕駛班（假設駕駛整天跟同一台車）',shaky?`模擬${bound}（車數和真資料差 ${pct(Math.abs(sim.fit))}）`:'不是業者實際的班表。實際有沒有在端點換駕駛，要看勤務表')+
-    card(N&&N.n>=5?`${N.under8} / ${N.n} 台`:'—',false,R_,`${DD(DL.windows[0])} 晚間收車、${DD(DL.day)} 早上出車，停不到 8 小時的車`,'車停的時間，不是駕駛休息');
+    card(D.work_h_median!=null?D.work_h_median+' 小時':'—',D.work_h_median>12,R_,`${DD(DL.day)} 一台車在路上的時間（中位數）`,'駕駛一天最多 12 小時（含加班）')+
+    card(D.buses?`${D.over12} / ${D.buses} 台`:'—',false,R_,`${DD(DL.day)} 在路上超過 12 小時的車`,D.buses?'超過一人一天的上限，所以中途應有換人；要看勤務表確認':'')+
+    card(S0?(shaky?(sim.fit>0?'≤ ':'≥ '):'')+pct(1-S0[2]):'—',false,M_,'休息不夠的駕駛班（假設整天開同一台車）',shaky?`模擬${bound}（車數和真資料差 ${pct(Math.abs(sim.fit))}）`:'終點站停不到 15 分就掉頭，湊不滿「開 4 小時休 30 分」。實際有沒有換人，要看勤務表')+
+    card(N&&N.n>=5?`${N.under8} / ${N.n} 台`:'—',false,R_,`${DD(DL.windows[0])} 晚上收車到 ${DD(DL.day)} 早上出車，停不到 8 小時的車`,'駕駛兩天之間最少休 8 小時，所以早上應是換人開；要看勤務表確認');
   // ① along the route × the day; ② headway and bunching on the left (stays in view while the strip scrolls)
   const cw=Math.max(8,Math.min(15,620/Math.max(1,n))),LW=96,TH=30,rh=16,W=LW+n*cw+8,H=TH+HRS.length*rh+60;
   let s=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" id="m-svg">`;
