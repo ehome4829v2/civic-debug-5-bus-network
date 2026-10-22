@@ -1,5 +1,5 @@
 {
- "frozen": "2026/10/22 21:35",
+ "frozen": "定稿 2026/10/22 21:45",
  "weekdays": [
   "20261015",
   "20261016",
@@ -7,10 +7,9 @@
   "20261020",
   "20261021"
  ],
- "source_commit": "58b9598d",
- "built": "2026-10-22T21:39:55",
+ "source_commit": "c7712203",
+ "built": "2026-10-22T21:47:47",
  "pages": [
-  "day.html",
   "network.html",
   "network-card.html",
   "flow.html",
