@@ -1,0 +1,21 @@
+{
+ "frozen": "預覽版 2026/10/22 19:40",
+ "weekdays": [
+  "20261015",
+  "20261016",
+  "20261019",
+  "20261020",
+  "20261021"
+ ],
+ "source_commit": "f7f6c653",
+ "built": "2026-10-22T19:42:30",
+ "disclosure": "市政Debug松參賽作品，民間研究，不代表臺北市政府立場。本站的資料蒐集、計算和文字由 AI 協助完成，可能有錯，引用前請人工核對原始資料。",
+ "pages": [
+  "network.html",
+  "network-card.html",
+  "flow.html",
+  "schedule.html",
+  "plan100.html",
+  "learn.html"
+ ]
+}
