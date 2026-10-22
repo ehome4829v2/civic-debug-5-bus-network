@@ -88,7 +88,7 @@ a{color:#2c6fa8}
 
 <h2 id="places">行動方案：建議改 <span id="pn"></span> 處</h2>
 <p class="note" id="places-why"></p>
-<details><summary>這 <span id="pn2"></span> 處怎麼選、名詞</summary><p class="note"><span id="pnwhy"></span>「要不要審議」是我們的判斷。這要和公運處確認。<b>聯合排點</b>：幾條路線一起排時刻表。這樣車不會一次來好幾台，之後又很久沒車。路線名稱有「區」的是<b>區間車</b>（只跑原路線的一段）。</p></details>
+<details><summary>這 <span id="pn2"></span> 處怎麼選、名詞</summary><p class="note"><span id="pnwhy"></span>「要不要審議」是我們的判斷，要和公運處確認。<br><b>聯合排點</b>：幾條路線一起排時刻表，車就不會一次來好幾台、又很久沒車。<br><b>區間車</b>：路線名稱有「區」，只跑原路線的一段。</p></details>
 <div id="placesBox"></div>
 
 <h2 id="ends">端點：駕駛在哪裡休息、換駕駛</h2>
@@ -112,11 +112,10 @@ a{color:#2c6fa8}
 <p id="drvline"></p>
 <details id="drvd"><summary>三個問題：工時、班內休息、一天太長</summary>
 <div class="prob" id="prob"></div>
-
+<details><summary>細節</summary>
 <h3>1. 每週工時：要加多少人</h3>
 <div class="card">
-  <p>選兩件事，看要加多少人：</p>
-  <div><b>① <span class="v-hc"></span> 位駕駛包含哪些業者？</b><span class="note">（公運處公布這個人數，但沒說包含哪些業者）</span></div>
+  <div><b>① <span class="v-hc"></span> 位駕駛包含哪些業者？</b><span class="note">（公運處沒說）</span></div>
   <div class="seg bx" id="sc"><button data-v="all" class="on" aria-pressed="true">全部 15 家</button><button data-v="taipei_ops" aria-pressed="false" id="tpebtn">總公司在臺北的業者</button></div>
   <div><b>② 目標</b></div>
   <div class="seg bx" id="tg"><button data-v="cap" class="on" aria-pressed="true">法定加班上限</button><button data-v="w40" aria-pressed="false">每週 40 小時</button></div>
@@ -125,7 +124,7 @@ a{color:#2c6fa8}
   <p class="note" id="gapnote"></p>
 </div>
 <details><summary>所有組合一起看</summary><div id="gaptab"></div></details>
-<details><summary>怎麼算的、數字偏向哪邊</summary><div id="how"></div></details>
+<details><summary>怎麼算的、為什麼偏低</summary><div id="how"></div></details>
 
 <h3>2. 班內休息：要多少人</h3>
 <div class="card" id="rest"></div>
@@ -135,18 +134,19 @@ a{color:#2c6fa8}
 <div class="card" id="day"></div>
 <details><summary>在端點換駕駛，要先和工會談好的事</summary>
 <ul>
-<li>交接時一起檢查車況並簽名，說好車損責任怎麼分。</li>
-<li>獎金不能因為換駕駛而變少。</li>
-<li>交接和移動的時間算工時，業者派交通車。</li>
+<li>交接時一起檢查車況、簽名，說好車損責任。</li>
+<li>獎金不因換駕駛變少。</li>
+<li>交接和移動算工時，業者派交通車。</li>
 <li>接班駕駛一天的跨度有上限。</li>
-<li>休息時，駕駛可以離開車，進休息室，不必顧車。如果要顧車，休息還是算待命。</li>
-<li>談好的內容寫進勞資會議決議或團體協約。</li>
+<li>休息時可以離車，不必顧車；要顧車就算待命。</li>
+<li>寫進勞資會議決議或團體協約。</li>
 </ul></details>
+</details>
 </details>
 
 <h2>市府能用的工具</h2>
 <p>市府不直接僱用駕駛。100 天內招不到幾百人。建議先算準需求，再把加人的錢編進 2028 年度預算。</p>
-<details><summary>8 種工具：稽查、經營權、補貼和評鑑、資料條款、法規解釋、勞動檢查、端點空間、雙北協調</summary><div class="tools" id="tools"></div></details>
+<details><summary>8 種工具：稽查、經營權、補貼和評鑑、資料條款、法規解釋、勞動檢查、端點空間、雙北協調</summary><p><b>重點</b>：先公開、再掛鉤；先輔導、再處罰。</p><div class="tools" id="tools"></div></details>
 
 <h2>增班和減班：好處和代價</h2>
 <p>增班和減班用的是同一批駕駛。增班會讓駕駛更不夠。減班省下的工時，最適合拿來補休息。</p>
@@ -161,7 +161,8 @@ a{color:#2c6fa8}
 <li><b>勤務表</b>：業者排的班，寫誰開哪幾趟、在哪裡換駕駛、什麼時候休息。<b>出勤紀錄</b>是實際打卡的時間。</li>
 <li><b>團體協約</b>：工會和公司簽的書面約定。</li>
 <li><b>第二預備金</b>：市府預算裡留給臨時需要的錢。</li>
-<li><b>先到現場數人</b>：現有公車每小時已經 6 班以上。可是尖峰過站不停的比例，比同一站白天離峰高 15 個百分點以上。原因可能是車太擠，也可能是串車。要到現場數人才知道。</li>
+<li><b>先到現場數人</b>：公車每小時已經 6 班以上，尖峰過站不停的比例卻比同一站白天離峰高 15 個百分點以上。原因可能是車太擠，也可能是串車，要到現場數人才知道。</li>
+<li><b>串車</b>：一次來好幾台，之後又很久沒車。</li>
 <li><b>端點</b>：路線的兩頭。車在這裡掉頭。駕駛在這裡休息或換駕駛。</li>
 <li><b>場站</b>：業者停車、保養的地方。場站不一定在路線的兩頭。</li>
 <li><b>預約專車</b>：先用電話或 App 預約的小車。有人預約才開。</li>
@@ -180,7 +181,7 @@ a{color:#2c6fa8}
 </ul></details>
 </main>
 <script>
-const N={"acc": {"days": 5, "places": 8, "routes": 31, "min_days": 2}, "count_end": "4/1", "sim_vs_crew": 2, "asof": "20261021", "hc": 3707, "hc_src": "公運處（工商時報 2025-08-24 引述；涵蓋哪些業者未說明）", "cap": 50.6, "cap54": 52.5, "W": [1000000, 1200000], "scopes": {"all": {"cap": {"mid": 100, "lo": 0, "hi": 370}, "w40": {"mid": 1110, "lo": 800, "hi": 1450, "generous": 180}, "week": 52.0, "week_range": [48.6, 55.7]}, "taipei_ops": {"cap": {"mid": 0, "lo": 0, "hi": 0}, "w40": {"mid": 200, "lo": 0, "hi": 480, "generous": 0}, "week": 42.2, "week_range": [39.4, 45.2]}}, "rest": {"vh": 939, "duties": 120, "people": [130, 170], "cost": [1.3, 2.0], "bus": [2.0, 2.4], "turn15": 0.424, "r4": 0.12, "r456": 1.19}, "s0": {"routes": 350, "strict": 0.054, "lenient": 0.01, "worst": [["307", 0.41, 0.0, 59, 144], ["257", 0.71, 0.42, 29, 41], ["262", 0.49, 0.3, 23, 47], ["203", 0.5, 0.18, 20, 40], ["284", 0.21, 0.0, 19, 92], ["承德幹線", 0.18, 0.0, 19, 105]], "both": [["257", 0.71, 0.42, 29, 41], ["262", 0.49, 0.3, 23, 47], ["203", 0.5, 0.18, 20, 40], ["212直", 0.53, 0.13, 16, 30]], "both_min": 0.1}, "crew": 1.2, "daily": {"drive10": 0.365, "work12": 0.149, "night": {"buses": 1674, "rest_h_median": 9.4, "under_10": 0.597, "under_8": 0.254}}, "lines": [], "first_m": [0, 0], "all_m": [0.0, 0.0], "trial_m": [0, 0], "mini": {"n": 11, "enough": 10, "survey": 1, "other": 0, "exist_min": 6.7, "bph": 6}, "hold_m": null, "money100": {"parts": [["到現場數人第 1 輪", [11.0, 15.4]], ["到現場數人第 2 輪", [41.0, 57.4]]], "total": [52.0, 72.8]}, "wk_days": [["20261015", 51.5, 41.6], ["20261016", 52.4, 42.4], ["20261019", 50.5, 41.1], ["20261020", 52.0, 42.2], ["20261021", 53.0, 42.7]], "rest_no": 3, "survey": ["內湖行政大樓→文德"], "hot": 74, "hot_alt": [9, 60], "hot_money": {"all": [2.4, 3.1], "drv": [1.3, 1.5], "veh": [0.8, 1.2], "other": [0.3, 0.4], "drivers": 128}, "vans": ["內湖", "北投", "南港", "士林", "文山"], "taxis": 15, "van_m": [1350, 1800], "taxi_m": [760, 1260], "pilots": ["公館走廊", "大直－港墘"], "places": [{"kind": "pilot", "title": "公館走廊", "lede": "用同樣的車做三件事。捷運公館站依去向，分成兩處停靠。648、252 收回公館以北和捷運新店線平行的路段。643 當主線，648 截短到公館，兩條在錦繡－公館交錯，每 6 分一班。", "wait": {"route": "643", "now": 7.7, "even": 6.8, "p50": 14.1, "p90": 18.9, "after": 6.4, "after_even": 5.0}, "vehicles": [59.1, 54.7], "riders": [2100.0, 4200.0], "money": [531, 1486], "ops": ["新店客運", "欣欣客運"], "cuts": [{"route": "648", "kind": "short", "cut": "捷運公館站", "kept": 0.77, "ends": [{"stop": "臺北車站(青島)", "loc": "1890", "n": 68, "ge15": 0.01, "long": 0, "med": 4.0, "tpe": true}, {"stop": "錦繡站", "loc": "2971", "n": 37, "ge15": 0.86, "long": 12, "med": 24.5, "tpe": false}], "gone": "臺北車站(青島)", "by": null, "bph": [5.2, 4]}, {"route": "252", "kind": "cut", "cut": "捷運公館站", "kept": 0.67, "ends": [{"stop": "臺北車站(重慶)", "loc": "1891", "n": 20, "ge15": 0.0, "long": 0, "med": 2.5, "tpe": true}, {"stop": "富德", "loc": "4143", "n": 11, "ge15": 0.91, "long": 6, "med": 24.0, "tpe": true}], "gone": "臺北車站(重慶)", "by": null, "bph": [2.0, 2.0]}], "ntp": ["643", "648"], "joint": [["新店客運", ["643", "648"]], ["欣欣客運", ["252", "236區", "251區", "棕11"]]], "trunk": [10.2, 10], "trunk_label": "錦繡－公館（643＋648）", "bph": [5.0, 6], "gps_bph": 4.4}, {"kind": "pilot", "title": "大直－港墘", "lede": "內湖幹線當主線，每小時 9 → 11 班，接手紅2 在東湖－大直的班次。紅2 每小時 2 班不變，只開汐止社后到捷運大湖公園站的接駁。287區和內湖幹線在東湖－大直聯合排點。247區截短到捷運大直站。556、902 聯合排點。", "wait": {"route": "內湖幹線", "now": 5.5, "even": 4.0, "p50": 7.2, "p90": 14.4, "after": 4.5, "after_even": 2.7}, "vehicles": [76.8, 78.5], "riders": [1600.0, 3200.0], "money": [404, 1132], "ops": ["光華巴士", "大都會客運", "指南客運"], "cuts": [{"route": "紅2", "kind": "short", "cut": "捷運大湖公園站", "kept": 0.31, "ends": [{"stop": "捷運圓山站", "loc": "1462", "n": 20, "ge15": 0.0, "long": 0, "med": 5.2, "tpe": true}, {"stop": "社后消防隊", "loc": "7687", "n": 9, "ge15": 0.22, "long": 4, "med": 8.1, "tpe": false}], "gone": "捷運圓山站", "by": "內湖幹線", "bph": [2.0, 2.0]}, {"route": "247區", "kind": "cut", "cut": "捷運大直站", "kept": 0.76, "ends": [{"stop": "捷運圓山站", "loc": "1462", "n": 10, "ge15": 0.0, "long": 1, "med": 5.2, "tpe": true}], "gone": "捷運圓山站", "by": null, "bph": [1.9, 1.9]}], "ntp": ["紅2"], "joint": [["大都會客運", ["內湖幹線", "287區"]], ["光華巴士", ["紅2", "247區"]], ["指南客運", ["556", "902"]]], "trunk": [17.2, 17.2], "trunk_label": "東湖－大直（內湖幹線＋紅2＋287區）", "bph": [9.0, 11], "gps_bph": 7.5}, {"kind": "rest", "route": "307", "fail": 59, "duties": 144, "strict": 0.41, "lenient": 0.0, "ends": [{"stop": "臺北客運板橋前站(藝文)", "loc": "1165604697", "n": 103, "ge15": 0.57, "long": 45, "med": 17.6, "stand": {"name": "臺北客運板橋前站(藝文)", "buses": 68, "med": 23.5, "routes": ["307", "307西藏三民"], "tpe": false, "others": []}}, {"stop": "莊敬里", "loc": "1000810", "n": 95, "ge15": 0.33, "long": 68, "med": 12.7, "stand": {"name": "莊敬里", "buses": 73, "med": 21.1, "routes": ["307", "藍10", "307西藏三民", "市民小巴18"], "tpe": true, "others": ["藍10", "市民小巴18"]}}], "ops": ["臺北客運", "首都客運"], "both": ["257", "262", "203", "212直"]}, {"kind": "stop", "name": "中山北路劍潭－士林", "stop": "捷運劍潭站(中山)", "bph": 60, "cap1": 23, "vc": 2.65, "berths": 5, "row": 4, "routes": 22}], "bunch": {"start": 0.14, "start_net": 0.02, "mid": 0.23, "mid_net": 0.03, "n": 2105, "min_pass": 60, "min_n": 15, "days": 5, "hold_trial": {"route": "307", "vh_day": 17.5}, "pairs": 1023, "early": 0.28, "top_share": 0.034, "onset": [{"stop": "萬坪公園", "n": 4.0, "share": 0.004, "per100": 5.1, "passes": 79, "tpe": false, "routes": ["307"]}, {"stop": "深丘里(板橋放送所)", "n": 3.6, "share": 0.004, "per100": 4.9, "passes": 74, "tpe": false, "routes": ["307"]}, {"stop": "社后", "n": 3.4, "share": 0.003, "per100": 4.5, "passes": 76, "tpe": false, "routes": ["307"]}, {"stop": "臺北車站(忠孝)", "n": 4.0, "share": 0.004, "per100": 2.4, "passes": 165, "tpe": true, "routes": ["307", "652", "262區"]}, {"stop": "南京寧安街口", "n": 5.8, "share": 0.006, "per100": 2.3, "passes": 256, "tpe": true, "routes": ["307", "652", "306區", "南京幹線"]}, {"stop": "中華路北站", "n": 4.0, "share": 0.004, "per100": 1.9, "passes": 210, "tpe": true, "routes": ["205", "223", "307", "212直", "262區", "中山幹線", "重慶幹線"]}, {"stop": "大埔街", "n": 3.2, "share": 0.003, "per100": 1.8, "passes": 181, "tpe": true, "routes": ["12", "20", "253", "307", "中山幹線"]}, {"stop": "新北板橋公車站", "n": 3.6, "share": 0.004, "per100": 1.7, "passes": 211, "tpe": false, "routes": ["234", "307"]}, {"stop": "南京吉林路口", "n": 3.4, "share": 0.003, "per100": 1.2, "passes": 286, "tpe": true, "routes": ["292", "307", "652", "306區", "南京幹線", "承德幹線", "307西藏三民"]}]}, "ends": {"window": "20261021", "poor": 24, "routes_n": 260, "min_end": 5, "one_end": 51, "no_rest": [{"name": "捷運市政府站", "town": "信義區", "n": 819, "rest": 0.01, "fams": 14, "routes": ["承德幹線", "南環幹線", "基隆路幹線", "藍5", "市民小巴7"], "poor": []}, {"name": "立法院", "town": "中正區", "n": 354, "rest": 0.0, "fams": 4, "routes": ["265區", "265經中央路", "604", "265經明德路"], "poor": ["265區"]}, {"name": "二二八和平公園", "town": "中正區", "n": 322, "rest": 0.0, "fams": 5, "routes": ["內湖幹線", "22", "和平幹線", "276", "247"], "poor": []}, {"name": "捷運昆陽站", "town": "南港區", "n": 305, "rest": 0.07, "fams": 10, "routes": ["藍36", "藍25", "藍50", "小1區", "551"], "poor": ["小3", "市民小巴15", "藍25"]}, {"name": "松仁路", "town": "信義區", "n": 274, "rest": 0.0, "fams": 4, "routes": ["226", "1", "288", "32"], "poor": []}, {"name": "臺北車站(忠孝)", "town": "中正區", "n": 267, "rest": 0.0, "fams": 5, "routes": ["221", "260區", "253", "671", "0東"], "poor": []}, {"name": "華中河濱公園", "town": "萬華區", "n": 332, "rest": 0.26, "fams": 9, "routes": ["重慶幹線", "630", "204", "49", "藍28"], "poor": ["藍29"]}, {"name": "捷運劍潭站(中山)", "town": "士林區", "n": 257, "rest": 0.07, "fams": 7, "routes": ["紅5", "紅7區", "紅30", "小17", "小18"], "poor": []}], "shared": [{"name": "華中河濱公園", "town": "萬華區", "buses": 61, "med": 25.9, "routes": ["204", "630", "12", "藍29", "260", "綠17"]}, {"name": "富德", "town": "文山區", "buses": 59, "med": 27.2, "routes": ["611", "棕3", "282", "252", "棕15", "棕11副"]}, {"name": "麟光站", "town": "信義區", "buses": 56, "med": 27.6, "routes": ["敦化幹線", "685", "市民小巴7", "72"]}, {"name": "捷運動物園站", "town": "文山區", "buses": 49, "med": 32.9, "routes": ["羅斯福路幹線", "棕6", "66", "679", "676", "282"]}, {"name": "松德站", "town": "信義區", "buses": 46, "med": 26.7, "routes": ["22", "277", "612", "46", "37"]}, {"name": "福美站", "town": "北投區", "buses": 42, "med": 23.4, "routes": ["255區", "北環幹線", "41", "市民小巴8", "北士科1", "250"]}, {"name": "萬芳活動中心", "town": "文山區", "buses": 41, "med": 26.6, "routes": ["和平幹線", "606", "0南", "綠11", "小11", "小10"]}, {"name": "中華科技大學(正門)", "town": "南港區", "buses": 34, "med": 27.3, "routes": ["270", "205", "北環幹線", "645副", "小1", "藍25"]}, {"name": "萬芳社區", "town": "文山區", "buses": 32, "med": 26.9, "routes": ["棕2", "小10區", "298", "和平幹線", "綠11", "小10"]}], "shared_ntp": ["分子尾"], "routes": [{"route": "307", "fail": 59, "duties": 144, "lenient": 0.0, "same": ["藍10"], "rest_both": true, "ends": [{"stop": "臺北客運板橋前站(藝文)", "n": 103, "ge15": 0.57, "long": 45, "bad": false, "tpe": false}, {"stop": "莊敬里", "n": 95, "ge15": 0.33, "long": 68, "bad": true, "tpe": true}], "near": null}, {"route": "257", "fail": 29, "duties": 41, "lenient": 0.42, "same": [], "rest_both": false, "ends": [{"stop": "榮華中平路口", "n": 13, "ge15": 0.54, "long": 8, "bad": false, "tpe": false}, {"stop": "南港花園社區五", "n": 37, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}, {"route": "262", "fail": 23, "duties": 47, "lenient": 0.3, "same": [], "rest_both": true, "ends": [{"stop": "塔悠疏散門", "n": 10, "ge15": 0.8, "long": 20, "bad": false, "tpe": true}, {"stop": "宏國德霖科技大學", "n": 20, "ge15": 0.7, "long": 11, "bad": true, "tpe": false}], "near": null}, {"route": "203", "fail": 20, "duties": 40, "lenient": 0.18, "same": [], "rest_both": true, "ends": [{"stop": "社后消防隊", "n": 13, "ge15": 0.54, "long": 6, "bad": false, "tpe": false}, {"stop": "士東路353巷", "n": 17, "ge15": 0.35, "long": 2, "bad": true, "tpe": true}], "near": null}, {"route": "284", "fail": 19, "duties": 92, "lenient": 0.0, "same": [], "rest_both": false, "ends": [{"stop": "福德二路", "n": 20, "ge15": 0.8, "long": 49, "bad": false, "tpe": false}, {"stop": "景興國中", "n": 108, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}, {"route": "承德幹線", "fail": 19, "duties": 105, "lenient": 0.0, "same": ["552"], "rest_both": false, "ends": [{"stop": "貴子坑水土保持園區", "n": 31, "ge15": 0.77, "long": 44, "bad": false, "tpe": true}, {"stop": "捷運市政府站", "n": 106, "ge15": 0.01, "long": 1, "bad": true, "tpe": true}], "near": null}, {"route": "212直", "fail": 16, "duties": 30, "lenient": 0.13, "same": [], "rest_both": false, "ends": [{"stop": "舊莊二站", "n": 18, "ge15": 0.56, "long": 10, "bad": false, "tpe": true}, {"stop": "青年路派出所", "n": 36, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}]}, "fixes": [{"route": "307", "fail": 59, "duties": 144, "lenient": 0.0, "weak": "莊敬里", "weak_ge15": 0.33, "other": "臺北客運板橋前站(藝文)", "other_ge15": 0.57, "R": 27.7, "vh": 24.9, "share": 0.027, "bus": [523, 633], "crew": [250, 360], "along": [{"name": "中和高中", "buses": 51, "at": 38}], "pick": "B", "why": "在莊敬里換人。藍10 已經常在這個站牌停車，應該停得下。問題是現在的班表沒留休息時間。也可以在路線中段的中和高中（約 38% 處）換人（C）", "toilet": false, "sim": {"s0": 144, "s2": 154, "add": 10, "people": 13.0, "cost": [1300, 1560], "ratio": 4.69, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "257", "fail": 29, "duties": 41, "lenient": 0.42, "weak": "南港花園社區五", "weak_ge15": 0.0, "other": "榮華中平路口", "other_ge15": 0.54, "R": 26.7, "vh": 11.5, "share": 0.012, "bus": [241, 293], "crew": [250, 360], "along": [{"name": "松德站", "buses": 46, "at": 40}], "pick": "B", "why": "在榮華中平路口（新北市，建議請新北市政府交通局協同處理）換人：那一端已經常停。也可以在路線中段的松德站（約 40% 處）換人（C）", "toilet": false, "sim": {"s0": 41, "s2": 42, "add": 1, "people": 1.3, "cost": [130, 156], "ratio": 2.13, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "262", "fail": 23, "duties": 47, "lenient": 0.3, "weak": "宏國德霖科技大學", "weak_ge15": 0.7, "other": "塔悠疏散門", "other_ge15": 0.8, "R": 30.7, "vh": 1.7, "share": 0.002, "bus": [36, 43], "crew": [250, 360], "along": [{"name": "中和保養廠", "buses": 36, "at": 63}], "pick": "check", "why": "全市休息估算說，這條每天只要多停約 1.7 小時（觀測 68 次折返）。排班模擬卻有 23 個駕駛班排不進，平均每班補不到 15 分。兩個算法對不上，要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "203", "fail": 20, "duties": 40, "lenient": 0.18, "weak": "士東路353巷", "weak_ge15": 0.35, "other": "社后消防隊", "other_ge15": 0.54, "R": 25.2, "vh": 2.7, "share": 0.003, "bus": [57, 69], "crew": [250, 360], "along": [], "pick": "check", "why": "全市休息估算說，這條每天只要多停約 2.7 小時（觀測 47 次折返）。排班模擬卻有 20 個駕駛班排不進，平均每班補不到 15 分。兩個算法對不上，要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "284", "fail": 19, "duties": 92, "lenient": 0.0, "weak": "景興國中", "weak_ge15": 0.0, "other": "福德二路", "other_ge15": 0.8, "R": 28.5, "vh": 24.5, "share": 0.026, "bus": [514, 623], "crew": [250, 360], "along": [], "pick": "B", "why": "在福德二路（新北市，建議請新北市政府交通局協同處理）換人：那一端已經常停", "toilet": false, "sim": {"s0": 92, "s2": 90, "add": -2, "people": -2.6, "cost": [0, 0], "ratio": null, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "承德幹線", "fail": 19, "duties": 105, "lenient": 0.0, "weak": "捷運市政府站", "weak_ge15": 0.01, "other": "貴子坑水土保持園區", "other_ge15": 0.77, "R": 29.4, "vh": 0.0, "share": 0.0, "bus": [0, 0], "crew": [250, 360], "along": [], "pick": "check", "why": "全市休息估算的觀測不足（只有 3 次折返）。排班模擬卻有 19 個駕駛班排不進。要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "212直", "fail": 16, "duties": 30, "lenient": 0.13, "weak": "青年路派出所", "weak_ge15": 0.0, "other": "舊莊二站", "other_ge15": 0.56, "R": 18.4, "vh": 8.1, "share": 0.009, "bus": [170, 206], "crew": [250, 360], "along": [], "pick": "A", "why": "這條要多停的時間不多。讓車多等，比設一個換班點便宜。建議在舊莊二站多停：那一端已經常停，而且一個來回 147 分，不到約 3 小時 40 分", "toilet": true, "sim": null, "unit": [860.0, 1040.0]}], "trial_days": 30, "count": {"cost": [52.0, 72.8], "r1": {"places": 10, "slots": 0, "hours": 44, "person_h": 440, "cost": [11.0, 15.4], "kinds": ["acc", "survey", "stop"], "hi_raw": 15.4, "small": false}, "r2": {"places": 4, "slots": 74, "hours": 164, "person_h": 1640, "cost": [41.0, 57.4], "kinds": ["hot", "watch"], "hi_raw": 57.4}, "kinds": [{"kind": "acc", "n": 8, "hours": 36, "round": 1, "cost": [9.0, 12.6]}, {"kind": "survey", "n": 1, "hours": 4, "round": 1, "cost": [1.0, 1.4]}, {"kind": "stop", "n": 1, "hours": 4, "round": 1, "cost": [1.0, 1.4]}, {"kind": "hot", "n": 74, "hours": 148, "round": 2, "cost": [37.0, 51.8]}, {"kind": "watch", "n": 4, "hours": 16, "round": 2, "cost": [4.0, 5.6]}], "small_buy": 15, "people": 2, "h": 4, "days": 5, "wage": [250, 350], "hot_routes": 54, "hot_h": [2], "watch": ["新湖三路口(台北花市)→松山", "民權大橋→文德", "中研院→南港", "政大一→木柵"], "acc": [["岩山里", ["白天"]], ["圓山大飯店", ["白天"]], ["士林區行政中心(中正)", ["白天", "晚間"]], ["芝蘭新村", ["白天"]], ["交通部觀光署", ["深夜"]], ["永嶺", ["白天"]], ["西藏路口", ["白天"]], ["松仁路", ["白天"]]]}, "dates": [["12/25", "1/23"], ["1/24", "2/22"], ["2/23", "4/3"]], "wk": {"all": {"n": 5, "med": 52.0, "lo": 50.5, "hi": 53.0}, "taipei_ops": {"n": 5, "med": 42.2, "lo": 41.1, "hi": 42.7}}, "ops_n": 15, "tpe_ops_n": 9, "weekdays": 245, "dy_days": 245, "day1": "2026/12/25", "hot_routes": 54, "hot_b": 11, "hot_card": [9, 60], "fallback": "257"};
+const N={"acc": {"days": 5, "places": 8, "routes": 31, "min_days": 2}, "count_end": "4/1", "sim_vs_crew": 2, "asof": "20261021", "hc": 3707, "hc_src": "公運處（工商時報 2025-08-24 引述；涵蓋哪些業者未說明）", "cap": 50.6, "cap54": 52.5, "W": [1000000, 1200000], "scopes": {"all": {"cap": {"mid": 100, "lo": 0, "hi": 370}, "w40": {"mid": 1110, "lo": 800, "hi": 1450, "generous": 180}, "week": 52.0, "week_range": [48.6, 55.7]}, "taipei_ops": {"cap": {"mid": 0, "lo": 0, "hi": 0}, "w40": {"mid": 200, "lo": 0, "hi": 480, "generous": 0}, "week": 42.2, "week_range": [39.4, 45.2]}}, "rest": {"vh": 939, "duties": 120, "people": [130, 170], "cost": [1.3, 2.0], "bus": [2.0, 2.4], "turn15": 0.424, "r4": 0.12, "r456": 1.19}, "s0": {"routes": 350, "strict": 0.054, "lenient": 0.01, "worst": [["307", 0.41, 0.0, 59, 144], ["257", 0.71, 0.42, 29, 41], ["262", 0.49, 0.3, 23, 47], ["203", 0.5, 0.18, 20, 40], ["284", 0.21, 0.0, 19, 92], ["承德幹線", 0.18, 0.0, 19, 105]], "both": [["257", 0.71, 0.42, 29, 41], ["262", 0.49, 0.3, 23, 47], ["203", 0.5, 0.18, 20, 40], ["212直", 0.53, 0.13, 16, 30]], "both_min": 0.1}, "crew": 1.2, "daily": {"drive10": 0.365, "work12": 0.149, "night": {"buses": 1674, "rest_h_median": 9.4, "under_10": 0.597, "under_8": 0.254}}, "lines": [], "first_m": [0, 0], "all_m": [0.0, 0.0], "trial_m": [0, 0], "mini": {"n": 11, "enough": 10, "survey": 1, "other": 0, "exist_min": 6.7, "bph": 6}, "hold_m": null, "money100": {"parts": [["到現場數人第 1 輪", [11.0, 15.4]], ["到現場數人第 2 輪", [41.0, 57.4]]], "total": [52.0, 72.8]}, "wk_days": [["20261015", 51.5, 41.6], ["20261016", 52.4, 42.4], ["20261019", 50.5, 41.1], ["20261020", 52.0, 42.2], ["20261021", 53.0, 42.7]], "rest_no": 3, "survey": ["內湖行政大樓→文德"], "hot": 74, "hot_alt": [9, 60], "hot_money": {"all": [2.4, 3.1], "drv": [1.3, 1.5], "veh": [0.8, 1.2], "other": [0.3, 0.4], "drivers": 128}, "vans": ["內湖", "北投", "南港", "士林", "文山"], "taxis": 15, "van_m": [1350, 1800], "taxi_m": [760, 1260], "pilots": ["公館走廊", "大直－港墘"], "places": [{"kind": "pilot", "title": "公館走廊", "lede": "用同樣的車做三件事。捷運公館站依去向，分成兩處停靠。648、252 收回公館以北和捷運新店線平行的路段。643 當主線，648 截短到公館，兩條在錦繡－公館交錯，每 6 分一班。", "wait": {"route": "643", "now": 7.7, "even": 6.8, "p50": 14.1, "p90": 18.9, "after": 6.4, "after_even": 5.0}, "vehicles": [59.1, 54.7], "riders": [2100.0, 4200.0], "money": [531, 1486], "ops": ["新店客運", "欣欣客運"], "cuts": [{"route": "648", "kind": "short", "cut": "捷運公館站", "kept": 0.77, "ends": [{"stop": "臺北車站(青島)", "loc": "1890", "n": 68, "ge15": 0.01, "long": 0, "med": 4.0, "tpe": true}, {"stop": "錦繡站", "loc": "2971", "n": 37, "ge15": 0.86, "long": 12, "med": 24.5, "tpe": false}], "gone": "臺北車站(青島)", "by": null, "bph": [5.2, 4]}, {"route": "252", "kind": "cut", "cut": "捷運公館站", "kept": 0.67, "ends": [{"stop": "臺北車站(重慶)", "loc": "1891", "n": 20, "ge15": 0.0, "long": 0, "med": 2.5, "tpe": true}, {"stop": "富德", "loc": "4143", "n": 11, "ge15": 0.91, "long": 6, "med": 24.0, "tpe": true}], "gone": "臺北車站(重慶)", "by": null, "bph": [2.0, 2.0]}], "ntp": ["643", "648"], "joint": [["新店客運", ["643", "648"]], ["欣欣客運", ["252", "236區", "251區", "棕11"]]], "trunk": [10.2, 10], "trunk_label": "錦繡－公館（643＋648）", "bph": [5.0, 6], "gps_bph": 4.4}, {"kind": "pilot", "title": "大直－港墘", "lede": "內湖幹線當主線，每小時 9 → 11 班，接手紅2 在東湖－大直的班次。紅2 每小時 2 班不變，只開汐止社后到捷運大湖公園站的接駁。287區和內湖幹線在東湖－大直聯合排點。247區截短到捷運大直站。556、902 聯合排點。", "wait": {"route": "內湖幹線", "now": 5.5, "even": 4.0, "p50": 7.2, "p90": 14.4, "after": 4.5, "after_even": 2.7}, "vehicles": [76.8, 78.5], "riders": [1600.0, 3200.0], "money": [404, 1132], "ops": ["光華巴士", "大都會客運", "指南客運"], "cuts": [{"route": "紅2", "kind": "short", "cut": "捷運大湖公園站", "kept": 0.31, "ends": [{"stop": "捷運圓山站", "loc": "1462", "n": 20, "ge15": 0.0, "long": 0, "med": 5.2, "tpe": true}, {"stop": "社后消防隊", "loc": "7687", "n": 9, "ge15": 0.22, "long": 4, "med": 8.1, "tpe": false}], "gone": "捷運圓山站", "by": "內湖幹線", "bph": [2.0, 2.0]}, {"route": "247區", "kind": "cut", "cut": "捷運大直站", "kept": 0.76, "ends": [{"stop": "捷運圓山站", "loc": "1462", "n": 10, "ge15": 0.0, "long": 1, "med": 5.2, "tpe": true}], "gone": "捷運圓山站", "by": null, "bph": [1.9, 1.9]}], "ntp": ["紅2"], "joint": [["大都會客運", ["內湖幹線", "287區"]], ["光華巴士", ["紅2", "247區"]], ["指南客運", ["556", "902"]]], "trunk": [17.2, 17.2], "trunk_label": "東湖－大直（內湖幹線＋紅2＋287區）", "bph": [9.0, 11], "gps_bph": 7.5}, {"kind": "rest", "route": "307", "fail": 59, "duties": 144, "strict": 0.41, "lenient": 0.0, "ends": [{"stop": "臺北客運板橋前站(藝文)", "loc": "1165604697", "n": 103, "ge15": 0.57, "long": 45, "med": 17.6, "stand": {"name": "臺北客運板橋前站(藝文)", "buses": 68, "med": 23.5, "routes": ["307", "307西藏三民"], "tpe": false, "others": []}}, {"stop": "莊敬里", "loc": "1000810", "n": 95, "ge15": 0.33, "long": 68, "med": 12.7, "stand": {"name": "莊敬里", "buses": 73, "med": 21.1, "routes": ["307", "藍10", "307西藏三民", "市民小巴18"], "tpe": true, "others": ["藍10", "市民小巴18"]}}], "ops": ["臺北客運", "首都客運"], "both": ["257", "262", "203", "212直"]}, {"kind": "stop", "name": "中山北路劍潭－士林", "stop": "捷運劍潭站(中山)", "bph": 60, "cap1": 23, "vc": 2.65, "berths": 5, "row": 4, "routes": 22}], "bunch": {"start": 0.14, "start_net": 0.02, "mid": 0.23, "mid_net": 0.03, "n": 2105, "min_pass": 60, "min_n": 15, "days": 5, "hold_trial": {"route": "307", "vh_day": 17.5}, "pairs": 1023, "early": 0.28, "top_share": 0.034, "onset": [{"stop": "萬坪公園", "n": 4.0, "share": 0.004, "per100": 5.1, "passes": 79, "tpe": false, "routes": ["307"]}, {"stop": "深丘里(板橋放送所)", "n": 3.6, "share": 0.004, "per100": 4.9, "passes": 74, "tpe": false, "routes": ["307"]}, {"stop": "社后", "n": 3.4, "share": 0.003, "per100": 4.5, "passes": 76, "tpe": false, "routes": ["307"]}, {"stop": "臺北車站(忠孝)", "n": 4.0, "share": 0.004, "per100": 2.4, "passes": 165, "tpe": true, "routes": ["307", "652", "262區"]}, {"stop": "南京寧安街口", "n": 5.8, "share": 0.006, "per100": 2.3, "passes": 256, "tpe": true, "routes": ["307", "652", "306區", "南京幹線"]}, {"stop": "中華路北站", "n": 4.0, "share": 0.004, "per100": 1.9, "passes": 210, "tpe": true, "routes": ["205", "223", "307", "212直", "262區", "中山幹線", "重慶幹線"]}, {"stop": "大埔街", "n": 3.2, "share": 0.003, "per100": 1.8, "passes": 181, "tpe": true, "routes": ["12", "20", "253", "307", "中山幹線"]}, {"stop": "新北板橋公車站", "n": 3.6, "share": 0.004, "per100": 1.7, "passes": 211, "tpe": false, "routes": ["234", "307"]}, {"stop": "南京吉林路口", "n": 3.4, "share": 0.003, "per100": 1.2, "passes": 286, "tpe": true, "routes": ["292", "307", "652", "306區", "南京幹線", "承德幹線", "307西藏三民"]}]}, "ends": {"window": "20261021", "poor": 24, "routes_n": 260, "min_end": 5, "one_end": 51, "no_rest": [{"name": "捷運市政府站", "town": "信義區", "n": 819, "rest": 0.01, "fams": 14, "routes": ["承德幹線", "南環幹線", "基隆路幹線", "藍5", "市民小巴7"], "poor": []}, {"name": "立法院", "town": "中正區", "n": 354, "rest": 0.0, "fams": 4, "routes": ["265區", "265經中央路", "604", "265經明德路"], "poor": ["265區"]}, {"name": "二二八和平公園", "town": "中正區", "n": 322, "rest": 0.0, "fams": 5, "routes": ["內湖幹線", "22", "和平幹線", "276", "247"], "poor": []}, {"name": "捷運昆陽站", "town": "南港區", "n": 305, "rest": 0.07, "fams": 10, "routes": ["藍36", "藍25", "藍50", "小1區", "551"], "poor": ["小3", "市民小巴15", "藍25"]}, {"name": "松仁路", "town": "信義區", "n": 274, "rest": 0.0, "fams": 4, "routes": ["226", "1", "288", "32"], "poor": []}, {"name": "臺北車站(忠孝)", "town": "中正區", "n": 267, "rest": 0.0, "fams": 5, "routes": ["221", "260區", "253", "671", "0東"], "poor": []}, {"name": "華中河濱公園", "town": "萬華區", "n": 332, "rest": 0.26, "fams": 9, "routes": ["重慶幹線", "630", "204", "49", "藍28"], "poor": ["藍29"]}, {"name": "捷運劍潭站(中山)", "town": "士林區", "n": 257, "rest": 0.07, "fams": 7, "routes": ["紅5", "紅7區", "紅30", "小17", "小18"], "poor": []}], "shared": [{"name": "華中河濱公園", "town": "萬華區", "buses": 61, "med": 25.9, "routes": ["204", "630", "12", "藍29", "260", "綠17"]}, {"name": "富德", "town": "文山區", "buses": 59, "med": 27.2, "routes": ["611", "棕3", "282", "252", "棕15", "棕11副"]}, {"name": "麟光站", "town": "信義區", "buses": 56, "med": 27.6, "routes": ["敦化幹線", "685", "市民小巴7", "72"]}, {"name": "捷運動物園站", "town": "文山區", "buses": 49, "med": 32.9, "routes": ["羅斯福路幹線", "棕6", "66", "679", "676", "282"]}, {"name": "松德站", "town": "信義區", "buses": 46, "med": 26.7, "routes": ["22", "277", "612", "46", "37"]}, {"name": "福美站", "town": "北投區", "buses": 42, "med": 23.4, "routes": ["255區", "北環幹線", "41", "市民小巴8", "北士科1", "250"]}, {"name": "萬芳活動中心", "town": "文山區", "buses": 41, "med": 26.6, "routes": ["和平幹線", "606", "0南", "綠11", "小11", "小10"]}, {"name": "中華科技大學(正門)", "town": "南港區", "buses": 34, "med": 27.3, "routes": ["270", "205", "北環幹線", "645副", "小1", "藍25"]}, {"name": "萬芳社區", "town": "文山區", "buses": 32, "med": 26.9, "routes": ["棕2", "小10區", "298", "和平幹線", "綠11", "小10"]}], "shared_ntp": ["分子尾"], "routes": [{"route": "307", "fail": 59, "duties": 144, "lenient": 0.0, "same": ["藍10"], "rest_both": true, "ends": [{"stop": "臺北客運板橋前站(藝文)", "n": 103, "ge15": 0.57, "long": 45, "bad": false, "tpe": false}, {"stop": "莊敬里", "n": 95, "ge15": 0.33, "long": 68, "bad": true, "tpe": true}], "near": null}, {"route": "257", "fail": 29, "duties": 41, "lenient": 0.42, "same": [], "rest_both": false, "ends": [{"stop": "榮華中平路口", "n": 13, "ge15": 0.54, "long": 8, "bad": false, "tpe": false}, {"stop": "南港花園社區五", "n": 37, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}, {"route": "262", "fail": 23, "duties": 47, "lenient": 0.3, "same": [], "rest_both": true, "ends": [{"stop": "塔悠疏散門", "n": 10, "ge15": 0.8, "long": 20, "bad": false, "tpe": true}, {"stop": "宏國德霖科技大學", "n": 20, "ge15": 0.7, "long": 11, "bad": true, "tpe": false}], "near": null}, {"route": "203", "fail": 20, "duties": 40, "lenient": 0.18, "same": [], "rest_both": true, "ends": [{"stop": "社后消防隊", "n": 13, "ge15": 0.54, "long": 6, "bad": false, "tpe": false}, {"stop": "士東路353巷", "n": 17, "ge15": 0.35, "long": 2, "bad": true, "tpe": true}], "near": null}, {"route": "284", "fail": 19, "duties": 92, "lenient": 0.0, "same": [], "rest_both": false, "ends": [{"stop": "福德二路", "n": 20, "ge15": 0.8, "long": 49, "bad": false, "tpe": false}, {"stop": "景興國中", "n": 108, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}, {"route": "承德幹線", "fail": 19, "duties": 105, "lenient": 0.0, "same": ["552"], "rest_both": false, "ends": [{"stop": "貴子坑水土保持園區", "n": 31, "ge15": 0.77, "long": 44, "bad": false, "tpe": true}, {"stop": "捷運市政府站", "n": 106, "ge15": 0.01, "long": 1, "bad": true, "tpe": true}], "near": null}, {"route": "212直", "fail": 16, "duties": 30, "lenient": 0.13, "same": [], "rest_both": false, "ends": [{"stop": "舊莊二站", "n": 18, "ge15": 0.56, "long": 10, "bad": false, "tpe": true}, {"stop": "青年路派出所", "n": 36, "ge15": 0.0, "long": 0, "bad": true, "tpe": true}], "near": null}]}, "fixes": [{"route": "307", "fail": 59, "duties": 144, "lenient": 0.0, "weak": "莊敬里", "weak_ge15": 0.33, "other": "臺北客運板橋前站(藝文)", "other_ge15": 0.57, "R": 27.7, "vh": 24.9, "share": 0.027, "bus": [523, 633], "crew": [250, 360], "along": [{"name": "中和高中", "buses": 51, "at": 38}], "pick": "B", "why": "在莊敬里換人。藍10 已經常在這個站牌停車，應該停得下。問題是現在的班表沒留休息時間。也可以在路線中段的中和高中（約 38% 處）換人（C）", "toilet": false, "sim": {"s0": 144, "s2": 154, "add": 10, "people": 13.0, "cost": [1300, 1560], "ratio": 4.69, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "257", "fail": 29, "duties": 41, "lenient": 0.42, "weak": "南港花園社區五", "weak_ge15": 0.0, "other": "榮華中平路口", "other_ge15": 0.54, "R": 26.7, "vh": 11.5, "share": 0.012, "bus": [241, 293], "crew": [250, 360], "along": [{"name": "松德站", "buses": 46, "at": 40}], "pick": "B", "why": "在榮華中平路口（新北市，建議請新北市政府交通局協同處理）換人：那一端已經常停。也可以在路線中段的松德站（約 40% 處）換人（C）", "toilet": false, "sim": {"s0": 41, "s2": 42, "add": 1, "people": 1.3, "cost": [130, 156], "ratio": 2.13, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "262", "fail": 23, "duties": 47, "lenient": 0.3, "weak": "宏國德霖科技大學", "weak_ge15": 0.7, "other": "塔悠疏散門", "other_ge15": 0.8, "R": 30.7, "vh": 1.7, "share": 0.002, "bus": [36, 43], "crew": [250, 360], "along": [{"name": "中和保養廠", "buses": 36, "at": 63}], "pick": "check", "why": "全市休息估算：這條每天只要多停約 1.7 小時（觀測 68 次折返）。排班模擬卻有 23 個駕駛班排不進，平均每班補不到 15 分。兩個算法對不上，要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "203", "fail": 20, "duties": 40, "lenient": 0.18, "weak": "士東路353巷", "weak_ge15": 0.35, "other": "社后消防隊", "other_ge15": 0.54, "R": 25.2, "vh": 2.7, "share": 0.003, "bus": [57, 69], "crew": [250, 360], "along": [], "pick": "check", "why": "全市休息估算：這條每天只要多停約 2.7 小時（觀測 47 次折返）。排班模擬卻有 20 個駕駛班排不進，平均每班補不到 15 分。兩個算法對不上，要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "284", "fail": 19, "duties": 92, "lenient": 0.0, "weak": "景興國中", "weak_ge15": 0.0, "other": "福德二路", "other_ge15": 0.8, "R": 28.5, "vh": 24.5, "share": 0.026, "bus": [514, 623], "crew": [250, 360], "along": [], "pick": "B", "why": "在福德二路（新北市，建議請新北市政府交通局協同處理）換人：那一端已經常停", "toilet": false, "sim": {"s0": 92, "s2": 90, "add": -2, "people": -2.6, "cost": [0, 0], "ratio": null, "agree": false}, "unit": [860.0, 1040.0]}, {"route": "承德幹線", "fail": 19, "duties": 105, "lenient": 0.0, "weak": "捷運市政府站", "weak_ge15": 0.01, "other": "貴子坑水土保持園區", "other_ge15": 0.77, "R": 29.4, "vh": 0.0, "share": 0.0, "bus": [0, 0], "crew": [250, 360], "along": [], "pick": "check", "why": "全市休息估算的資料不夠（只有 3 次折返）。排班模擬卻有 19 個駕駛班排不進。要用勤務表確認", "toilet": false, "sim": null, "unit": [860.0, 1040.0]}, {"route": "212直", "fail": 16, "duties": 30, "lenient": 0.13, "weak": "青年路派出所", "weak_ge15": 0.0, "other": "舊莊二站", "other_ge15": 0.56, "R": 18.4, "vh": 8.1, "share": 0.009, "bus": [170, 206], "crew": [250, 360], "along": [], "pick": "A", "why": "這條要多停的時間不多。讓車多等，比設一個換班點便宜。建議在舊莊二站多停：那一端已經常停，而且一個來回 147 分，不到約 3 小時 40 分", "toilet": true, "sim": null, "unit": [860.0, 1040.0]}], "trial_days": 30, "count": {"cost": [52.0, 72.8], "r1": {"places": 10, "slots": 0, "hours": 44, "person_h": 440, "cost": [11.0, 15.4], "kinds": ["acc", "survey", "stop"], "hi_raw": 15.4, "small": false}, "r2": {"places": 4, "slots": 74, "hours": 164, "person_h": 1640, "cost": [41.0, 57.4], "kinds": ["hot", "watch"], "hi_raw": 57.4}, "kinds": [{"kind": "acc", "n": 8, "hours": 36, "round": 1, "cost": [9.0, 12.6]}, {"kind": "survey", "n": 1, "hours": 4, "round": 1, "cost": [1.0, 1.4]}, {"kind": "stop", "n": 1, "hours": 4, "round": 1, "cost": [1.0, 1.4]}, {"kind": "hot", "n": 74, "hours": 148, "round": 2, "cost": [37.0, 51.8]}, {"kind": "watch", "n": 4, "hours": 16, "round": 2, "cost": [4.0, 5.6]}], "small_buy": 15, "people": 2, "h": 4, "days": 5, "wage": [250, 350], "hot_routes": 54, "hot_h": [2], "watch": ["新湖三路口(台北花市)→松山", "民權大橋→文德", "中研院→南港", "政大一→木柵"], "acc": [["岩山里", ["白天"]], ["圓山大飯店", ["白天"]], ["士林區行政中心(中正)", ["白天", "晚間"]], ["芝蘭新村", ["白天"]], ["交通部觀光署", ["深夜"]], ["永嶺", ["白天"]], ["西藏路口", ["白天"]], ["松仁路", ["白天"]]]}, "dates": [["12/25", "1/23"], ["1/24", "2/22"], ["2/23", "4/3"]], "wk": {"all": {"n": 5, "med": 52.0, "lo": 50.5, "hi": 53.0}, "taipei_ops": {"n": 5, "med": 42.2, "lo": 41.1, "hi": 42.7}}, "ops_n": 15, "tpe_ops_n": 9, "weekdays": 245, "dy_days": 245, "day1": "2026/12/25", "hot_routes": 54, "hot_b": 11, "hot_card": [9, 60], "fallback": "257"};
 const $=id=>document.getElementById(id),f=x=>Math.round(x).toLocaleString(),pct=x=>Math.round(x*100)+'%',p1g=x=>(x*100).toFixed(1)+'%',T=(c,t)=>`<span class="tag ${c}">${t}</span>`;
 const [W0,W1]=N.W;
 // money rule on every page: 萬元 with thousands separators below 1 億, 億元 to one decimal from 1 億 up
@@ -220,9 +221,9 @@ const M100=N.money100,MI=N.mini,MINI=MI.n?`接駁小巴有 ${MI.n} 個候選地�
 $('asof').innerHTML=`資料截至 ${N.asof.slice(0,4)}/${+N.asof.slice(4,6)}/${+N.asof.slice(6)}，<span data-frozen>定稿版，不再更新</span>。新市府 ${N.day1} 就職。就職當天算第 1 天。`;
 {const pl=N.places.filter(p=>p.kind==='pilot'),nr=N.ends.no_rest.slice(0,3),fd=N.places.find(p=>p.kind==='feeder');
 $('probs').innerHTML=[
- `駕駛休息：${S0S} ${T('sim','模擬')}。排不進「開 4 小時休 30 分」的駕駛班（一位駕駛一天的工作）集中在 ${Z.worst.slice(0,3).map(x=>esc(x[0])).join('、')}。`,
+ `駕駛休息：${S0S} ${T('sim','模擬')}。排不進「開 4 小時休 30 分」的駕駛班（一位駕駛一天的工作），集中在 ${Z.worst.slice(0,3).map(x=>esc(x[0])).join('、')}。`,
  `端點：${nr.map(x=>esc(x.name)).join('、')} 每天掉頭幾百次，車卻很少停 15 分以上（最多 ${pct(Math.max(...nr.map(x=>x.rest)))}）${T('real','真')}。${GPSOUT}駕駛可能沒有時間或地方休息（<a href="#ends">端點</a>）。`,
- `串車：尖峰每個平日約 ${f(N.bunch.pairs)} 次 ${TH}。${THR('learn.html#bunch')}。${pct(N.bunch.early)} 從起站附近就黏在一起。開始的地方很分散。行動見<a href="#phases">第 1–30 天</a>。`,
+ `串車（一次來好幾台）：尖峰每個平日約 ${f(N.bunch.pairs)} 次 ${TH}。${THR('learn.html#bunch')}。${pct(N.bunch.early)} 從起站附近就黏在一起，其餘很分散。行動見<a href="#phases">第 1–30 天</a>。`,
  MINI,
  fd?`${nm(fd.far)}一帶：${fd.per.pm_peak?`傍晚從捷運回來每小時約 ${fd.per.pm_peak.riders} 人 ${T('sim','模擬')}${T('asm','假設')}`:'尖峰人多'}；公車約 ${Math.round(60/fd.exist)} 分才一班 ${T('real','真')}。`:'',
  SP?`${esc(SP.name)}：早尖峰每小時約 ${SP.bph} 班車停同一站 ${T('real','真')}。站牌可能停不下。`:'',
@@ -240,25 +241,25 @@ const LN=x=>x<.005?'，模擬幾乎都排得進':`，模擬只剩 ${pct(x)}`;   
 {const K=N.places.map(p=>p.kind),np=K.filter(k=>k==='pilot').length,ord=k=>K.indexOf(k)+1;
  $('pn').textContent=$('pn2').textContent=N.places.length;
 $('places-why').innerHTML=`這 ${N.places.length} 處是第一批。我們用路線重疊、站牌容量和駕駛休息的分析挑出這些地方。第二個來源是 ① 地區頁的即時<a href="network.html#mode=live&src=acc">累積清單</a>${N.acc?`（${N.acc.places} 格、${N.acc.routes} 條路線 ${TH}；一格是 500 m 見方）`:''}。建議每週檢討時，從這份清單接著挑。${N.acc?THR('learn.html#live')+'。':''}`;
- $('pnwhy').textContent=[np?`前 ${np} 處是我們挑的路線重劃地點（100 天內只聯合排點，不是試辦）。`:'',K.length>np?`其他照規則選：`:'',
-  [K.includes('feeder')?`第 ${ord('feeder')} 處小巴是第一條在臺北的接駁線`:'',K.includes('rest')?`第 ${ord('rest')} 處換駕駛是排不進休息的駕駛班最多的路線`:'',K.includes('stop')?`第 ${ord('stop')} 處站牌是停車格最不夠、不在${np?`前 ${np} 處`:'重劃地點'}的走廊站牌`:''].filter(Boolean).join('；')+(K.length>np?'。':'')].join('');}
+ $('pnwhy').textContent=[np?`前 ${np} 處：路線重疊，我們挑來重劃（100 天內只聯合排點，不試辦）。`:'',K.length>np?`其他照規則選：`:'',
+  [K.includes('feeder')?`第 ${ord('feeder')} 處小巴是第一條在臺北的接駁線`:'',K.includes('rest')?`第 ${ord('rest')} 處換駕駛：排不進休息的駕駛班最多`:'',K.includes('stop')?`第 ${ord('stop')} 處站牌：${np?`前 ${np} 處以外，`:'重劃地點以外，'}停車格最不夠`:''].filter(Boolean).join('；')+(K.length>np?'。':'')].join('');}
 $('placesBox').innerHTML=N.places.map((p,i)=>{
- let t,what,rows,vis;
+ let t,what,rows,vis,key;
  if(p.kind==='pilot'){
   const w=p.wait,dv=p.vehicles[1]-p.vehicles[0],save=-dv>=3||-dv/p.vehicles[0]>=.03;
   t=`${nm2(p.title)}：重劃重疊的路線`;
+  key=`公運處主辦，截短送審前開說明會。${save?'省下的車和駕駛，建議先補同一家業者路線的休息。':'目的是讓主線更密、更準，不是省人。'}`;
   what=`<b>建議最快在 2027/${D[2][1]} 以後截短：${p.cuts.map(c=>`${esc(c.route)} 只開到${esc(c.cut)}`).join('；')}。</b>${w?`${esc(w.route)} 當主線。`:''}`;
   vis=[
    ['乘客',`${w?`${esc(w.route)} 班表每小時 ${p.bph[0]} → ${p.bph[1]} 班；早尖峰等車現在 ${w.now.toFixed(1)} 分 ${T('real','真')}。重劃後約 ${w.after.toFixed(1)} 分 ${T('est','推估')}。`:''}收回路段${W5(p.riders[0],p.riders[1])}。`],
    ['駕駛',`尖峰在路上的車約 ${veh(p.vehicles[0])} → ${veh(p.vehicles[1])} 輛 ${T('est','推估')}。${save?'省下的車先補休息。':'車數差不多。'}`]];
   vis.push(['主辦／何時／驗收',`公運處。100 天內核定聯合排點的原則和時刻表格式，業者送出聯合班表。上線要等勤務協商完成，最快第 100 天以後。截短最快 2027/${D[2][1]} 以後。驗收：${w?`${esc(w.route)} 早尖峰平均等車 ≤ ${w.after.toFixed(1)} 分`:'主線早尖峰等車變短'}（公車動態資料）。`]);
   rows=[
-   ['等車和轉車',(p.title.includes('公館')?'建議 100 天內，捷運公館站的公車依方向分成兩個站牌停。如果照做，乘客等車前要先看站牌上的路線號碼。':'')+`${w?`${esc(w.route)} 班表每小時 ${p.bph[0]} 班變 ${p.bph[1]} 班${p.gps_bph?`（現在 GPS 實測約 ${p.gps_bph.toFixed(1)} 班）`:''}。早尖峰平均等車現在約 ${w.now.toFixed(1)} 分 ${T('real','真')}。如果車還是像現在一樣會誤點或少開，重劃後約 ${w.after.toFixed(1)} 分。如果車來得很平均，最快約 ${w.after_even.toFixed(1)} 分 ${T('est','推估')}。<span class="note">目標＝現在實測等車 × 現在班表班次 ÷ 新班表班次（車和現在一樣不平均、少開的比例也一樣）。</span>`:''}${p.cuts.map(c=>(c.bph[0]===c.bph[1]?`${esc(c.route)} 留下的路段（到${esc(c.cut)}）班次不變`:`${esc(c.route)} 每小時 ${c.bph[0]} 班變 ${c.bph[1]} 班`)+(c.by?`，其餘路段由${esc(c.by)}接手`:'')).join('；')}。${esc(p.trunk_label)}合計每小時 ${p.trunk[0]} 班 ${T('real','真')} → ${p.trunk[1]} 班 ${T('est','推估')}，班次沒有變多。聯合排點讓車來得更平均。<br>${p.cuts.map(c=>`${esc(c.route)} 不再開${esc(c.cut)}→${esc(nm(c.gone||'原終點'))}這段`).join('；')}。在這段上下車的，${W5(p.riders[0],p.riders[1])}。這些乘客可以多轉一次車，或改搭別的路線。`],
-   ['車和駕駛',`${save?`省下的車和駕駛，建議先補同一家業者路線的休息，不開新路線。`:'這個方案主要是讓主線更密、更準，不是省人。'}`],
-   ['端點和休息',p.cuts.map(c=>`${esc(c.route)} 現在，車停 15 分以上的比例：${c.ends.map(e=>`${esc(e.stop)} ${pct(e.ge15)}${c.gone?(e.stop===c.gone?'（收回）':'（保留）'):''}`).join('；')}${c.ends.length<2?'；另一端沒有資料':''} ${T('real','真')}。新的端點${esc(c.cut)}要能讓車掉頭、停 15 分以上，也要有休息室和廁所。這要現勘。`).join('<br>')+'<br><span class="note">比例是公車 GPS 量到的。同一條路線兩端的掉頭次數常差很多。這表示 GPS 沒有偵測到每一次掉頭。</span>'],
-   ['誰做',`公運處；區公所、里辦公處（說明會）；業者：${p.ops.join('、')}`],
-   ['程序',`100 天內：公運處核定聯合排點的原則和時刻表格式；${p.joint.map(([op,rs])=>`${esc(op)}的 ${rs.map(esc).join('、')}`).join('；')} 送出聯合班表（走同一段路的路線一起排時刻表，所以也包括沒有截短的路線）${p.title.includes('公館')?'；捷運公館站依去向分兩處停靠':''}。上線要等勤務協商完成，最快第 100 天以後。建議截短走路線審議，100 天內送審。送審前，公運處列出受影響的站牌和里別。公運處函請相關區公所協助通知里辦公處，邀請里長和里民參加說明會，並邀請轄區議員出席。生效前在受影響的站牌和車上張貼公告。${p.ntp.length?`${p.ntp.map(esc).join('、')} 有一端在新北市。新北市境內的路段，建議請新北市政府交通局協同處理（實際要看路線由哪一市核定）。`:''}`],
-   ['錢',`被收回路段的乘客改轉公車時，如果第二段免費，市府每年最多約少收 ${f(p.money[1])} 萬元 ${T('asm','假設')}（假設 50–70% 的人付單次票，用定期票的人不受影響）。改搭捷運的人，已經有公車捷運轉乘優惠，所以實際少收的錢會更少。截短後，業者的里程和票收會少多少，還沒估。建議公運處在第 1–30 天用業者資料算，再調整補貼和評鑑。聯合排點的花費，要等勤務協商完成才知道。`],
+   ['等車和轉車',(p.title.includes('公館')?'建議 100 天內，捷運公館站的公車依方向分兩個站牌停。乘客要先看站牌上的路線號碼。<br>':'')+`${w?`${esc(w.route)}${p.gps_bph?` 現在 GPS 實測每小時約 ${p.gps_bph.toFixed(1)} 班（班表 ${p.bph[0]} 班）。`:''}車來得很平均，早尖峰最快約 ${w.after_even.toFixed(1)} 分 ${T('est','推估')}。<span class="note">${w.after.toFixed(1)} 分的估法：班次變幾倍，等車就縮成幾分之一（車和現在一樣不平均、少開）。</span><br>`:''}${p.cuts.map(c=>(c.bph[0]===c.bph[1]?`${esc(c.route)} 留下的路段班次不變`:`${esc(c.route)} 每小時 ${c.bph[0]} 班變 ${c.bph[1]} 班`)+(c.by?`，其餘由${esc(c.by)}接手`:'')).join('；')}。${esc(p.trunk_label)}合計每小時 ${p.trunk[0]} 班 ${T('real','真')} → ${p.trunk[1]} 班 ${T('est','推估')}，班次沒變多，但更平均。`],
+   ['端點和休息',p.cuts.map(c=>`${esc(c.route)} 停 15 分以上：${c.ends.map(e=>`${esc(e.stop)} ${pct(e.ge15)}${c.gone?(e.stop===c.gone?'（收回）':'（保留）'):''}`).join('；')}${c.ends.length<2?'；另一端沒有資料':''} ${T('real','真')}。`).join('<br>')+`<br>新端點${[...new Set(p.cuts.map(c=>esc(c.cut)))].join('、')}要能掉頭、停 15 分以上，有休息室和廁所，要現勘。<span class="note">GPS 會漏掉一些掉頭。</span>`],
+   ['誰做',`公運處、區公所、里辦公處、業者（${p.ops.join('、')}）`],
+   ['程序',`<b>聯合排點</b>：${p.joint.map(([op,rs])=>`${esc(op)}的 ${rs.map(esc).join('、')}`).join('；')} 送出聯合班表（沒截短的也一起排）。<br><b>截短</b>：建議走路線審議，100 天內送審。送審前開說明會，由區公所通知，邀里長、里民和轄區議員。生效前在站牌和車上公告。${p.ntp.length?`<br>${p.ntp.map(esc).join('、')} 有一端在新北市，建議請新北市政府交通局協同處理（看路線由哪一市核定）。`:''}`],
+   ['錢',`收回路段的乘客改轉公車，如果第二段免費，市府每年最多約少收 ${f(p.money[1])} 萬元 ${T('asm','假設')}（假設 50–70% 付單次票）。改搭捷運的已有轉乘優惠，實際會更少。<br>業者的里程和票收少多少還沒估，建議公運處第 1–30 天用業者資料算。聯合排點的花費，等勤務協商完成才知道。`],
   ];
  }else if(p.kind==='feeder'){
   const a=p.per.am_peak,b=p.per.pm_peak;
@@ -268,25 +269,24 @@ $('placesBox').innerHTML=N.places.map((p,i)=>{
    ['駕駛',`${Math.max(a?.buses||0,b?.buses||0)} 台小巴，只開${FH(p)}。`]];
   vis.push(['主辦／何時／驗收',`公運處；${D[2][0]}–${D[2][1]} 試辦約 6 週；每班平均 15 人以上。`]);
   rows=[
-   ['等車和轉車',`${a?`早上往捷運每小時約 ${a.riders} 人`:''}${a&&b?'、':''}${b?`傍晚從捷運回來每小時約 ${b.riders} 人`:''} ${T('sim','模擬')} ${T('asm','假設')}。現在只有 ${p.exist_routes.join('、')}，約 ${Math.round(60/p.exist)} 分才一班 ${T('real','真')}。反方向的車大多是空車。小巴${a?`早上每 ${a.headway} 分一班`:''}${a&&b?'、':''}${b?`傍晚每 ${b.headway} 分一班`:''}。`],
-   ['車和駕駛',`要 ${Math.max(a?.buses||0,b?.buses||0)} 台小巴和駕駛，只開${FH(p)}。${a&&b?'早晚最好由不同駕駛開。同一位駕駛開兩段時，中午要有地方休息。':'只開一段，不用兩頭班。'}`],
+   ['等車和轉車',`${a?`早上往捷運每小時約 ${a.riders} 人`:''}${a&&b?'、':''}${b?`傍晚從捷運回來每小時約 ${b.riders} 人`:''} ${T('sim','模擬')} ${T('asm','假設')}。現在只有 ${p.exist_routes.join('、')}，約 ${Math.round(60/p.exist)} 分才一班 ${T('real','真')}；反方向大多是空車。小巴${a?`早上每 ${a.headway} 分一班`:''}${a&&b?'、':''}${b?`傍晚每 ${b.headway} 分一班`:''}。`],
+   ['車和駕駛',`要 ${Math.max(a?.buses||0,b?.buses||0)} 台小巴和駕駛，只開${FH(p)}。${a&&b?'早晚最好由不同駕駛開；同一位開兩段，中午要有地方休息。':'只開一段，不用兩頭班。'}`],
    ['誰做','公運處、業者、區公所'],
-   ['程序',`建議第 31–60 天：公運處指定試辦業者，用「試辦路線」核定，不走正式路線審議。這是我們的判斷，要和公運處確認。如果要正式審議，最快 2027/${D[2][1]} 以後才開。${D[2][0]}–${D[2][1]} 試辦約 6 週。連 4 週每班平均不到 15 人就停。這個門檻和模擬的每班人數接近。所以現場人數如果比模擬少，試辦就會停。`],
-   ['錢',`試辦約 ${W(N.trial_m)} 萬元；試辦成功的話，每年約 ${W(N.first_m.map(x=>x*100))} 萬元（${WD2}）${T('asm','假設')}。不含站牌、合約等開辦費。`],
+   ['程序',`建議第 31–60 天：公運處指定試辦業者，用「試辦路線」核定，不走正式路線審議（這是我們的判斷，要和公運處確認）。正式審議的話，最快 2027/${D[2][1]} 以後才開。<br>${D[2][0]}–${D[2][1]} 試辦約 6 週。連 4 週每班平均不到 15 人就停。這個門檻接近模擬的每班人數：現場人數比模擬少，試辦就會停。`],
+   ['錢',`試辦約 ${W(N.trial_m)} 萬元；成功的話，每年約 ${W(N.first_m.map(x=>x*100))} 萬元（${WD2}）${T('asm','假設')}。不含站牌、合約等開辦費。`],
   ];
  }else if(p.kind==='rest'){
   const tp=p.ends.filter(e=>e.stand&&e.stand.tpe&&e.stand.others.length),ntp=p.ends.filter(e=>e.stand&&!e.stand.tpe);
-  t=`${esc(p.route)}：在端點換駕駛`;what='<b>班次不變。在端點（路線兩頭的終點站）換駕駛。下車的駕駛去休息。</b>';
+  t=`${esc(p.route)}：在端點換駕駛`;key=`不必走路線審議。第 31–60 天和工會、業者談好交接和休息，${D[2][0]}–${D[2][1]} 試辦。`;what='<b>班次不變。在端點（路線兩頭的終點站）換駕駛。下車的駕駛去休息。</b>';
   vis=[
    ['乘客','班次不變。接班駕駛晚到時，那一班可能晚幾分開。'],
    ['駕駛',`${p.fail}／${p.duties} 個駕駛班排不進休息（${pct(p.strict)}）${T('sim','模擬')}；用例外${LN(p.lenient)}。`]];
   vis.push(...[['主辦／何時／驗收',`公運處；${D[2][0]}–${D[2][1]} 試辦。${BASE(p.route)}；驗收：試辦期間排不進休息的比例，比第 1–30 天勤務表算的基準下降。`],['錢',(x=>`正式做，一個換班點一年約 ${W(x.crew)} 萬元 ${T('asm','假設')}${x.sim?`；${SIMS(x)}${SIMBAD(x)?`。${SIMNO}`:''}`:''}。這筆錢不在 100 天的錢裡。接班交通車還沒估價。`)(N.fixes.find(x=>x.route===p.route)||N.fixes[0]||{crew:[0,0]})]]);
   rows=[
-   ['駕駛',`照一般規定，${esc(p.route)} 排不進休息的駕駛班最多：模擬的 ${p.duties} 班裡有 ${p.fail} 班（${pct(p.strict)}）。如果中央同意用例外（連開最多 6 小時，再休 45 分）${LN(p.lenient)}。這時改先處理用例外也排不進的 ${p.both.map(esc).join('、')}（各自建議的改法見<a href="#fix">三種改法</a>）。<br>${BASE(p.route)}。${FB(p.fail,p.duties,p.strict)}`],
-   ['端點和休息',`現在：${p.ends.map(ends2).join('；')} ${T('real','真')}。${tp.map(e=>`${esc(e.stop)}一天約 ${e.stand.buses} 台車停 15 分以上或收車（含 ${esc(p.route)}）。${e.stand.others.map(esc).join('、')} 也在這裡停。這裡可能可以做成共用換班點。要現勘有沒有休息室和廁所（見<a href="#ends">端點</a>）`).join('；')}${tp.length?'。':''}${ntp.map(e=>`${esc(e.stop)}在新北市，建議請新北市政府交通局協同處理`).join('；')}${ntp.length?'。':''}`],
+   ['駕駛',FB(p.fail,p.duties,p.strict)],
+   ['端點和休息',`${p.ends.map(ends2).join('；')} ${T('real','真')}。${tp.map(e=>`${esc(e.stop)}一天約 ${e.stand.buses} 台車停 15 分以上或收車（含 ${e.stand.others.map(esc).join('、')}），可能做共用換班點，要現勘（見<a href="#ends">端點</a>）`).join('；')}${tp.length?'。':''}${ntp.map(e=>`${esc(e.stop)}在新北市，建議請新北市政府交通局協同處理`).join('；')}${ntp.length?'。':''}`],
    ['誰做',`公運處、${p.ops.length?p.ops.map(esc).join('、'):'業者'}、工會、勞動局${ntp.length?'、新北市政府交通局':''}`],
-   ['程序',`不必走路線審議。第 31–60 天和工會、業者談好條件（交接、可以離車休息、接班駕駛怎麼到）。${D[2][0]}–${D[2][1]} 試辦。`],
-   ['錢',`接班駕駛用業者現有的機動人力 ${T('asm','假設')}。機動人力平常在補請假。所以試辦期間，公運處按試辦班數補助接班人力，不靠其他駕駛加班補人。如果人不夠，建議縮小試辦範圍。補助、接班交通車、休息室和廁所的錢還沒估。`],
+   ['錢',`接班駕駛用業者的機動人力（補請假的人）${T('asm','假設')}。公運處按班數補助，不靠加班；人不夠，建議縮小試辦。補助、交通車、休息室和廁所的錢還沒估。`],
   ];
  }else{
   t=`${esc(p.name)}：站牌可能停不下`;const one=(N.count.kinds.find(k=>k.kind==='stop')||{cost:[0,0]}).cost;what='<b>先量停車格、數人，再決定分站牌或聯合排點。如果數到很多人上不了車，才加班次。</b>';
@@ -295,20 +295,20 @@ $('placesBox').innerHTML=N.places.map((p,i)=>{
    ['乘客','往公司方向的人數，要等刷卡資料。'],
    ['主辦／何時／驗收','公運處；寒假前（1/20 前）到現場數；記下每小時停靠的班數和停車格數。']];
   rows=[
-   ['現況',`早尖峰每小時約 ${p.bph} 班車停「${esc(p.stop)}」站 ${T('real','真')}。這段路最多有 ${p.routes} 條路線，不一定都停這一站。照實測的停站時間，一個停車格每小時約可停 ${p.cap1} 班。排在後面的格子比第一格慢，也要留餘裕。${p.berths>p.row?`所以每小時 ${p.bph} 班，一列 ${p.row} 個停車格也放不下（${p.row} 個是路邊一列能有效使用的上限），要分成兩處以上停靠 ${T('est','推估')}`:`所以每小時 ${p.bph} 班至少要 ${p.berths} 個停車格 ${T('est','推估')}`}。現在有幾個，要現勘。`],
+   ['現況',`早尖峰每小時約 ${p.bph} 班車停「${esc(p.stop)}」站 ${T('real','真')}（這段路最多 ${p.routes} 條路線，不一定都停這站）。照實測的停站時間，一個停車格每小時約停 ${p.cap1} 班；後面的格子比第一格慢，也要留餘裕。${p.berths>p.row?`所以每小時 ${p.bph} 班，一列 ${p.row} 個停車格也放不下（${p.row} 個是路邊一列能有效使用的上限），要分成兩處以上停靠 ${T('est','推估')}`:`所以每小時 ${p.bph} 班至少要 ${p.berths} 個停車格 ${T('est','推估')}`}。現在有幾個，要現勘。`],
    ['誰做','公運處、交通局（站牌位置）、業者'],
    ['程序','第 1–30 天到現場數人。不必走路線審議。'],
    ['錢',`數停靠的車和停車格，約 ${WM(one)} 萬元，算在第 1 輪到現場數人的 ${WM(C1.cost)} 萬元裡 ${T('asm','假設')}。`],
   ];
  }
- return `<div class="card place"><h3><span class="no">${i+1}</span>${t}</h3><div class="what">${what}</div>${kv(vis)}<details><summary>誰做、程序、錢</summary>${kv(rows)}</details></div>`;
+ return `<div class="card place"><h3><span class="no">${i+1}</span>${t}</h3><div class="what">${what}</div>${kv(vis)}<details><summary>誰做、程序、錢</summary>${key?`<p><b>重點</b>：${key}</p><details><summary>細節</summary>${kv(rows)}</details>`:kv(rows)}</details></div>`;
 }).join('');
 
 {const E=N.ends,t=x=>esc(x),day=`${E.window.slice(0,4)}/${+E.window.slice(4,6)}/${+E.window.slice(6)}`,rest=N.places.find(p=>p.kind==='rest');
- const a=E.no_rest.map(x=>`<tr><td>${t(x.name)}</td><td>${t(x.town)}</td><td class="n">${f(x.n)}</td><td class="n">${pct(x.rest)}</td><td>${x.routes.map(t).join('、')}${x.fams>5?` 等 ${x.fams} 條`:''}</td><td>${x.poor.length?x.poor.map(t).join('、'):'—'}</td></tr>`).join('');
- const b=E.shared.map(x=>`<tr><td>${t(x.name)}</td><td>${t(x.town)}</td><td class="n">${x.buses}</td><td class="n">${Math.round(x.med)} 分</td><td>${x.routes.map(t).join('、')}</td></tr>`).join('');
+ const a=E.no_rest.map(x=>`<tr><td>${t(x.name)}</td><td class="n">${f(x.n)}</td><td class="n">${pct(x.rest)}</td><td>${x.routes.slice(0,3).map(t).join('、')}${x.fams>3?` 等 ${x.fams} 條`:''}</td><td>${x.poor.length?x.poor.map(t).join('、'):'—'}</td></tr>`).join('');
+ const b=E.shared.map(x=>`<tr><td>${t(x.name)}</td><td class="n">${x.buses}</td><td class="n">${Math.round(x.med)} 分</td><td>${x.routes.slice(0,2).map(t).join('、')}${x.routes.length>2?' 等':''}</td></tr>`).join('');
  const sh=e=>e.n<10?`${t(e.stop)}（次數太少）`:`${t(e.stop)} ${pct(e.ge15)}`;
- const c=E.routes.map(x=>{const b=x.ends.find(e=>e.bad)||x.ends[0],o=x.ends.find(e=>e!==b);return `<tr><td>${t(x.route)}</td><td>${x.fail} 班／${x.duties} 班</td><td>${sh(b)}${b.tpe?'':'（新北）'}</td><td>${o?sh(o)+(o.tpe?'':'（新北）'):'沒有資料'}</td><td>${x.same.length?`同一站牌 ${x.same.slice(0,2).map(t).join('、')} 常停 15 分以上：空間可能有，問題在班表`:x.near?(x.near.m<100?`${t(x.near.name)}（就在這一端）`:`${t(x.near.name)}，約 ${f(x.near.m)} 公尺`):'500 公尺內沒有'}${x.rest_both?'。兩端都有停，還是排不進：單程太久，要在端點換駕駛':''}</td></tr>`}).join('');
+ const c=E.routes.map(x=>{const b=x.ends.find(e=>e.bad)||x.ends[0],o=x.ends.find(e=>e!==b);return `<tr><td>${t(x.route)}</td><td>${sh(b)}${b.tpe?'':'（新北）'}</td><td>${o?sh(o)+(o.tpe?'':'（新北）'):'沒有資料'}</td><td>${x.same.length?`${x.same.slice(0,2).map(t).join('、')} 在同站牌常停：問題在班表`:x.near?(x.near.m<100?`${t(x.near.name)}（就在這一端）`:`${t(x.near.name)}，約 ${f(x.near.m)} 公尺`):'沒有'}${x.rest_both?'；兩端都停仍排不進':''}</td></tr>`}).join('');
  const top=E.no_rest.slice(0,3).map(x=>t(x.name)),hit=E.routes.flatMap(r=>r.ends.filter(e=>e.bad&&E.no_rest.slice(0,3).some(x=>x.name===e.stop)).map(e=>[r.route,e.stop])),re=rest?rest.ends:[];
  $('endsBox').innerHTML=
  `<div class="card key"><b>建議：100 天內先做三件事</b><ol style="margin:4px 0;padding-left:20px">
@@ -316,45 +316,55 @@ $('placesBox').innerHTML=N.places.map((p,i)=>{
   <li>第 31–60 天：和業者談已經有很多車在停的地方能不能共用。</li>
   <li>第 61–100 天：配合 ${t(rest?.route||'')} 的換駕駛試辦，準備換班。</li></ol>
   <details><summary>三件事的細節、誰做、錢</summary>
-  <p class="note">資料：${day} 一個平日的公車 GPS。GPS 只看得到車停多久，看不到駕駛有沒有下車。車停 15 分時，駕駛可能還在顧車，所以不等於法定的休息。如果不停車就換駕駛，GPS 也看不到。</p>
+  <p><b>重點</b>：先看地方，再談共用，最後準備換班。現勘不另外花錢，其他費用還沒估價。</p>
+  <details><summary>細節</summary>
+  <p class="note">GPS 只看得到車停多久。停 15 分不等於法定休息，駕駛可能還在顧車。資料：${day} 一個平日。</p>
   <ol style="margin:4px 0;padding-left:20px">
-  <li>第 1–30 天，和工會一起現勘第 1 張表的前 3 處（${top.join('、')}），和試辦路線 ${t(rest?.route||'')} 的兩端（${re.map(e=>t(e.stop)+(e.stand&&!e.stand.tpe?'，和新北一起看':'')).join('；')}）。市中心的路邊多半不准大車久停。所以第一個要問的是：這段路能不能停車。附近如果已經有轉運站（例如捷運市政府站旁的市府轉運站，能不能用要查證）、業者的調度站或停車場，先問兩件事：不同業者的駕駛能不能用廁所和休息室；大車能不能停 15–30 分。如果不夠，再找市有地。${hit.map(([r,s])=>`${t(s)}也是 ${t(r)} 沒休息的那一端。${t(r)} 另一端常停很久，還是排不進休息，所以也可能要在端點換駕駛。`).join('')}</li>
-  <li>第 31–60 天，和業者談第 2 張表的地方能不能共用。這些地方多半是業者的場站或調度站（是哪一家要查證）。要談三件事：別家的駕駛能不能進去；保險和門禁；清潔和廁所維護費誰出（業者分攤，或列入補貼項目）。也請業者在沒休息的那一端，班表每趟至少留幾分鐘讓駕駛上廁所（例如 5 分，數字由工會和業者談）。公運處用 GPS 停留時間抽查，並寫進補貼和評鑑。</li>
-  <li>第 61–100 天，配合 ${t(rest?.route||'')} 的換駕駛試辦（見<a href="#places">建議改 ${N.places.length} 處</a>第 ${N.rest_no} 處）。換班要算三件事：接班的人怎麼到、交接要幾分鐘（車況、票證、行車紀錄器）、下班的人怎麼回場站。交接和往返換班點的時間算工時。這些費用列入試辦經費。${rest?`成功的基準：${BASE(rest.route)}。試辦期間看這個比例有沒有下降。${FB(rest.fail,rest.duties,rest.strict)}`:''}</li></ol>
-  <div class="kv"><b>誰做</b><span>公運處（主辦）、工會、業者、財政局（市有地）、停管處（停車場）、交通局（路邊大客車停車格）、捷運局和臺北捷運公司（捷運站旁空地和站內廁所，分工要查證）</span><b>錢</b><span>現勘不另外花錢。租用空間、流動廁所、清潔費和交接工時還沒估價。建議先用 2027（民國 116）年度既有預算科目勻支，不夠再申請第二預備金。要蓋休息室，編進 2028 年度預算。</span><b>怎樣算成功</b><span>第 30 天：現勘紀錄（有沒有廁所、能停幾台大車、可以向誰借）。第 60 天：試辦路線的端點簽好借用或共用協議。試辦第 1 天：換班點的廁所和休息室可以用。</span></div></details></div>
+  <li><b>現勘</b>：${t(rest?.route||'')} 兩端是${re.map(e=>t(e.stop)+(e.stand&&!e.stand.tpe?'（和新北一起看）':'')).join('、')}。先問能不能停大車（市中心路邊多半不准）。附近的轉運站（例如市府轉運站，要查證）、調度站或停車場：別家駕駛能不能用廁所和休息室？大車能不能停 15–30 分？不夠再找市有地。${hit.map(([r,s])=>`${t(s)}也是 ${t(r)} 少休息的一端，${t(r)} 可能也要換駕駛。`).join('')}</li>
+  <li><b>談共用</b>：第 2 張表的地方多半是業者場站。談別家駕駛能不能進去、保險和門禁、清潔和廁所費誰出。也請業者在少休息的一端每趟留幾分鐘上廁所（例如 5 分，由工會和業者談），公運處用 GPS 抽查。</li>
+  <li><b>準備換班</b>（見<a href="#places">建議改 ${N.places.length} 處</a>第 ${N.rest_no} 處）：接班的人怎麼到、交接幾分鐘、下班的人怎麼回場站。交接和往返算工時，費用列入試辦經費。${rest?`基準：${BASE(rest.route)}。`:''}</li></ol>
+  <div class="kv"><b>誰做</b><span>公運處（主辦）、工會、業者；管地的財政局、停管處、交通局、捷運局、臺北捷運公司（分工要查證）</span><b>錢</b><span>租空間、廁所、清潔和交接工時，建議先用 2027 年度既有預算勻支，不夠再申請第二預備金；蓋休息室編進 2028 年度預算。</span><b>怎樣算成功</b><span>第 30 天有現勘紀錄；第 60 天簽好借用或共用協議；試辦第 1 天廁所和休息室可以用。</span></div></details></details></div>
  <details><summary>三張表：沒休息的端點、已經有很多車在停的地方、休息排不進最多的路線</summary>
- <h3>1. 很多路線在這裡掉頭，車卻很少停 15 分以上</h3>
- <p class="note">掉頭＝車到終點，停一下就開回去。排在前面的，是車很多、駕駛卻幾乎沒時間休息的地方（臺北市內，只算路線自己的起點和終點站）。<span style="color:#888">算法：掉頭＝同一台車兩趟之間停 45 分以內；停超過 45 分的（回場、換班或沒訊號）不算。照「每天掉頭次數 ×（1 − 停 15 分以上的比例）」排。</span>很多路線把休息排在另一端的場站。所以最後一欄列出兩端都很少停 15 分以上的路線（兩端都低於 ${pct(0.3)}）。這些路線最需要這裡有休息的地方。兩端起終點站各有 ${E.min_end} 次以上掉頭紀錄的 ${E.routes_n} 條路線裡，有 ${E.poor} 條是這樣；另有 ${E.one_end} 條只看到一端。</p>
- <table><tr><th>站牌</th><th>區</th><th class="n">每天掉頭</th><th class="n">停 15 分以上</th><th>主要路線</th><th>兩端都很少休息的路線</th></tr>${a}</table>
- <h3>2. 已經有很多車在停的地方：可能讓不同公司的駕駛一起用的休息點</h3>
- <p class="note">臺北市內，${E.shared.length} 處：4 條以上路線、每天 30 台以上的車在這裡停 15 分以上，或停超過 45 分（回場、換班或沒訊號）。這些地方多半已經是業者自己的停車場或調度站（公車停放、駕駛報到的地方）。這只表示車停在這裡。別家的駕駛能不能進去用休息室或廁所，要現勘。${E.shared_ntp.length?`新北市還有 ${E.shared_ntp.map(t).join('、')}，建議請新北市政府交通局協同處理。`:''}</p>
- <table><tr><th>地方</th><th>區</th><th class="n">每天停的車</th><th class="n">一般停多久</th><th>路線</th></tr>${b}</table>
- <h3>3. 休息排不進最多的路線：兩端各停多久</h3>
- <p class="note">排不進休息＝模擬的駕駛班裡，排不進「開 4 小時休 30 分」的班數 <span class="tag sim">模擬</span>。端點後面是掉頭時車停 15 分以上的比例 <span class="tag real">真</span>；停超過 45 分的（回場或換班）不算。最後一欄找 500 公尺內第 2 張表的地方。再遠的地方，車要空車開過去，不實際。</p>
- <table><tr><th>路線</th><th>排不進休息</th><th>比較少休息的一端</th><th>另一端</th><th>怎麼辦</th></tr>${c}</table></details>`;
+ <p><b>重點</b>：${top.join('、')} 掉頭最多，車卻幾乎不停。<br>已經有 ${E.shared.length} 處很多車在停，可能做共用休息點。</p>
+ <details><summary>細節</summary>
+ <h3>1. 掉頭多、很少停的端點</h3>
+ <p class="note">臺北市內路線的起終點站。掉頭＝車到終點，停一下就開回去。依沒停到 15 分的次數排。最後一欄：兩端停 15 分以上都低於 ${pct(0.3)} 的路線（${E.routes_n} 條裡有 ${E.poor} 條）。</p>
+ <table><tr><th>站牌</th><th class="n">每天掉頭</th><th class="n">停 15 分以上</th><th>主要路線</th><th>兩端少休息</th></tr>${a}</table>
+ <h3>2. 很多車在停的地方：可能共用的休息點</h3>
+ <p class="note">臺北市內 ${E.shared.length} 處：4 條以上路線、每天 30 台以上的車停 15 分以上或收車。多半是業者的場站，別家駕駛能不能用要現勘。${E.shared_ntp.length?`新北市還有 ${E.shared_ntp.map(t).join('、')}，建議請新北市政府交通局協同處理。`:''}</p>
+ <table><tr><th>地方</th><th class="n">每天停的車</th><th class="n">一般停多久</th><th>路線</th></tr>${b}</table>
+ <h3>3. 休息排不進最多的路線</h3>
+ <p class="note">百分比：掉頭時車停 15 分以上的比例 <span class="tag real">真</span>。最後一欄：500 公尺內第 2 張表的地方。見<a href="#fix">三種改法</a>。</p>
+ <table><tr><th>路線</th><th>少休息的一端</th><th>另一端</th><th>附近可共用</th></tr>${c}</table></details></details>`;
 }
 
 {const F=N.fixes,t=x=>esc(x),P={A:'A：車在端點多等',B:'B：在端點換駕駛',C:'C：在路線中段換駕駛',check:'先查清楚'};
  const one=x=>{const hrs=x.vh!=null&&x.vh>0?`每天要多派車和駕駛，加起來約 ${x.vh} 小時，一年約 ${f(x.bus[0])}–${f(x.bus[1])} 萬元（${WD}；全臺北補休息總花費的 ${(x.share*100).toFixed(1)}%）`:'';
-  const res=x.pick==='A'?hrs+(x.toilet?'。休息少的那一端，每趟仍要留上廁所的時間（例如 5 分）。這段時間不在上面的錢裡':'')+` ${T('asm','假設')}`:x.pick==='B'?`一個換班點一年約 ${W(x.crew)} 萬元（接班駕駛 2.5–3 位）${T('asm','假設')}。幾條路線共用一個換班點，比各設一個便宜${x.sim?`。${SIMS(x)}${SIMBAD(x)?`：${SIMNO}`:''}`:''}${hrs?`。如果改用 A：${hrs} ${T('asm','假設')}`:''}`:'先用勤務表確認，再決定';const tail='';
+  const res=x.pick==='A'?hrs+(x.toilet?'。休息少的那一端，每趟仍要留上廁所的時間（例如 5 分）。這段時間不在上面的錢裡':'')+` ${T('asm','假設')}`:x.pick==='B'?`一個換班點一年約 ${W(x.crew)} 萬元（接班駕駛 2.5–3 位）${T('asm','假設')}。幾條路線共用一個換班點，比各設一個便宜${x.sim?`。${SIMS(x)}${SIMBAD(x)?`：${SIMNO}`:''}`:''}${hrs?`。如果改用 A：${hrs} ${T('asm','假設')}`:''}`:'還不能算';const tail='';
   const cost=x.pick==='A'?(x.bus?`一年約 ${f(x.bus[0])}–${f(x.bus[1])} 萬元（${WD}）${T('asm','假設')}`:''):x.pick==='B'?`一個換班點一年約 ${W(x.crew)} 萬元 ${T('asm','假設')}${SIMBAD(x)?`；排班模擬${x.sim.add>0?`約 ${W(x.sim.cost)} 萬元`:'不用多排駕駛班'} ${T('sim','模擬')}，${SIMNO}`:''}`:'先用勤務表確認';
   return `<div class="card" style="margin:6px 0"><b>${t(x.route)}</b>：${x.fail}／${x.duties} 個駕駛班排不進休息 ${T('sim','模擬')}${x.lenient>=.1?`（用例外也有 ${pct(x.lenient)}，優先）`:''}。建議 <b>${P[x.pick]}</b>；${cost}。
-   <details><summary>為什麼、花多少</summary><p>一天有 ${x.duties} 個駕駛班（一位駕駛一天的工作算一個）。其中 ${x.fail} 個會連開超過 4 小時，中間沒休息夠（電腦模擬）${x.lenient>=.1?`。就算照例外規定（比一般規定寬），還有約 ${pct(x.lenient)} 的駕駛班排不進休息，所以這條要優先改`:''}。</p>
+   <details><summary>為什麼、花多少</summary><p>模擬一天 ${x.duties} 個駕駛班（一位駕駛一天的工作），${x.fail} 個會連開超過 4 小時、沒休息夠${x.lenient>=.1?`。照比較寬的例外規定，還有約 ${pct(x.lenient)} 排不進，所以優先改`:''}。</p>
    <div class="kv"><b>建議</b><span><b>${P[x.pick]}</b>。${t(x.why)}。</span><b>花多少</b><span>${res}${tail}</span></div></details></div>`;};
  $('fixBox').innerHTML=`<p><b>A</b> 車在端點多等；<b>B</b> 在端點換駕駛；<b>C</b> 在路線中段換駕駛。100 天內，先在 ${t(N.places.find(p=>p.kind==='rest')?.route||F[0]?.route||'')} 試 B。</p>
  <details><summary>三種改法是什麼</summary><div class="card key"><b>三種改法</b><ul style="margin:4px 0">
-  <li><b>A 車在端點多等</b>：讓駕駛在端點停夠久休息。停著的時間，班次要靠另外加車和駕駛補上。要多停的時間少時，A 最省事。如果一個來回超過約 3 小時 40 分（4 小時扣掉尖峰變慢的餘裕），兩端都要停夠。</li>
-  <li><b>B 在端點換駕駛</b>：車到端點，換一位駕駛接著開。下車的駕駛去休息室休息。只加駕駛，不加車。一個換班點從首班到末班，要早晚兩班接班駕駛，加上輪休，約 2.5–3 位。幾條路線共用一個點才划算（見<a href="#ends">端點</a>）。</li>
-  <li><b>C 在路線中段換駕駛</b>：如果路線中段已經有業者的場站，或很多車在停，就在那裡換駕駛。接班的人到中段，比到端點容易。下面只寫出有中段地點的路線。</li></ul>
-  <p style="margin:6px 0">換班點都要有休息室和廁所。駕駛的薪水不會因為少開幾趟而變少。交接時間算工時。錢要編在 2028 年度預算。100 天內先在 ${t(N.places.find(p=>p.kind==='rest')?.route||F[0]?.route||'')} 試 B（見<a href="#places">建議改 ${N.places.length} 處</a>第 ${N.rest_no} 處）。</p></div></details>
+  <li><b>A 車在端點多等</b>：駕駛在端點停夠久再開。停著的時間，要另外加車和駕駛補班次。要多停的時間少，A 最省事。一個來回超過約 3 小時 40 分（4 小時扣掉尖峰變慢的餘裕），兩端都要停夠。</li>
+  <li><b>B 在端點換駕駛</b>：車到端點換一位駕駛開，下車的駕駛去休息室。只加駕駛，不加車。一個換班點從首班到末班，要早晚兩班接班駕駛加輪休，約 2.5–3 位。幾條路線共用一個點才划算（見<a href="#ends">端點</a>）。</li>
+  <li><b>C 在路線中段換駕駛</b>：路線中段已經有業者場站或很多車在停，就在那裡換。接班的人到中段比到端點容易。下面只寫有中段地點的路線。</li></ul>
+  <p style="margin:6px 0">換班點都要有休息室和廁所。駕駛薪水不因少開幾趟而變少，交接時間算工時。錢編在 2028 年度預算。B 的試辦見<a href="#places">建議改 ${N.places.length} 處</a>第 ${N.rest_no} 處。</p></div></details>
  ${F.map(one).join('')}
  <details><summary>給公運處：補助、預算、拆線</summary><ul>
-  <li>建議訂補助單價：車在端點多停，每車小時約 ${F[0]?F[0].unit.map(f).join('–'):''} 元（照全市休息估算的單價，駕駛加車）。每個接班班次的單價另訂。單價寫進評鑑，用 GPS 停留時間抽查。業者的補貼如果按車公里算，多停的時間就沒有補貼。這樣業者沒有誘因在班表留休息。</li>
+  <li>建議訂補助單價：車在端點多停，每車小時約 ${F[0]?F[0].unit.map(f).join('–'):''} 元（照全市休息估算，駕駛加車）。接班班次的單價另訂。單價寫進評鑑，用 GPS 停留時間抽查。補貼如果按車公里算，多停不給錢，業者就沒有誘因在班表留休息。</li>
   <li>建議交接單寫明車損和票款的責任。</li>
-  <li>建議 2028 年度預算照 A、B、C 列科目、單價和數量。機關概算在 2027 年 4–5 月，8 月底前隨總預算送市議會審議（時程要和公運處確認）。第 61–100 天，現勘各路線建議的地點。</li>
+  <li>建議 2028 年度預算照 A、B、C 列科目、單價和數量。機關概算在 2027 年 4–5 月，8 月底前隨總預算送市議會（時程要和公運處確認）。第 61–100 天，現勘各路線建議的地點。</li>
   <li>建議等 2027/${D[2][1]} 以後截短生效、重算補貼公式後，再用重劃路線省下的車小時付這些錢。</li>
-  <li>建議 100 天內只評估拆線（把一條長路線拆成兩條）。拆線要走路線審議。跨新北的路線，要雙北一起審。乘客會變成付兩段票，所以要配免費轉乘。營運權合約也要改。</li></ul></details>
- <details><summary>怎麼算</summary><p class="note">「沒休息夠」：模擬的駕駛班裡，排不進「開 4 小時休 30 分」的班數。A 的時數照全市休息估算的規則：每個來回要休 R 分（R＝15 分和「30 分 × 來回分鐘 ÷ 240」比較大的那個），兩端實際停的時間不夠的部分，加起來就是 A 的時數。這個算法假設駕駛在停得比較久的那一端休。如果只准在某一端休，要停的時間至少是這個數。只停一端的條件是一個來回不超過約 3 小時 40 分（4 小時扣掉尖峰變慢的餘裕）。A 和 B 比錢時，我們用 A 的上限比一整個換班點的下限，所以結果偏向選 B。如果和別條路線共用換班點，B 會更划算。每車小時的錢用車公里算。停著的車不耗油，所以這是上限。這幾條的時數是全市那一筆的一部分，不能再加上去。B：每個換班點 2.5–3 位接班駕駛，每位每年 ${W0/1e4}–${W1/1e4} 萬元。B 也用排班模擬算一次：在端點換人（車不變）比駕駛整天跟同一台車多幾個駕駛班，乘上休假輪替的係數，再乘每位的年薪。兩個算法的範圍各取中點。中點差 ${N.sim_vs_crew} 倍以上，或模擬不用多排駕駛班，就寫「${SIMNO}」。C：路線自己的站牌 300 公尺內、在路線 30–70% 的地方、每天 15 台以上的車在停（可能是業者的場站，要查證是哪一家）。端點的比例是一個平日的公車 GPS。</p></details>`;
+  <li>建議 100 天內只評估拆線（一條長路線拆成兩條）。拆線要走路線審議（跨新北的要雙北一起審），要配免費轉乘（不然乘客付兩段票），也要改營運權合約。</li></ul></details>
+ <details><summary>怎麼算</summary><div class="note"><p style="margin:4px 0"><b>重點</b>：A 算要多停幾小時，B 算要多幾位接班駕駛。比錢的方式偏向選 B。</p><details style="margin:4px 0"><summary>細節</summary><ul style="margin:4px 0">
+  <li>A：每個來回要休 R 分（至少 15 分，路線越長休越久）。兩端停不夠 R 的部分加起來，就是 A 的時數（只准在一端休，要停更久）。一個來回不超過約 3 小時 40 分，才能只停一端。</li>
+  <li>A 的錢用車公里算，停著的車不耗油，所以是上限；已含在全市那一筆。</li>
+  <li>B：每個換班點 2.5–3 位接班駕駛，每位每年 ${W0/1e4}–${W1/1e4} 萬元。也用排班模擬算一次；兩個算法差 ${N.sim_vs_crew} 倍以上（或模擬不用多排駕駛班），就寫「${SIMNO}」。</li>
+  <li>比錢：用 A 的上限比換班點的下限。</li>
+  <li>C：路線站牌 300 公尺內、在路線 30–70% 處、每天 15 台以上的車在停。</li>
+  <li>端點的比例：一個平日的公車 GPS。</li></ul></details></div></details>`;
 }
 
 const Z0=N.count.cost,Zt=N.trial_m,cm=S.all.cap,MX=[Math.max(cm.mid*W0/1e8,R.cost[0]).toFixed(1),(cm.mid*W1/1e8+R.cost[1]).toFixed(1),(cm.hi*W1/1e8+R.cost[1]).toFixed(1)];
@@ -362,41 +372,41 @@ $('four').innerHTML=[
  ['','最重要的事','拿到三份真資料',`各站刷卡上下車、駕駛勤務表、駕駛出勤紀錄。這個網站的人數都是用公開資料推估的。`],
  ['free','★ 不花錢的第一步','請中央解釋休息的例外規定',`照一般規定，${S0S}；照例外 ${p1g(Z.lenient)} ${T('sim','模擬')}。見<a href="#exc">例外規定</a>。`],
  ['','駕駛過勞',cm.mid?`照法定上限約加 ${f(cm.mid)} 人<span style="white-space:nowrap">（${f(cm.lo)}–${f(cm.hi)} 人）</span>`:`照法定上限：可能不用加人<span style="white-space:nowrap">（最多 ${f(cm.hi)} 人）</span>`,`要降到每週 40 小時，約要加 ${f(S.all.w40.lo)}–${f(S.all.w40.hi)} 人（三個假設取最輕到最重；③ 另有一個極端寬鬆的算法，只要多約 ${f(S.all.w40.generous)} 人）。排進休息另外約 ${W(R.people)} 人 ${T('est','推估')}${T('asm','假設')}。休息用${RULE}。前提：${HC} 位涵蓋全部 ${N.ops_n} 家業者。`],
- ['','花多少錢',`100 天內：已估價的部分約 ${WM(M100.total)} 萬元`,`2028 年度起：排進休息（本專案的規則）每年約 ${YI(R.cost)} ${T('asm','假設')}。只照法規算，金額會比較少，還沒有算。照法定加班上限，工時${cm.mid?`約加 ${f(cm.mid)} 人（${f(cm.lo)}–${f(cm.hi)} 人），每年約 ${yi(cm.mid,W0,W1)}，最多 ${YI([cm.hi*W1/1e8])}`:`可能不用加人（最多 ${f(cm.hi)} 人），最多每年 ${YI([cm.hi*W1/1e8])}`} ${T('asm','假設')}。要降到每週 40 小時，約加 ${f(S.all.w40.lo)}–${f(S.all.w40.hi)} 人，每年約 ${YI([S.all.w40.lo*W0/1e8,S.all.w40.hi*W1/1e8])} ${T('asm','假設')}。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">看細節</summary>${M100.parts.map(([k,v])=>`${k}約 ${WM(v)} 萬元`).join('，')}。${L1.length?`不含小巴開辦費。試辦成功的話，小巴每年約 ${W(N.first_m.map(x=>x*100))} 萬元。`:''}${N.places.some(p=>p.kind==='rest')?'換駕駛試辦的費用還沒估價。':''}<br>2028 年度起加駕駛：${cm.mid?`每週工時那一筆（照法定加班上限）約 ${yi(cm.mid,W0,W1)}，`:'每週工時那一筆（照法定加班上限）可能不用加，'}休息那一筆（本專案的規則）約 ${YI(R.cost)}，兩筆有一部分重疊，合計每年約 ${YI([MX[0],MX[1]])}。工時算高時，最多約 ${YI([MX[2]])}。這是假設 ${HC} 位包含全部 ${N.ops_n} 家業者；只算總公司在臺北的 ${N.tpe_ops_n} 家，約 ${YI(R.cost)} ${T('asm','假設')}</details>`],
+ ['','花多少錢',`100 天內：已估價的部分約 ${WM(M100.total)} 萬元`,`2028 年度起：排進休息（本專案的規則）每年約 ${YI(R.cost)} ${T('asm','假設')}。只照法規算，金額會比較少，還沒有算。照法定加班上限，工時${cm.mid?`約加 ${f(cm.mid)} 人（${f(cm.lo)}–${f(cm.hi)} 人），每年約 ${yi(cm.mid,W0,W1)}，最多 ${YI([cm.hi*W1/1e8])}`:`可能不用加人（最多 ${f(cm.hi)} 人），最多每年 ${YI([cm.hi*W1/1e8])}`} ${T('asm','假設')}。要降到每週 40 小時，約加 ${f(S.all.w40.lo)}–${f(S.all.w40.hi)} 人，每年約 ${YI([S.all.w40.lo*W0/1e8,S.all.w40.hi*W1/1e8])} ${T('asm','假設')}。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">看細節</summary><b>100 天內</b>：${M100.parts.map(([k,v])=>`${k}約 ${WM(v)} 萬元`).join('，')}。${L1.length?`不含小巴開辦費。試辦成功的話，小巴每年約 ${W(N.first_m.map(x=>x*100))} 萬元。`:''}${N.places.some(p=>p.kind==='rest')?'換駕駛試辦的費用還沒估價。':''}<br><b>2028 年度起加駕駛</b>，兩筆部分重疊：<ul style="margin:2px 0"><li>每週工時（照法定加班上限）：${cm.mid?`約 ${yi(cm.mid,W0,W1)}`:'可能不用加'}</li><li>休息（本專案的規則）：約 ${YI(R.cost)}</li><li>合計每年約 ${YI([MX[0],MX[1]])}；工時算高時，最多約 ${YI([MX[2]])}</li></ul>前提：${HC} 位包含全部 ${N.ops_n} 家業者。只算總公司在臺北的 ${N.tpe_ops_n} 家，約 ${YI(R.cost)} ${T('asm','假設')}</details>`],
  ].map(([c,k,v,d])=>`<div class="card ${c}"><div class="k">${k}</div><div class="v">${v}</div><div style="font-size:14px">${d}</div></div>`).join('');
 
 $('riders').innerHTML=[
  '如果照這份建議做：100 天內，現有路線的走法不變。',
  ...L1.map(x=>`建議${nm(x.far)}→捷運${x.hub}站多開一條小巴，只在${FH(FP(x))}開。`),
  MI.n&&!L1.length?MINI:'',
- `建議分兩輪到現場數乘客：1/20 前先數${CNTN1}${CNTN2?`；${R2W}再數 ${CNTN2}，${R2END}`:''}。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">哪些地方、擠的話怎麼辦</summary>第 1 輪：${CNT1}。${CNT2?`第 2 輪：${CNT2}。`:''}尖峰可能太擠的路段，見<a href="network.html#mode=plan">地區頁的提案</a>。如果真的擠，加新車要等 2028 年度預算。在那之前，可能從離峰調車，但要看駕駛夠不夠。</details>`,
+ `建議分兩輪到現場數乘客：1/20 前先數${CNTN1}${CNTN2?`；${R2W}再數 ${CNTN2}，${R2END}`:''}。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">哪些地方、擠的話怎麼辦</summary>第 1 輪：${CNT1}。${CNT2?`第 2 輪：${CNT2}。`:''}<br>尖峰可能太擠的路段，見<a href="network.html#mode=plan">地區頁的提案</a>。真的擠，加新車要等 2028 年度預算；在那之前，可能從離峰調車，要看駕駛夠不夠。</details>`,
  `建議 ${Z.worst[0][0]} ${D[2][0]}–${D[2][1]} 試辦在端點換駕駛。班次不變。如果人不夠，建議縮小試辦範圍，不減其他路線的班次。`,
  '建議 100 天內不減班。離峰減班要等刷卡資料，100 天後再檢討。如果減班，建議同時提供預約專車，並保留末班車。',
  ...L2.map(x=>`${nm(x.far)}→捷運${x.hub}站的小巴，要等新北市同意。`),
  `${N.vans.join('、')}：建議先數完人，再決定要不要開預約專車。`,
- `串車（一次來好幾台）可以減少，不能消掉。尖峰每個平日約 ${f(N.bunch.pairs)} 次 ${TH}。${THR('learn.html#bunch')}。其中 ${pct(N.bunch.early)} 從起站附近就黏在一起。其餘開始的地方很分散。100 天內查 ${N.bunch.onset.length} 個串車最常開始的站。這些站只占全部串車約 ${pct(N.bunch.top_share)}。要明顯減少串車，要整條路的公車專用道和號誌。時空圖見<a href="flow.html">② 路線</a>。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">為什麼 100 天內不試「中途放慢」</summary>用公車 GPS 模擬：讓太近的後車在中途放慢，${pct(N.bunch.mid)} 的路線和時段等車變短。可是車上的人要多坐，明顯划算的只有 ${pct(N.bunch.mid_net)} ${T('sim','模擬')}。放慢是業者每分鐘的調度，不是改路網。建議市府只核定規則，不試辦。這些站的門檻：尖峰每天經過 ${f(N.bunch.min_pass)} 台以上，${N.bunch.days} 個平日共串車 ${N.bunch.min_n} 次以上。</details><details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">尖峰串車最常開始的 ${N.bunch.onset.length} 個站</summary><table><tr><th>站</th><th>市</th><th class="n">每個平日幾次</th><th class="n">每 100 台經過</th><th class="n">尖峰每天經過</th><th>路線</th></tr>${N.bunch.onset.map(o=>`<tr><td>${o.stop}</td><td>${o.tpe?'臺北':'新北'}</td><td class="n">${(+o.n).toFixed(1)}</td><td class="n">${o.per100}</td><td class="n">${f(o.passes)}</td><td>${o.routes.slice(0,5).join('、')}${o.routes.length>5?` 等 ${o.routes.length} 條`:''}</td></tr>`).join('')}</table><span class="note">一次＝兩台車在 3 站以上靠得太近，每一對只算一次，算它們第一次靠這麼近的那一站。7–9 點、17–19 點，公車 GPS ${T('real','真')}（少數站的時間是推算的）。這是間隔縮到最小的地方，前車被耽擱的地方可能在更前面。照「每 100 台經過的車有幾次開始黏在一起」排，只排尖峰每天經過 ${f(N.bunch.min_pass)} 台以上、${N.bunch.days} 個平日共 ${N.bunch.min_n} 次以上的站；次數更少的站，排名分不出高低，不列。</span></details>`,
- `${N.pilots.map(nm2).join('、')}：建議 100 天內核定聯合排點（幾條路線一起排時刻表）的原則。捷運公館站的公車依方向分兩個站牌停。建議${CUTDEF}最快在 2027/${D[2][1]} 以後生效，生效前先公告。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">行動不便的乘客</summary>截短的路段：轉乘站要有無障礙動線，並保留低地板車。預約車要提供電話預約和無障礙車輛。輪椅使用者可以轉介復康巴士。</details>`,
+ `串車（一次來好幾台）可以減少，不能消掉。尖峰每個平日約 ${f(N.bunch.pairs)} 次 ${TH}。${THR('learn.html#bunch')}。其中 ${pct(N.bunch.early)} 從起站附近就黏在一起。其餘開始的地方很分散。100 天內查 ${N.bunch.onset.length} 個串車最常開始的站。這些站只占全部串車約 ${pct(N.bunch.top_share)}。要明顯減少串車，要整條路的公車專用道和號誌。時空圖見<a href="flow.html">② 路線</a>。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">為什麼 100 天內不試「中途放慢」</summary>好處小，而且這是業者的事。用公車 GPS 模擬讓太近的後車在中途放慢：${pct(N.bunch.mid)} 的路線和時段等車變短，但車上的人要多坐，明顯划算的只有 ${pct(N.bunch.mid_net)} ${T('sim','模擬')}。放慢是業者每分鐘的調度，不是改路網。建議市府只核定規則，不試辦。</details><details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">尖峰串車最常開始的 ${N.bunch.onset.length} 個站</summary><table><tr><th>站</th><th>市</th><th class="n">每個平日幾次</th><th class="n">每 100 台經過</th><th class="n">尖峰每天經過</th><th>路線</th></tr>${N.bunch.onset.map(o=>`<tr><td>${o.stop}</td><td>${o.tpe?'臺北':'新北'}</td><td class="n">${(+o.n).toFixed(1)}</td><td class="n">${o.per100}</td><td class="n">${f(o.passes)}</td><td>${o.routes.slice(0,5).join('、')}${o.routes.length>5?` 等 ${o.routes.length} 條`:''}</td></tr>`).join('')}</table><span class="note">一次＝兩台車在 3 站以上靠得太近；每一對只算一次，記在第一次靠這麼近的那一站。7–9 點、17–19 點，公車 GPS ${T('real','真')}（少數站的時間是推算的）。這是間隔縮到最小的地方；前車被耽擱的地方可能更前面。<br>排序看每 100 台經過的車有幾次開始黏在一起。只列尖峰每天經過 ${f(N.bunch.min_pass)} 台以上、${N.bunch.days} 個平日共 ${N.bunch.min_n} 次以上的站；次數更少的站分不出高低。</span></details>`,
+ `${N.pilots.map(nm2).join('、')}：建議 100 天內核定聯合排點（幾條路線一起排時刻表）的原則。捷運公館站的公車依方向分兩個站牌停。建議${CUTDEF}最快在 2027/${D[2][1]} 以後生效，生效前先公告。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">行動不便的乘客</summary>截短的路段：轉乘站要有無障礙動線，保留低地板車。預約車要能打電話預約，有無障礙車輛。輪椅使用者可以轉介復康巴士。</details>`,
 ].map(x=>`<li>${x}</li>`).join('');
 
 const ph=[
- {t:'調資料、到現場數人',d:[
-   '刷卡資料：公運處向悠遊卡公司和一卡通調「路線×站×時段」的上下車彙整。下車資料不完整，要先確認缺多少。',
-   '勤務表、行車紀錄和 14 天出勤紀錄（含週末）：請業者依補貼和評鑑的配合事項，提供拿掉姓名和卡號的版本。這些資料只做全市統計。業者如果不提供，公運處再依稽查權調閱。',
-   '先和工會講清楚：這些資料只用來算全市要多少人，不用來處罰個別駕駛。',
+ {t:'調資料、到現場數人',k:'拿到三份資料、訂評鑑和晚發規則、現勘端點、數第 1 輪。',d:[
+   '刷卡資料：公運處向悠遊卡公司和一卡通調各路線、各站、各時段的上下車人數。下車資料不完整，先確認缺多少。',
+   '勤務表、行車紀錄、14 天出勤紀錄（含週末）：請業者提供拿掉姓名的版本，只做全市統計；不提供，再依稽查權調閱。',
+   '先和工會講清楚：資料只用來算全市要多少人，不處罰個別駕駛。',
    `公運處確認 ${HC} 位駕駛包含哪些業者。`,
-   `串車最常開始的站（臺北市：${N.bunch.onset.filter(o=>o.tpe).map(o=>o.stop).join('、')}；${N.bunch.days} 個平日共 ${N.bunch.min_n} 次以上開始黏在一起）：尖峰 7–9、17–19 點，查這一站和前 3 個路口。交工處查號誌、劃紅線；公運處看站牌位置；警察局交通大隊在尖峰取締違停。${N.bunch.onset.some(o=>!o.tpe)?`新北的站（${N.bunch.onset.filter(o=>!o.tpe).map(o=>o.stop).join('、')}）建議請新北市政府交通局協同處理。`:''}`,
-   `建議公運處訂評鑑的等車指標，依班次分兩種。每小時 5 班以上的路段和時段：用「比班表多等的時間」（實際平均等車，減掉照班表應等的時間；倫敦用這個算法）。業者要交計畫發車時刻。每小時未滿 5 班：用起站準點率（例如提早 2.5 分到晚 5 分內發車的比例 ${T('asm','假設')}）。「串車多等的時間」只用來找串車的地方，不計分。業者可以用行車紀錄申覆。下一個評鑑年度前開說明會。第一年只算、不計分。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">為什麼這樣分</summary>「串車多等的時間」用實際的班距當基準。業者少開班時，基準跟著變寬，分數反而好看。所以這個指標不能拿來計分。「比班表多等的時間」用班表當基準，少開的班會算進去。班次少的路線，乘客照時刻表去等車。所以這類路線看車有沒有準時從起站開出。</details>`,
-   `公運處核定規則：業者的調度可以晚發。晚發的時間不從休息扣。業者的調度系統標出前一趟比這時段 85% 的車慢的班。建議業者讓這些班的駕駛回到端點，照樣休滿再發車。休息用${RULE} ${T('asm','假設')}。照間隔晚發，每班最多 3 分。這兩種晚發，不罰業者和站務員。列出起站附近就黏在一起的路線（現在占尖峰串車 ${pct(N.bunch.early)}），請業者照間隔發車。`,
-   `公運處：調度讓車放慢，要先核定規則。違停擋住站牌，有行車影像的，不算過站不停。跳站和臨時開區間車，先研究法源和怎麼告訴乘客，100 天內不實施。起站晚發和中途放慢是業者的調度。建議市府只核定規則：合計一個來回最多 6 分，加進班表，不從休息扣。業者指派的洗車、打掃是工作時間，要給薪水。公運處抽查勤務表。`,
-   `和工會一起現勘沒地方休息的端點，先看 ${N.ends.no_rest.slice(0,3).map(x=>x.name).join('、')}，和試辦路線 ${Z.worst[0][0]} 的兩端（見<a href="#ends">端點</a>）。`,
-   `試辦路線的基準：${BASE(Z.worst[0][0])}。${FB(Z.worst[0][3],Z.worst[0][4],Z.worst[0][1])}`,
-   `公運處：每週用<a href="network.html#mode=live&src=acc">累積清單</a>（同一格或同一條路線在 ${N.acc?N.acc.min_days:2} 天以上出問題）檢討路網，每一項對一種改法：分站牌、聯合排點、加班次、截短，或用評鑑的等車指標追蹤。看不出原因的，到現場數人。要 1 台主機和公運處 1 位承辦（現有編制內）。`,
+   `串車最常開始的 ${N.bunch.onset.length} 個站（表在<a href="#riders-h">對乘客的影響</a>）：尖峰查這一站和前 3 個路口。交工處查號誌、劃紅線；公運處看站牌；警察局交通大隊取締違停。${N.bunch.onset.some(o=>!o.tpe)?'新北的站，建議請新北市政府交通局協同處理。':''}`,
+   `建議公運處改評鑑的等車指標：每小時 5 班以上看「比班表多等的時間」（業者交計畫發車時刻）；未滿 5 班看起站準點率（例如提早 2.5 分到晚 5 分內 ${T('asm','假設')}）。「串車多等的時間」只用來找地方，不計分。業者可用行車紀錄申覆。第一年只算、不計分。<details style="margin:4px 0;padding:2px 8px"><summary style="font-weight:400">為什麼這樣分</summary>「串車多等的時間」以實際班距（兩班車實際隔幾分）為準：業者少開班，分數反而好看。「比班表多等的時間」以班表為準，少開的班會算進去。班次少的路線，乘客照時刻表等車，所以看起站準點。</details>`,
+   `公運處核定晚發規則，晚發不從休息扣：前一趟太慢的，建議駕駛照樣休滿再發車；照間隔晚發，每班最多 3 分。這兩種不罰業者和站務員。起站就黏在一起的路線（占尖峰串車 ${pct(N.bunch.early)}），請業者照間隔發車。`,
+   '其他規則：起站晚發和中途放慢，建議市府只核定規則（一個來回最多 6 分，加進班表，不從休息扣）。違停擋站牌、有行車影像的，不算過站不停。跳站、臨時開區間車，100 天內不實施。洗車、打掃算工時。',
+   `和工會現勘沒地方休息的端點，和試辦路線 ${Z.worst[0][0]} 的兩端（見<a href="#ends">端點</a>）。`,
+   `試辦路線的基準：${BASE(Z.worst[0][0])}。`,
+   `每週用<a href="network.html#mode=live&src=acc">累積清單</a>（同一格或同一條路線 ${N.acc?N.acc.min_days:2} 天以上出問題）檢討路網，看不出原因的，到現場數人。要 1 台主機和 1 位承辦（現有編制內）。`,
    ...(C1.small?[]:[`第 1–7 天辦第 1 輪採購（超過 ${N.count.small_buy} 萬元，要公開取得報價）。`]),
-   `到現場數人（第 1 輪），${CNTN1}：${CNT1}。寒假從 1/20 開始。要在 1/20 前數完，並避開 12/31–1/1。${CNTN2?`其餘的 ${CNTN2}，在${R2W}數，${R2END}。`:''}`],
+   `到現場數第 1 輪，${CNTN1}（地點見<a href="#riders-h">對乘客的影響</a>）：1/20 寒假前數完，避開 12/31–1/1。${CNTN2?`其餘 ${CNTN2} 在${R2W}數。`:''}`],
   m:`數人（第 1 輪）約 ${WM(C1.cost)} 萬元 ${T('asm','假設')}${BUY1}<br><span class="note">${CNTM1}</span>`,
   ok:'三份資料到手；寒假前數完第 1 輪；端點現勘紀錄（含早班第一趟到端點有沒有廁所）；串車最常開始的站的現勘紀錄；評鑑等車指標的算法定稿；試辦路線的勤務表基準算好；起站就黏在一起的路線清單交給業者',who:'公運處（主辦）、悠遊卡公司、一卡通、業者、工會'},
  {t:L1.length?'核定小巴路線；寒假和春節不數人':'談好試辦條件；寒假和春節不數人',d:[
-   '這段是寒假和春節（2027 春節是 2/6），人數不正常。這段不數人，也不開始試辦。',
+   '這段是寒假和春節（2027 春節是 2/6），人數不正常，不數人，也不開始試辦。',
    ...L1.map(x=>`${nm(x.far)}小巴：用試辦路線核定，指定業者、議價，準備車和站牌。`),
    `${Z.worst[0][0]} 換駕駛：和工會、業者談好條件（交接、可以離車休息、接班駕駛怎麼到）。`,
    ...(C2.hours?['辦第 2 輪計數的採購（公開取得報價）。']:[]),
@@ -405,24 +415,23 @@ const ph=[
    `${N.pilots.map(nm2).join('、')}：業者送出聯合班表，和工會做勤務協商；現勘截短後的新端點有沒有停車格和廁所；新北市境內的路段，建議請新北市政府交通局協同處理。`,
    '錢：2027 年度預算是上一屆編的，沒有這幾項。建議先用 2027 年度既有預算科目勻支，不夠再申請第二預備金。'],
   m:'談判和核定不另外花錢；勤務協商後的調班費用還沒估價',ok:`${L1.length?L1.map(x=>nm(x.far)).join('、')+'小巴核定；':''}試辦路線的端點簽好借用或共用協議`,who:`公運處、業者、工會、${L1.length?'區公所、':''}新北市政府交通局`},
- {t:L1.length?'開小巴、重算過勞、試辦換駕駛':'重算過勞、試辦換駕駛',d:[
+ {t:L1.length?'開小巴、重算過勞、試辦換駕駛':'重算過勞、試辦換駕駛',k:`試辦 ${Z.worst[0][0]} 換駕駛、數第 2 輪、重算過勞。`,d:[
    L1.length?`開${L1.map(x=>`${nm(x.far)}小巴（${FH(FP(x))}）`).join('、')}。連 4 週每班平均不到 15 人就停。`:'',
-   `預約專車（${N.vans.join('、')}）和計程車媒合（${N.taxis} 個服務區）：現場數到的人夠多，才編進 2028 年度預算。粗估預約專車每年 ${W(N.van_m)} 萬元，計程車 ${W(N.taxi_m)} 萬元（${WD2}）${T('asm','假設')}。`,
-   CNTN2?`${R2W}到現場數人（第 2 輪），${CNTN2}：${CNT2}。${R2END}。`:'',
-   '用勤務表和出勤紀錄，重算駕駛的三個問題（見下一節）。',
-   `試辦 ${Z.worst[0][0]} 在端點換駕駛。如果中央同意用例外，改先處理 ${Z.both.map(x=>x[0]).join('、')}（照各自建議的改法）。公運處按試辦班數補助接班人力，不靠其他駕駛加班補人。`,
-   `配合換駕駛試辦，在試辦路線的端點準備換班：接班的人怎麼到、交接要幾分鐘、下班的人怎麼回場站（見<a href="#ends">端點</a>）。`,
-   `${N.pilots.map(nm2).join('、')}：勤務協商完成後，聯合排點最快第 100 天以後上線。截短案送路線審議。送審前，公運處列出受影響的站牌和里別。公運處函請相關區公所協助通知里辦公處，邀請里長和里民參加說明會，並邀請轄區議員出席。生效前在受影響的站牌和車上張貼公告。`,
-   '把加人的錢編進 2028 年度預算的機關概算（2027 年 4–5 月，8 月底前隨總預算送市議會審議）。'].filter(Boolean),
+   `預約專車（${N.vans.join('、')}）和計程車媒合（${N.taxis} 區）：數到的人夠多，才編進 2028 年度預算。粗估每年 ${W(N.van_m)} 萬元和 ${W(N.taxi_m)} 萬元（${WD2}）${T('asm','假設')}。`,
+   CNTN2?`數第 2 輪，${CNTN2}；${R2END}。`:'',
+   '用勤務表和出勤紀錄，重算駕駛的三個問題。',
+   `試辦 ${Z.worst[0][0]} 在端點換駕駛，準備換班（見<a href="#ends">端點</a>）。中央同意用例外的話，改先處理 ${Z.both.map(x=>x[0]).join('、')}。`,
+   `${N.pilots.map(nm2).join('、')}：聯合排點最快第 100 天以後上線；截短案送路線審議。`,
+   '把加人的錢編進 2028 年度預算的機關概算（2027 年 4–5 月）。'].filter(Boolean),
   m:`${C2.hours?`數人（第 2 輪）約 ${WM(C2.cost)} 萬元 ${T('asm','假設')}<br><span class="note">${CNTM2}</span><br>`:''}${L1.length?`小巴開約 6 週，營運約 ${W(N.trial_m)} 萬元 ${T('asm','假設')}<br>`:''}<span class="note">${L1.length?'小巴不含站牌、合約等開辦費。':''}休息室、接班交通車和接班駕駛還沒估價</span>`,
   ok:(L1.length?'小巴每班平均 15 人以上；':'')+(C2.hours?`${N.count_end} 前數完第 2 輪；`:'')+'試辦路線排不進休息的比例，比第 1–30 天勤務表算的基準下降；換班點的廁所和休息室在試辦第 1 天可以用；串車最常開始的站：每 100 台經過的車開始黏在一起的次數，和改之前比（公車 GPS）',who:'公運處、勞動局、工會、業者、交工處、區公所、里辦公處（說明會）'},
 ];
-$('phases').innerHTML=ph.map((p,i)=>`<div class="card phase"><div class="d">第 ${[1,31,61][i]}–${[30,60,100][i]} 天<span>${D[i][0]}–${D[i][1]}</span></div><div><b style="font-size:16px">${p.t}</b><details style="border:0;padding:0;margin:4px 0"><summary style="font-weight:400;color:#2c6fa8">要做的 ${p.d.length} 件事</summary><ul>${p.d.map(x=>`<li>${x}</li>`).join('')}</ul></details><div class="kv"><b>花多少</b><span>${p.m}</span><b>怎樣算成功</b><span>${p.ok}</span><b>負責</b><span>${p.who}</span></div></div></div>`).join('');
+$('phases').innerHTML=ph.map((p,i)=>`<div class="card phase"><div class="d">第 ${[1,31,61][i]}–${[30,60,100][i]} 天<span>${D[i][0]}–${D[i][1]}</span></div><div><b style="font-size:16px">${p.t}</b><details style="border:0;padding:0;margin:4px 0"><summary style="font-weight:400;color:#2c6fa8">要做的 ${p.d.length} 件事</summary>${p.k?`<p style="margin:4px 0"><b>重點</b>：${p.k}</p><details style="margin:4px 0"><summary>細節</summary>`:''}<ul>${p.d.map(x=>`<li>${x}</li>`).join('')}</ul>${p.k?'</details>':''}</details><div class="kv"><b>花多少</b><span>${p.m}</span><b>怎樣算成功</b><span>${p.ok}</span><b>負責</b><span>${p.who}</span></div></div></div>`).join('');
 
 $('prob').innerHTML=[
- ['每週工時太長','法規：每月加班最多 46 小時',`主要解法：加人。<br>要不要加人：${cm.mid?`中間估計約 ${f(cm.mid)} 人，可能 ${f(cm.lo)}–${f(cm.hi)} 人`:`中間估計不用加，最多約 ${f(cm.hi)} 人`}，看 ${HC} 位包含哪些業者 ${T('est','推估')}。<a href="#sc">算算看</a>`],
- ['班內休息排不進',`法規：連續開 4 小時，至少休 30 分（可以分次，每次至少 15 分）${T('real','真')}`,`主要解法：在端點換駕駛，或讓車停著等。<br>要不要加人：可能要。粗估約 ${W(R.people)} 人，偏高還是偏低不確定 ${T('est','推估')}。減班可以抵一部分。<a href="#rest">看細節</a>`],
- ['一天太長、兩天之間休息太短',`法規：每天開車最多 10 小時；兩個工作日之間至少休 10 小時（一週最多 2 次可以縮到 8 小時，不可以連續兩天）${T('real','真')}`,'主要解法：在端點或場站交班。兩頭班（早晚各開一段）會讓一天變長。所以要同時訂三件事：第一班到最後一班不超過 13 小時、中午有地方休息、中午停太久要算薪水。<br>要不要加人：不一定。<a href="#day">看細節</a>'],
+ ['每週工時太長','法規：每月加班最多 46 小時',`要加人：${cm.mid?`中間估計約 ${f(cm.mid)} 人（${f(cm.lo)}–${f(cm.hi)} 人）`:`中間估計不用加，最多約 ${f(cm.hi)} 人`} ${T('est','推估')}。<a href="#sc">算算看</a>`],
+ ['班內休息排不進',`法規：連續開 4 小時，至少休 30 分 ${T('real','真')}`,`在端點換駕駛，或讓車停著等。粗估約 ${W(R.people)} 人 ${T('est','推估')}。<a href="#rest">看細節</a>`],
+ ['一天太長、兩天之間休息太短',`法規：每天開車最多 10 小時；兩個工作日之間至少休 10 小時 ${T('real','真')}`,'要改排班，不一定要加人。<a href="#day">看細節</a>'],
 ].map(([q,r,a])=>`<div class="card"><div class="q">${q}</div><div class="r">${r}</div><div class="a">${a}</div></div>`).join('');
 
 let sc='all',tg='cap';
@@ -431,57 +440,55 @@ const lab={all:`全部 ${N.ops_n} 家聯營業者`,taipei_ops:`總公司在臺�
 const yr=(a,w)=>a?YI([a*w/1e8]):'0';
 function gapRender(){const g=S[sc][tg];
   $('picked').textContent=`你選的：${lab[sc]}＋${lab[tg]}`;
-  $('gapout').innerHTML=g.hi===0?`<div class="big">不用加人</div><p>這種情況下，${N.wk[sc].n} 個平日各算一次，全市駕駛每週工時中位約 ${N.wk[sc].med.toFixed(1)} 小時（${N.wk[sc].lo.toFixed(1)}–${N.wk[sc].hi.toFixed(1)}）${T('est','推估')}，沒有超過。這是平均。個別駕駛還是可能超過。</p>`:
+  $('gapout').innerHTML=g.hi===0?`<div class="big">不用加人</div><p>${N.wk[sc].n} 個平日，全市駕駛每週工時中位約 ${N.wk[sc].med.toFixed(1)} 小時（${N.wk[sc].lo.toFixed(1)}–${N.wk[sc].hi.toFixed(1)}）${T('est','推估')}，沒有超過。這是平均，個別駕駛還是可能超過。</p>`:
    `<div class="big">${g.mid?`中間估計約 ${f(g.mid)} 人`:'中間估計不用加'}<small>${g.lo?`可能 ${f(g.lo)}–${f(g.hi)} 人`:`也可能不用加，最多約 ${f(g.hi)} 人`} ${T('est','推估')}</small></div><p>人事成本每年${g.mid?`約 ${yi(g.mid,W0,W1)}，`:''}最多約 ${yr(g.hi,W1)} ${T('asm','假設')}</p>`;
-  $('gapnote').textContent=`${tg==='cap'?`每月加班 46 小時，換算成每週平均約 ${N.cap} 小時。經工會同意（沒有工會的，經勞資會議同意），旺季單月可以多排到 54 小時。但每 3 個月合計最多 138 小時，長期平均仍是每週約 ${N.cap} 小時。所以全年要的人數不變。`:'每週 40 小時不加班是政策目標，不是法律要求。'}這是用全市平均算的。個別駕駛有沒有超時，要等出勤紀錄。人事成本假設每位駕駛每年 ${W0/1e4}–${W1/1e4} 萬元（含勞健保）。駕駛由業者僱用。市府、業者和票價各付多少，要看補貼公式。`;
+  $('gapnote').textContent=`${tg==='cap'?`每月加班 46 小時，約等於每週 ${N.cap} 小時（旺季可多排，全年平均同）。`:'每週 40 小時是政策目標，不是法律要求。'}這是全市平均，個別駕駛要看出勤紀錄。每位駕駛每年 ${W0/1e4}–${W1/1e4} 萬元（含勞健保）。`;
   for(const [id,v] of [['sc',sc],['tg',tg]])$(id).querySelectorAll('button').forEach(b=>{b.classList.toggle('on',b.dataset.v===v);b.setAttribute('aria-pressed',b.dataset.v===v);});}
 $('sc').onclick=e=>{if(e.target.dataset.v){sc=e.target.dataset.v;gapRender();}};
 $('tg').onclick=e=>{if(e.target.dataset.v){tg=e.target.dataset.v;gapRender();}};
 gapRender();
-$('gaptab').innerHTML=`<table><tr><th>包含哪些業者</th><th>目標</th><th class="n">中間估計</th><th class="n">可能範圍</th><th>人事成本／年（中間估計）</th></tr>${['all','taipei_ops'].flatMap(s=>['cap','w40'].map(t=>{const g=S[s][t];return `<tr><td>${lab[s]}</td><td>${lab[t]}</td><td class="n">${g.hi===0||!g.mid?'不用加':f(g.mid)+' 人'}</td><td class="n">${g.hi===0?'—':`${f(g.lo)}–${f(g.hi)} 人`}</td><td>${g.mid?yi(g.mid,W0,W1):'—'}</td></tr>`;})).join('')}</table><p class="note">「中間估計」用中間的假設：每班報到、收車的時間取中間，週末照時刻表，休假的人取中間。「可能範圍」把這三項都取最寬鬆和最嚴格。</p>`;
+$('gaptab').innerHTML=`<table><tr><th>包含哪些業者</th><th>目標</th><th class="n">中間估計</th><th class="n">可能範圍</th><th>每年人事成本</th></tr>${['all','taipei_ops'].flatMap(s=>['cap','w40'].map(t=>{const g=S[s][t];return `<tr><td>${{all:`全部 ${N.ops_n} 家`,taipei_ops:`臺北 ${N.tpe_ops_n} 家`}[s]}</td><td>${{cap:'加班上限',w40:'每週 40 小時'}[t]}</td><td class="n">${g.hi===0||!g.mid?'不用加':f(g.mid)+' 人'}</td><td class="n">${g.hi===0?'—':`${f(g.lo)}–${f(g.hi)} 人`}</td><td>${g.mid?yi(g.mid,W0,W1):'—'}</td></tr>`;})).join('')}</table><p class="note">中間估計：報到收車的時間、休假的人取中間，週末照時刻表。可能範圍：取最寬鬆到最嚴格。</p>`;
 const DAY=`（${+N.asof.slice(4,6)}/${+N.asof.slice(6)}）`;
-$('how').innerHTML=`<ul><li>工時＝GPS 看到的營運時間，減掉在端點停 15 分鐘以上的時間（當成休息），再加上每班報到、收車的時間。</li><li>數字偏低，原因有三個：<ul><li>在端點停著的時候，駕駛如果要顧車、不能離開，依勞動部的見解算工作時間。我們把它當成休息扣掉了。</li><li>沒有回報 GPS 的車不在資料裡。</li><li>法定上限是每個人、每個月分開算。各業者的駕駛不能互相支援，所以分開算只會更多。這裡的人數是「全市駕駛能互相支援」的下限。</li></ul></li><li>每週工時：${W4S()} ${T('est','推估')}。週末用時刻表推估。要加多少人，也用這 ${N.wk.all.n} 個平日的中位算：三個假設各取中位，再取最輕到最重。前提：${HC} 位涵蓋全部 ${N.ops_n} 家業者；只算總公司在臺北的 ${N.tpe_ops_n} 家，中位約 ${N.wk.taipei_ops.med.toFixed(1)} 小時。</li><li>每天的上限也要看：GPS 顯示 ${pct(N.daily.drive10)}${DAY} 的車一天開超過 10 小時，${(N.daily.work12*100).toFixed(1)}%${DAY} 的車一天工作超過 12 小時。${T('real','真')}如果一台車整天只由一位駕駛開，這些車的時數會超過法定上限。這要用勤務表確認。如果兩位駕駛輪流開，就沒有超過。</li></ul>`;
+$('how').innerHTML=`<ul><li>工時：GPS 看到的營運時間，扣掉端點停 15 分以上的時間（當成休息），加上報到、收車的時間。</li><li>人數偏低，是下限：端點顧車的時間，依勞動部的見解算工時，我們卻當成休息扣掉；沒回報 GPS 的車不在資料裡；這裡假設全市駕駛能互相支援。</li><li>每週工時：${W4S()} ${T('est','推估')}。只算總公司在臺北的 ${N.tpe_ops_n} 家，中位約 ${N.wk.taipei_ops.med.toFixed(1)} 小時。</li></ul>`;
 
-$('rest').innerHTML=`<p>車到端點的次數裡，只有 ${pct(R.turn15)} 停了 15 分鐘以上 ${T('real','真')}。要把休息排進班表，全市每個平日約要多 ${f(R.vh)} 車小時 ${T('est','推估')}。</p><ul>
-<li><b>在端點換駕駛，車繼續開</b>：只加駕駛。每個平日要多約 ${R.duties} 個駕駛班。加上休假輪替，約 ${W(R.people)} 人駕駛。每年 ${YI(R.cost)} ${T('asm','假設')}。</li>
-<li><b>換不了人，車停著等</b>：車和駕駛都要加，比換駕駛貴。用每車公里的成本粗算，每年約 ${YI(R.bus)}（${WD}）${T('asm','假設')}。這和上一行的算法不同，只當參考。</li>
-<li><b>這個數字可能偏高，也可能偏低</b>。休息用${RULE} ${T('asm','假設')}。這比法規嚴，所以短路線會算多。接班駕駛在端點之間移動的時間沒有算，所以會算少。</li>
-<li><b>和第 1 項不能直接相加</b>。兩筆有一部分是同一批人。合計至少是較大的那一筆，最多是兩筆相加。休息不算工時，所以第 1 項的總工時不會變。多出來的需求，是因為一位駕駛一天能開的趟數變少。</li></ul>`;
+$('rest').innerHTML=`<p>車到端點，只有 ${pct(R.turn15)} 停了 15 分以上 ${T('real','真')}。把休息排進班表，全市每個平日約多 ${f(R.vh)} 車小時 ${T('est','推估')}。</p><ul>
+<li><b>在端點換駕駛</b>：只加駕駛。每個平日多約 ${R.duties} 個駕駛班，含休假輪替約 ${W(R.people)} 人，每年 ${YI(R.cost)} ${T('asm','假設')}。</li>
+<li><b>車停著等</b>：車和駕駛都要加，每年約 ${YI(R.bus)}（${WD}）${T('asm','假設')}。算法不同，只當參考。</li>
+<li><b>可能偏高，也可能偏低</b>：我們的休息規則比法規嚴 ${T('asm','假設')}，短路線算多；接班駕駛移動的時間沒算，算少。</li>
+<li><b>和第 1 項不能直接相加</b>：部分是同一批人。合計至少是較大的一筆，最多是兩筆相加。</li></ul>`;
 
-$('exc').innerHTML=`<b style="font-size:16px">例外規定怎麼用，影響很大</b> ${T('sim','模擬')}<ul>
+$('exc').innerHTML=`<b style="font-size:16px">例外規定影響很大</b> ${T('sim','模擬')}<ul>
 <li><b>建議：市府發公文，請交通部和勞動部解釋例外能用在哪裡。解釋出來以前，業者的班表如果事先用到例外，要申報理由和路線。市府公開這個比例。</b>這幾乎不花錢。</li>
-<li>一般規定：連續開 4 小時要休 30 分。全市 ${Z.routes} 條路線用假設的排法算：${S0S}。</li>
-<li>例外（工作具連續性或交通壅塞時）：最多連續開 6 小時，而且要一次休滿 45 分 ${T('real','真')}。照這個算，只有 ${p1g(Z.lenient)}。</li>
-<li>交通壅塞無法事先知道，所以不應該事先排進班表。「工作具連續性」的範圍不清楚，要等中央解釋。勞基法也有一條類似的例外，業者可能引用。</li>
-<li>問題集中在少數路線。排不進休息的駕駛班最多的是：${Z.worst.map(x=>`${x[0]}（${x[3]} 班，占 ${pct(x[1])}；用例外 ${pct(x[2])}）`).join('、')}。</li>
-<li>${Z.both.length?`用例外後，仍有 ${pct(N.s0.both_min)} 以上駕駛班排不進的路線，要優先處理：${Z.both.map(x=>`${x[0]}（用例外 ${pct(x[2])}，${x[4]} 班中嚴格算 ${x[3]} 班）`).join('、')}。中央的解釋出來以前，先試辦排不進休息的班數最多的路線。如果解釋放寬，只留這一組。`:'用了例外，各路線都排得進。'}可以在<a href="schedule.html">排班頁</a>查每一條。</li>
-<li>這是模擬，不是業者實際的班表。實際上業者可能有機動駕駛，或在場站交班。</li></ul>`;
+<li>一般規定（連開 4 小時休 30 分）：${S0S}。例外（工作具連續性或交通壅塞：最多連開 6 小時，一次休滿 45 分 ${T('real','真')}）：只有 ${p1g(Z.lenient)}。</li>
+<li>壅塞無法事先知道，不應排進班表；「工作具連續性」要等中央解釋。</li>
+<li>${Z.both.length?`用例外後仍有 ${pct(N.s0.both_min)} 以上排不進的路線，要優先處理：${Z.both.map(x=>x[0]).join('、')}。`:'用了例外，各路線都排得進。'}各路線的數字見<a href="#fix">三種改法</a>和<a href="schedule.html">排班頁</a>。</li>
+<li>這是模擬，不是業者的班表（業者可能有機動駕駛）。</li></ul>`;
 
 const nt=N.daily.night;
 $('drvline').innerHTML=`三個問題，解法不一樣：每週工時（照法定上限${cm.mid?`約 ${f(cm.mid)} 人`:'可能不用加人'}；降到每週 40 小時約 ${f(S.all.w40.lo)}–${f(S.all.w40.hi)} 人）、班內休息（約 ${W(R.people)} 人）、一天太長（要改排班）${T('est','推估')}。`;
-$('day').innerHTML=`<ul><li>有過夜紀錄的 ${f(nt.buses)} 台車裡，${pct(nt.under_10)}${DAY} 兩天之間停不到 10 小時 ${T('real','真')}。照汽車運輸業管理規則第 19 條之 2，排班需要時可以縮到 8 小時，一週最多 2 次，不可以連續兩天 ${T('real','真')}。但如果業者是輪班制，勞基法要求換班之間休 11 小時。勞動部公告這個行業可以縮短時除外（待查）。</li>
-<li>${pct(nt.under_8)}${DAY} 停不到 8 小時。如果是同一位駕駛，兩條規定都違反。這些都要用勤務表確認是不是同一位駕駛。</li>
-<li>臺灣沒有直接限制跨度。兩班之間至少休 10 小時，等於一天最多約 14 小時（縮成 8 小時的那天約 16 小時）。我們用日本公車的 13 小時當參考。這可以由工會爭取，寫進團體協約。</li>
-<li>在端點或場站交班，一位駕駛就不必從早開到晚。兩頭班會拉長駕駛的一天，可能超過 13 小時。實際多長，要看勤務表。電腦排班的這個排法，比先到先排少 ${N.crew}% 的班 ${T('sim','模擬')}。</li></ul>`;
+$('day').innerHTML=`<ul><li>GPS${DAY}：有過夜紀錄的 ${f(nt.buses)} 台車裡，${pct(nt.under_10)} 兩天之間停不到 10 小時，${pct(nt.under_8)} 停不到 8 小時；${pct(N.daily.drive10)} 的車一天開超過 10 小時，${(N.daily.work12*100).toFixed(1)}% 一天工作超過 12 小時 ${T('real','真')}。一位駕駛開整天就超過上限，兩位輪流就沒有。是不是同一位駕駛，要用勤務表確認。</li>
+<li>法規：排班需要時，休息可縮到 8 小時，一週最多 2 次，不可以連續兩天（汽車運輸業管理規則第 19 條之 2）${T('real','真')}。輪班制依勞基法，換班之間休 11 小時（勞動部公告可縮短的除外，待查）。</li>
+<li>跨度（第一次上班到最後下班）沒有直接上限，算起來最多約 14 小時（縮成 8 小時那天約 16 小時）。參考日本公車的 13 小時，可由工會爭取寫進團體協約。</li>
+<li>兩頭班（早晚各開一段）會拉長一天。要同時訂三件事：第一班到最後一班不超過 13 小時、中午有地方休息、中午停太久要算薪水。</li></ul>`;
 
 $('tools').innerHTML=[
- ['駕駛工時稽查','建議臺北市核定的公車路線，由臺北市抽查勤務表和行車紀錄。一般違規先輔導、限期改善。嚴重違規照樣依公路法處罰，例如連續開超過 6 小時、兩天之間休不到 8 小時。','公運處；新北核定的路線，建議請新北市政府交通局協同處理'],
- ['路線經營權','建議路線到期換發、新路線核准時，把工時和休息列為審查項目。','交通局'],
- ['補貼和評鑑','建議先把「每週工時」「休息排進班表的比例」列為監測指標，只公開、不扣分。評鑑的等車指標依班次分兩種：每小時 5 班以上看「比班表多等的時間」，每小時未滿 5 班看起站準點率。「串車多等的時間」只用來找串車的地方，不計分（它用實際班距當基準，少開班的業者分數反而好看）。一年後再和補貼、評鑑掛鉤。補貼的人事成本要反映加人和休息的成本。','公運處'],
- ['資料條款','建議修改聯營補貼要點，把定期提供勤務表和出勤紀錄列為申請補貼的條件（當年公告、隔年生效）。在這之前，請業者自願提供，或用稽查權調閱。出勤紀錄本來就是業者依法要保存的資料。','公運處'],
- ['法規解釋','建議請勞動部解釋：在端點等車、兩頭班中間的空檔算不算工時；請交通部和勞動部解釋：「工作具連續性或交通壅塞」的例外能用在哪裡。市府要先整理實例。','勞動局、公運處提案；勞動部、交通部解釋'],
- ['勞動檢查','建議照現有的職權查出勤紀錄和異常工作負荷的預防。檢查拿到的資料只用在檢查，對公運處只給統計結果。','臺北市勞動檢查處；場站在新北的業者由新北市勞動檢查處負責'],
- ['端點空間','建議在端點設休息室、廁所和大車停車格。交班要有交通車。見<a href="#ends">端點</a>。','公運處（主辦）、工會、業者、財政局（市有地）、停管處（停車場）、交通局（路邊大客車停車格）、捷運局和臺北捷運公司（捷運站旁空地和站內廁所，分工要查證）'],
- ['雙北協調',`聯營業者有好幾家在新北。${[...L2.map(x=>nm(x.far)+'小巴'),...new Set(N.places.flatMap(p=>p.ntp||[]))].join('、')}${L2.length||N.places.some(p=>(p.ntp||[]).length)?'和其他':''}跨市路線，新北市境內的路段，建議請新北市政府交通局協同處理。`,'交通局、新北市政府交通局'],
+ ['駕駛工時稽查','建議由臺北市抽查自己核定路線的勤務表和行車紀錄。一般違規先輔導；嚴重的（連開超過 6 小時、兩天之間休不到 8 小時）依公路法處罰。','公運處；新北核定的路線，建議請新北市政府交通局協同處理'],
+ ['路線經營權','建議路線到期換發和新路線核准時，審查工時和休息。','交通局'],
+ ['補貼和評鑑','建議先公開每週工時和休息排進班表的比例，不扣分，一年後再和補貼、評鑑掛鉤。補貼要反映加人和休息的成本。','公運處'],
+ ['資料條款','建議修改聯營補貼要點：定期交勤務表和出勤紀錄，才能申請補貼（當年公告、隔年生效）。之前先請業者自願提供。','公運處'],
+ ['法規解釋','建議請勞動部解釋端點等車、兩頭班空檔算不算工時；請交通部和勞動部解釋休息例外的範圍。','勞動局、公運處提案；勞動部、交通部解釋'],
+ ['勞動檢查','建議照現有職權查出勤紀錄。資料只用在檢查，對公運處只給統計。','臺北市勞動檢查處；場站在新北的業者由新北市勞動檢查處負責'],
+ ['端點空間','建議在端點設休息室、廁所和大車停車格（見<a href="#ends">端點</a>）。','公運處（主辦）、工會、業者、財政局（市有地）、停管處（停車場）、交通局（路邊大客車停車格）、捷運局和臺北捷運公司（捷運站旁空地和站內廁所，分工要查證）'],
+ ['雙北協調','跨市路線在新北市境內的路段，建議請新北市政府交通局協同處理。','交通局、新北市政府交通局'],
 ].map(([t,d,w])=>`<details><summary>${t}<span class="note" style="font-weight:400">　負責：${w}</span></summary><p>${d}</p></details>`).join('');
 
 const H=N.hot_money;
 $('trade').innerHTML=`<div class="chain"><b>增班</b><span>尖峰加班車：${N.hot} 個尖峰時段（${N.hot_routes} 條路線）</span><i>→</i><span>要約 ${H.drivers} 個尖峰兩頭班</span><i>→</i><span>駕駛更不夠</span></div>
 <div class="chain"><b>減班</b><span>離峰車上很少人的班次</span><i>→</i><span>省下駕駛的工時</span><i>→</i><span>可以拿來補休息</span></div>
 <ul><li><b>增班的好處</b>：尖峰太擠的路段，乘客上得去車。</li>
-<li><b>增班的代價</b>：每年約 ${YY(H.all)} ${T('asm','假設')}：駕駛人事 ${YY(H.drv)}、車 ${YY(H.veh)}、油料和維修 ${YY(H.other)}（${WD2}）。這沒有算休假輪替和備用車，所以偏低。駕駛會更不夠。尖峰時段的數目也很不穩：<a href="network.html#mode=plan">地區頁的提案</a>算 ${N.hot} 個尖峰時段（${N.hot_routes} 條路線）${N.hot_b!=null?`；只用 B 算法約 ${N.hot_b} 個尖峰時段`:''}${N.hot_card?`；用假刷卡資料測試是 ${one_(N.hot_card)} 個尖峰時段 ${T('fake','假資料')}`:''}。所以要先到現場數人，現在不編預算。</li>
-<li><b>減班的好處</b>：省下的駕駛工時，最適合拿來補駕駛的休息，不是直接省錢。我們用較早的路線分類算過：離峰車上很少人的路線改用小車或計程車，省下的駕駛工時約等於休息需要的 ${(R.r456-R.r4).toFixed(1)} 倍。只把班次減半，只夠 ${R.r4.toFixed(1)} 倍。所以好處主要來自改小車，不是減班本身。這是紙上估算。目前的提案還沒決定改哪幾條，要先有刷卡資料。</li>
-<li><b>減班的代價</b>：離峰等車的時間變長。所以減班的地方要同時有預約專車或計程車媒合，而且要保留末班車。小車和計程車也要花錢，不是零成本。</li></ul>`;
+<li><b>增班的代價</b>：駕駛會更不夠。每年約 ${YY(H.all)} ${T('asm','假設')}：駕駛人事 ${YY(H.drv)}、車 ${YY(H.veh)}、油料和維修 ${YY(H.other)}（${WD2}；沒算休假輪替和備用車，所以偏低）。尖峰時段的數目也很不穩：<a href="network.html#mode=plan">地區頁的提案</a>算 ${N.hot} 個尖峰時段（${N.hot_routes} 條路線）${N.hot_b!=null?`；只用 B 算法約 ${N.hot_b} 個尖峰時段`:''}${N.hot_card?`；用假刷卡資料測試是 ${one_(N.hot_card)} 個尖峰時段 ${T('fake','假資料')}`:''}。所以先到現場數人，現在不編預算。</li>
+<li><b>減班的好處</b>：省下的駕駛工時，最適合拿來補休息，不是直接省錢。好處主要來自改小車，不是減班本身：用較早的路線分類算，離峰很少人的路線改用小車或計程車，省下的工時約是休息需要的 ${(R.r456-R.r4).toFixed(1)} 倍；只把班次減半，只夠 ${R.r4.toFixed(1)} 倍。這是紙上估算；提案還沒決定改哪幾條，要先有刷卡資料。</li>
+<li><b>減班的代價</b>：離峰等車變久。所以減班的地方要同時有預約專車或計程車媒合，並保留末班車。小車和計程車也要花錢。</li></ul>`;
 function openTo(id){const el=id&&document.getElementById(id);if(!el)return;for(let p=el;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;el.scrollIntoView();}
 window.addEventListener('hashchange',()=>openTo(decodeURIComponent(location.hash.slice(1))));
 document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a)openTo(a.getAttribute('href').slice(1));});

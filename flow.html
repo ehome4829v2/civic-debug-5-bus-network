@@ -90,7 +90,7 @@ nav.tabs{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none}nav.tab
   <div class="legend" style="margin-top:8px"><span><span class="sq" style="background:var(--sch)"></span>班表的班數（最少–最多）</span><span title="起站或前 5 站有看到的班才算"><span class="sq" style="background:var(--act)"></span>實際發車</span><span><span class="sq" style="background:#9ecae1"></span>實際到終點（手機上不畫）</span></div>
   <div class="wrap" id="hourly"></div>
   <p class="note" id="hournote"></p>
-  <details class="note"><summary>怎麼算</summary>有時到終點的班比發車多。原因：前一小時發的車，這一小時才到。前 5 站都沒看到的班，不算實際發車。</details>
+  <details class="note"><summary>怎麼算</summary>實際發車只算前 5 站有看到的班。到終點的班可能比發車多：前一小時發的車，這一小時才到。</details>
 </div>
 <p class="note">看更多：<a id="lk-s" href="schedule.html">③ 這條路線的駕駛：休息排不排得進去、要幾個駕駛班</a></p>
 </main>
@@ -153,23 +153,23 @@ function bunch(){const x=D[R],B=x.bun||[];
    <p style="margin:0 0 4px">${v[5]!=null?`${HH} 點平均 ${(2*v[5]).toFixed(1)} 分一班（一半的班距在 ${v[0]} 分以內）。`:`${HH} 點一半的班距在 ${v[0]} 分以內。`}${kd>1?'車黏在一起，所以有時要等更久。':''}${v[1]>gm?`等最久的一站要等 ${v[1]} 分。`:''}${kw>kd?`最糟的一天有 ${kw} 台一起來。`:''}</p>
    <p style="margin:0 0 6px"><b>${k[0]==='ok'?'車距大致平均。':k[0]==='short'?'問題：班次比班表少。':'問題：串車。'}</b>${fix}</p>${start}`;
   $('bmore').innerHTML=(k[0]==='bunch'&&(h1||h2)?`<details class="note"><summary>模擬：讓車放慢有沒有效</summary><ul style="margin:4px 0">${sim(h1,`起站照間隔發車（在第 3 站「${S3[0]||''}」算）`,'晚發',v[6])}${sim(h2,`中途讓太近的後車放慢（在「${S3[1]||'中段'}」）`,'要放慢',v[6])}</ul>
-     模擬用 GPS 實測的行車時間重算 <span class="badge simb">模擬</span>。後車和前車至少隔一般班距的 8 成。每台車每次最多放慢 3 分。起站照間隔發車在「${S3[0]||'第 3 站'}」做。中途放慢在「${S3[1]||'中段'}」做。等車時間都在「${S3[2]||'下游'}」量。模擬只把車往後推。車距拉開後，每站上下車會變少，模擬沒有算這點。所以模擬可能低估效果。</details>
-    <details class="note"><summary>誰可以做</summary>${vb&&vb[0]!=='better'?`<p style="margin:4px 0">下面前 4 項是讓車放慢。${R} 這一小時模擬的效果${vb[0]==='small'?'小':vb[0]==='worse'?'反而更糟':'看不出來'}。</p>`:''}<ul style="margin:4px 0">
-     <li>業者調度中心：起站照間隔發車。每班最多晚發 3 分。${R} 這一小時的模擬${v1?`結果：${v1[1]}`:'沒有資料'}。</li>
-     <li>業者調度中心可以叫太近的後車放慢。這是業者的調度，市府只核定規則。${R} 這一小時的模擬${v2?`結果：${v2[1]}`:'沒有資料'}。</li>
-     <li>建議公運處核定規則：起站晚發和中途放慢合計，一個來回最多 6 分。這段時間加進班表。駕駛的休息時間不扣（看 ${sch}）。</li>
-     <li>建議調度系統自動標出一種班：前一趟比這時段 85% 的車慢。這些班的駕駛回到端點後，照樣休滿再發車。休多久照本專案的規則：每個來回至少休 15 分；路線越長，休越久（比例是開 4 小時休 30 分）<span class="badge asm">假設</span>。這些班因此晚發時，建議不罰業者和站務員。</li>
-     <li>建議公運處先核定跳站和區間車的規則。核定後，調度員才能用。以下兩種情況不算過站不停：照規則跳站；違停擋住站牌（用行車影像確認）。</li>
-     <li>建議公運處的評鑑照班次多少分兩種。${bph!=null?`${R} 這一小時約 ${bph} 班，${bph>=5?'用第一種':'用第二種'}。`:''}<br>第一種，每小時 5 班以上：用「比班表多等的時間」。這是倫敦的算法：實際平均等車時間，減掉照班表應等的時間。業者要交計畫發車時刻。<br>第二種，每小時未滿 5 班：用起站準點率。例如：提早 2.5 分到晚 5 分內發車的比例 <span class="badge asm">假設</span>。<br>上面的「串車多等」（這一小時 ${(v[4]-v[5]).toFixed(1)} 分）只用來找串車，不計分。它用實際班距當基準。所以少開班的業者，分數反而好看。</li>
-     <li>串車開始的站和前 3 個路口：交工處查號誌、劃紅線。公運處檢查站牌位置。警察局交通大隊在尖峰取締違停。新北市境內的路段，建議請新北市政府交通局協同處理。</li>
+     用 GPS 實測的行車時間重算 <span class="badge simb">模擬</span>。後車至少隔一般班距（兩班車相隔幾分）的 8 成；每次最多放慢 3 分。在「${S3[0]||'第 3 站'}」發車，在「${S3[1]||'中段'}」放慢，在「${S3[2]||'下游'}」量等車時間。沒算車距拉開後上下車變少，所以效果可能被低估。</details>
+    <details class="note"><summary>誰可以做</summary><p style="margin:4px 0">業者調整發車；公運處定規則和評鑑；交通局和警察處理路口和違停。</p>${vb&&vb[0]!=='better'?`<p style="margin:4px 0">下面前 4 項是讓車放慢。${R} 這一小時模擬的效果${vb[0]==='small'?'小':vb[0]==='worse'?'反而更糟':'看不出來'}。</p>`:''}<ul style="margin:4px 0">
+     <li>業者調度中心：起站照間隔發車，每班最多晚發 3 分。${R} 這一小時的模擬${v1?`結果：${v1[1]}`:'沒有資料'}。</li>
+     <li>業者調度中心：叫太近的後車放慢。市府只核定規則。${R} 這一小時的模擬${v2?`結果：${v2[1]}`:'沒有資料'}。</li>
+     <li>建議公運處核定上限：起站晚發加中途放慢，一個來回最多 6 分。這 6 分加進班表，不扣駕駛休息（看 ${sch}）。</li>
+     <li>建議調度系統自動標出慢班：前一趟比這時段 85% 的車慢。這些班的駕駛回端點後，照樣休滿再發車 <span class="badge asm">假設</span>：每個來回至少休 15 分；路線越長休越久（開 4 小時休 30 分）。因此晚發時，建議不罰業者和站務員。</li>
+     <li>建議公運處先核定跳站和區間車的規則，調度員才能用。不算過站不停：照規則跳站；違停擋住站牌（用行車影像確認）。</li>
+     <li>建議公運處照班次多少，用兩種評鑑。${bph!=null?`${R} 這一小時約 ${bph} 班，${bph>=5?'用第一種':'用第二種'}。`:''}<br>第一種（每小時 5 班以上）：看「比班表多等的時間」，就是實際平均等車時間減掉照班表應等的時間（倫敦的算法）。業者要交計畫發車時刻。<br>第二種（每小時未滿 5 班）：看起站準點率，例如提早 2.5 分到晚 5 分內發車的比例 <span class="badge asm">假設</span>。<br>上面的「串車多等」（這一小時 ${(v[4]-v[5]).toFixed(1)} 分）只用來找串車，不計分：它以實際班距為基準，少開班的業者反而分數好看。</li>
+     <li>串車開始的站和前 3 個路口：交工處查號誌、劃紅線；公運處檢查站牌位置；警察局交通大隊在尖峰取締違停。新北市路段，建議請新北市政府交通局協同處理。</li>
      <li>交通局：公車專用道；號誌讓公車先走。</li>
      <li>業者和交通局：多門上車；站牌夠停。</li></ul></details>`:'')+
-    `<details class="note" id="bhow"><summary>怎麼算</summary><ul style="margin:4px 0">
-     <li>最多幾台一起來：同一站連續到站的車，每兩台相隔都不到一般班距的 1/4（門檻至少 1 分）。而且同兩台車在 3 站以上都這麼近。</li>
-     <li>多數站最久等：先找每一站這一小時最長的空檔。再取各站的中間值。</li>
-     <li>串車從哪裡開始：每一對串在一起的車只算一次。我們算它們第一次相隔不到一般班距 1/4 的那一站和小時（${v[8]} 個平日合計）。前車可能在更前面就耽擱了。少數站的到站時間是推估的。</li>
-     <li>數字取 ${v[8]} 個平日中比較小的那天。圖只畫 ${md(META.latest)} 一天，所以圖和數字會不同。</li>
-     <li>到站時間是公車 GPS <span class="badge real">真</span>。串車的台數和次數用上面的門檻算 <span class="badge real">真＋假設</span>。門檻是我們選的。模擬另外標。</li></ul></details>
+    `<details class="note" id="bhow"><summary>怎麼算</summary>串車＝兩台以上的車黏在一起來。門檻是我們選的。班距＝兩班車相隔幾分。<ul style="margin:4px 0">
+     <li>最多幾台一起來：同一站連續到站的車，每兩台相隔不到一般班距的 1/4（至少 1 分），而且同兩台車在 3 站以上都這樣。</li>
+     <li>多數站最久等：每站取這小時最長的空檔，再取各站的中間值。</li>
+     <li>串車從哪站開始：每對串車只算一次，記它們第一次靠這麼近的站和小時（${v[8]} 個平日合計）。少數站的到站時間是推估的。</li>
+     <li>數字取 ${v[8]} 個平日中比較小的那天。圖只畫 ${md(META.latest)} 一天，所以兩者會不同。</li>
+     <li>到站時間是公車 GPS <span class="badge real">真</span>。串車台數和次數用上面的門檻算 <span class="badge real">真＋假設</span>。模擬另外標。</li></ul></details>
     <details class="note"><summary>每小時的表：往${to(B[HF])}</summary><div class="wrap"><table><tr><th>時</th><th class="n">平均幾分一班</th><th class="n">最多幾台一起來</th><th class="n">多數站最久等</th><th class="n">平均要等</th><th class="n">車距平均時只要</th><th>問題</th></tr>${hs.map(hh=>{const u=hw[hh];return `<tr${hh===HH?' style="background:#fff6e0"':''}><td>${hh}</td><td class="n">${u[5]!=null?(2*u[5]).toFixed(1):u[0]}</td><td class="n">${u[2]||1}</td><td class="n">${u[9]??u[1]}</td><td class="n">${u[4]}</td><td class="n">${u[5]}</td><td>${KIND(x,u,d,hh)[1]}</td></tr>`;}).join('')}</table></div></details>`;
   $('bsvg').innerHTML='<p class="note">載入軌跡…</p>';$('bnote').innerHTML='';
   const r=R,hf=HF,hh=HH;loadRV(r,()=>{if(r===R&&hf===HF&&hh===HH)tsd(v[0]);});
@@ -228,11 +228,11 @@ function summary(){const x=D[R],S=x.sim,ss=x.simsum,hw=x.hw||{},OT=x.ot&&x.ot[7]
   const lead=OT?`${R} 班次少，所以看準點：起站準點率 ${pct(OT[0])}。`:extra!=null?`${R} ${(()=>{const k=Math.max(1,...(x.bun||[]).flatMap(b=>Object.values(b[1]).map(u=>u[2]||1)));const hk=[...new Set((x.bun||[]).flatMap(b=>Object.entries(b[1]).filter(([,u])=>(u[2]||1)===k).map(([h])=>+h)))].sort((a,b)=>a-b);return k>=2?`最多 ${k} 台一起來（${hk.length>4?`${hk.slice(0,3).join('、')} 點等 ${hk.length} 個時段`:`${hk.join('、')} 點`}；兩個方向；${ND} 個平日中比較小的那天）`:'很少串車';})()}。${dir0}串車讓每人平均多等約 ${extra.toFixed(1)} 分。${wh!=null?`尖峰（${PK.join('、')} 點）以 ${wh} 點最多。`:''}`:`${R} 平日一天約發 ${f(Math.round(sum(depH(x))))} 班次。`;
   const L=[];
   const fixed=lohi&&Math.round(lohi[0])===Math.round(lohi[1]);
-  L.push(`${R} 平日一天約發 ${f(Math.round(sum(depH(x))))} 班次（兩個方向合計）。${x.partial?'<b title="有一個方向只公布部分時段">TDX（交通部公開資料平台）公布的班表不完整</b>。所以這裡不和班表比。':lohi?(fixed?`班表是 ${f(Math.round(lohi[0]))} 班次。`:`班表寫 ${f(Math.round(lohi[0]))}–${f(Math.round(lohi[1]))} 班次。`)+(B?`和班表比：每個方向的每個小時算一個時段，共 ${B[0]+B[1]+B[2]} 個時段。其中 ${B[0]} 個時段${fixed?'和班表一樣':'在班表範圍內'}（差 1 班次以內算符合）。${fixed||!where?'':where+'。'}`:''):''}`);
+  L.push(`${R} 平日一天約發 ${f(Math.round(sum(depH(x))))} 班次（兩個方向合計）。${x.partial?'<b title="有一個方向只公布部分時段">TDX（交通部公開資料平台）公布的班表不完整</b>。所以這裡不和班表比。':lohi?(fixed?`班表是 ${f(Math.round(lohi[0]))} 班次。`:`班表寫 ${f(Math.round(lohi[0]))}–${f(Math.round(lohi[1]))} 班次。`)+(B?`和班表比（每個方向、每個小時算一個時段）：${B[0]+B[1]+B[2]} 個時段中，${B[0]} 個${fixed?'和班表一樣':'在班表範圍內'}（差 1 班次以內算符合）。${fixed||!where?'':where+'。'}`:''):''}`);
   // the simulation against GPS at that hour: over 10% apart, say it in tenths (成) and why (slow running times, p85)
-  const gp=sr?(sr[pk]-ar[pk])/Math.max(1,ar[pk]):0,gs=sr?(Math.abs(gp)>.1?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*10)} 成。${gp>0?'模擬的行車時間用 p85（100 趟裡第 85 慢）。':''}`:`模擬 ${sr[pk].toFixed(0)} 台，相差不到 1 成。`):'';
+  const gp=sr?(sr[pk]-ar[pk])/Math.max(1,ar[pk]):0,gs=sr?(Math.abs(gp)>.1?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*10)} 成。${gp>0?'因為模擬用偏慢的行車時間（100 趟裡第 85 慢）。':''}`:`模擬 ${sr[pk].toFixed(0)} 台，相差不到 1 成。`):'';
   L.push(`同時在路上的車，${pk} 點最多：${ND} 個平日平均 ${ar[pk].toFixed(0)} 台。${gs}`);
-  if(OT)L.push(`準點：提早 2.5 分到晚 5 分內從起站出發。我們只量起站。`);else if(extra!=null)L.push(`幾台車黏在一起來，叫串車。多等的分鐘是全天平均。車距完全均勻時，最多能少等這麼多。實際做得到的會比這個少。${wh!=null?`尖峰（${PK.join('、')} 點）裡，${wh} 點串車讓人多等最多。`:''}這個數字只用來找串車，不用來評鑑業者。`);
+  if(OT)L.push(`準點：提早 2.5 分到晚 5 分內從起站出發。我們只量起站。`);else if(extra!=null)L.push(`串車＝幾台車黏在一起來。多等的分鐘是全天平均，也是車距完全均勻時最多能少等的時間；實際做得到的會更少。${wh!=null?`尖峰（${PK.join('、')} 點）以 ${wh} 點多等最多。`:''}這個數字只用來找串車，不用來評鑑業者。`);
   $('why').innerHTML=sr?`上排是實際的車 <span class="badge real">真</span>。下排是照班表排的車 <span class="badge simb">模擬</span>。同時在路上的車，${pk} 點最多：實際 ${ar[pk].toFixed(0)} 台（${ND} 個平日平均），模擬 ${sr[pk].toFixed(0)} 台。${Math.abs(gp)>.25?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*10)} 成，差超過 25%。所以 ③ 的駕駛班數只當範圍。`:Math.abs(gp)>.1?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*10)} 成。所以 ③ 的駕駛班數只當參考。`:'兩者相差不到 1 成。③ 的駕駛班數可以參考。'}`:'這條路線沒有排班模擬。這裡只播放實際的車。';
   $('ans').innerHTML=`<b>${lead}</b>${!OT&&extra!=null?` <span class="badge real">真＋假設</span> <span style="font-size:13px;color:#555">門檻是我們選的（<a href="#bhow" onclick="const e=document.getElementById('bhow');if(e)e.open=true;">見說明</a>）。</span>`:''}<details style="font-size:14px"><summary>怎麼算</summary>${L.join('')}</details>`;
 
@@ -262,7 +262,7 @@ function draw(){if(!R)return;const x=D[R],W=Math.max(320,Math.min(1080,$('lanes'
   s+=lane(`實際（GPS，${md(META.latest)} 這一刻）`,82,W-2,X,A,ends,`開車中 ${A.length} 台`,null);
   if(S)s+=lane('模擬（排班）',232,W-2,X,SD,ends,[`開車中 ${drv} 台`,rst?`休息 ${rst} 台`:'',trn?`折返 ${trn} 台`:''].filter(Boolean).join('・'),at);
   s+='</svg>';$('lanes').innerHTML=s;
-  $('lanenote').innerHTML=`<span style="font-size:14px;color:#222">實際那排疊起來的點是串車。模擬照班表發車，所以間距平均。</span>${x.loop?'環狀線：線上方是去，線下方是回。':''}${S?'兩端方塊：深灰＝在休息，淺灰＝在折返。':'這條路線的班次不夠，所以沒有模擬。'}<details><summary>怎麼算</summary>實際：我們只知道每一趟幾點到哪一站。兩站之間的位置用等速推估。停在端點的車不畫。${S?'模擬：照班表發車。行車時間用實測裡偏慢的那一批（100 趟裡第 85 慢）。':''}</details>`;
+  $('lanenote').innerHTML=`<span style="font-size:14px;color:#222">實際那排疊起來的點是串車。模擬照班表發車，所以間距平均。</span>${x.loop?'環狀線：線上方是去，線下方是回。':''}${S?'兩端方塊：深灰＝在休息，淺灰＝在折返。':'這條路線的班次不夠，所以沒有模擬。'}<details><summary>怎麼算</summary>實際：只知道每趟幾點到哪站，兩站之間用等速推估。停在端點的車不畫。${S?'模擬：照班表發車，行車時間用偏慢的那批（100 趟裡第 85 慢）。':''}</details>`;
   hourly();}
 function axis(s,W,Y,mx,top,unit){for(let v=0;v<=mx;v+=Math.max(1,Math.ceil(mx/4))){s.push(`<line x1="40" x2="${W-4}" y1="${Y(v)}" y2="${Y(v)}" stroke="#eee"/><text x="36" y="${Y(v)+4}" font-size="12" fill="#555" text-anchor="end">${v}</text>`);}s.push(`<text x="4" y="${top-12}" font-size="12" fill="#555">${unit}</text>`);}
 function hourly(){const x=D[R],W=Math.max(320,Math.min(1080,$('hourly').clientWidth||900)),st=(W-50)/H.length,cur=Math.floor(T/60),Xc=i=>44+i*st+st/2;
