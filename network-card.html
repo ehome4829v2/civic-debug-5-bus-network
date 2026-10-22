@@ -143,12 +143,12 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
 #simbar{display:none;margin:6px 0;padding:8px 10px;border:2px solid #b5179e;border-radius:8px;background:#fdf0fa;font-size:13px}
 .simtab td,.simtab th{vertical-align:top;padding:4px 6px;border-bottom:1px solid var(--line)}.simtab .chg{color:#b5179e;font-weight:700}
 .pol .card{margin:0}.pol dl{display:grid;grid-template-columns:3.2em 1fr;gap:2px 8px;margin:0;font-size:13px}.pol dt{color:var(--mut)}.pol dd{margin:0}
-.event{float:right;margin:8px 16px 0 8px;font-size:12px;line-height:1.4;padding:3px 10px;border-radius:6px;background:#222;color:#fff;white-space:nowrap}@media(max-width:700px){.event{float:none;display:block;margin:0;border-radius:0;padding:3px 16px;font-size:11px;white-space:normal}}
-.disc{margin:0;padding:4px 16px;font-size:12px;line-height:1.5;color:#5a4a00;background:#fff6d6;border-bottom:1px solid #ecdca0}</style>
+.event{display:block;margin:0;padding:6px 16px 2px;text-align:right;font-size:12px;line-height:1.4;color:#6e6e6e;background:none;letter-spacing:.02em}nav.tabs{scroll-padding-left:16px}
+.disc{margin:0;padding:4px 16px;font-size:12px;line-height:1.5;color:#5a4a00;background:#fffbea;border-top:1px solid #f0e3b0;border-bottom:1px solid #f0e3b0}@media(max-width:700px){.disc{font-size:11.5px;line-height:1.45}}</style>
 </head>
 <body>
 
-<div class="event">市政Debug松 #5公車路網如何即時反應需求<span style="opacity:.75">・預覽版 2026/10/22 19:40</span></div><nav class="tabs"><a href="network.html" class="on">① 地區<span class="tf">：哪裡人多、哪裡人少</span></a><a href="flow.html" class="">② 路線<span class="tf">：車怎麼跑</span></a><a href="schedule.html" class="">③ 駕駛<span class="tf">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tf">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tf">與教學</span></a></nav><p class="disc">市政Debug松參賽作品，民間研究，不代表臺北市政府立場。本站的資料蒐集、計算和文字由 AI 協助完成，可能有錯，引用前請人工核對原始資料。</p>
+<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><p class="disc">市政Debug松參賽作品，屬於個人玩耍性質，可能有錯，不代表臺北市政府立場。本站的資料蒐集、計算和文字由 AI 協助完成，引用前請人工核對原始資料。</p><nav class="tabs"><a href="network.html" class="on">① 地區<span class="tf">：哪裡人多、哪裡人少</span></a><a href="flow.html" class="">② 路線<span class="tf">：車怎麼跑</span></a><a href="schedule.html" class="">③ 駕駛<span class="tf">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tf">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tf">與教學</span></a></nav>
 <header>
   <h1 class="now-only">地區：這個時段哪裡人多、哪裡人少</h1><h1 class="plan-only">看提案：怎麼改路網</h1><h1 class="live-only">看即時：哪裡上下車比平常多、哪條路線比平常久沒車</h1>
   <div id="simbar"></div>
@@ -590,7 +590,7 @@ function stopList(f){const ok=b=>!/暫時裁撤/.test(OV.stops[b[0]][2]);   // a
   const M=st.tab==='less',L=f.bus.filter(b=>b[1]===(M?1:6)&&ok(b)).sort((a,b)=>M?b[2]-a[2]:b[3]-a[3]).slice(0,10);
   g('sctitle').textContent=`${hh(st.h)} 點：人多車少、車多人少的站（全市前 10）`;
   g('tab').innerHTML=[['more','▲ 人多車少'],['less','■ 車多人少']].map(([v,t])=>`<button data-v="${v}" class="${st.tab===v?'on':''}">${t}</button>`).join('');
-  g('mis').innerHTML=`<tr><th>站</th><th class="n">約幾分一班</th><th class="n">每班多停</th><th>所在格子</th></tr>`+(L.map(([i,,b,e])=>{const s=OV.stops[i],c=D.data[st.p].grid[s[3]];return `<tr class="pick" data-i="${i}"><td>${esc(s[2])}${city(s)?' <span class="note">新北</span>':''}</td><td class="n">${b>=60?'&lt;1':Math.round(60/b)} 分</td><td class="n">${Math.round(e)>0?Math.round(e)+' 秒':'—'}</td><td>${c?`<span class="sw" style="background:${COL[c.k]}"></span>${NAME[c.k]}`:''}</td></tr>`;}).join('')||'<tr><td colspan=4 class="note">無</td></tr>');
+  g('mis').innerHTML=`<tr><th>站</th><th class="n">約幾分一班</th><th class="n">每班多停</th><th>所在格子</th></tr>`+(L.map(([i,,b,e])=>{const s=OV.stops[i],c=D.data[st.p].grid[s[3]];return `<tr class="pick" data-i="${i}"><td>${esc(s[2])}${city(s)?' <span class="note">新北</span>':''}</td><td class="n">${b>=60?'&lt;1':Math.round(60/b)} 分</td><td class="n">${Math.round(e)>0?Math.round(e)+' 秒':'—'}</td><td>${c?`<span class="sw" style="background:${COL[c.k]}"></span>${NAME[c.k]}`:''}</td></tr>`;}).join('')||`<tr><td colspan=4 class="note">這一小時沒有站達到「站點${M?'車多人少':'人多車少'}」的門檻（${M?'班次在全市前 1/4，每班多停 6 秒以下':'至少 3 班、班次在全市後 1/4，每班比這站最安靜時段多停 40 秒以上'}）。站點的門檻比格子嚴；格子的${M?'車多人少':'人多車少'}看左邊地圖${M?'藍':'紫'}色格（${Object.values(D.data[st.p].grid).filter(c=>c.k===(M?'overlap':'mismatch')).length} 格，整個時段合計）。</td></tr>`);
   g('misnote').textContent=M?'站上沒人上下，不代表車是空的。主幹道的車常是滿的，乘客在別站上下。點站看經過的路線和附近捷運。':'車來得少，每班自然等到比較多人。要不要加班，要跟車看車上滿不滿。點站看這一站一天的變化。';}
 function drawSel(){const s=g('sel');s.innerHTML='';const u=U();
   if(st.route){for(const ln of OV.routes[st.route]){const pts=ln.map(i=>P(OV.stops[i][0],OV.stops[i][1]).join(',')).join(' ');
