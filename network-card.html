@@ -16,7 +16,7 @@ a{color:#2c6fa8}
 .controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:8px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fafaf7;z-index:2}
 .play{font-size:9px;width:22px;height:20px;border-radius:4px;border:none;background:#444;color:#fff;cursor:pointer;padding:0;line-height:1;flex:none}
 .mapwrap{position:relative}
-.canvas{height:max(360px,calc(100vh - 390px));overflow:hidden;border-radius:8px;cursor:grab;touch-action:none;overscroll-behavior:contain}
+.canvas{height:max(420px,calc(100vh - 210px));overflow:hidden;border-radius:8px;cursor:grab;touch-action:none;overscroll-behavior:contain}
 .canvas::-webkit-scrollbar{display:none}.canvas.drag{cursor:grabbing;user-select:none}
 .canvas>svg{width:100%;height:100%}
 #fdest{position:absolute;left:8px;bottom:8px;max-width:min(420px,75%);background:rgba(255,255,255,.92);border-radius:6px;padding:4px 8px;font-size:12px;line-height:1.5;z-index:3;box-shadow:0 1px 3px rgba(0,0,0,.15)}#fdest:empty{display:none}
@@ -67,7 +67,8 @@ details.more summary{font-size:12px;color:#555;cursor:pointer;margin-top:6px}
 .seg button.thin{border-style:dashed;color:#888}
 input[type=search]{font:inherit;font-size:13px;padding:4px 8px;border:1px solid #bbb;border-radius:6px;width:min(240px,100%)}
 label.tg{font-size:13px;cursor:pointer;user-select:none;white-space:nowrap}
-main{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:12px;padding:12px 16px}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:12px 16px}
+main>div:nth-child(2){display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px;align-items:start}main>div:nth-child(2)>*{margin-top:0}
 main>*{min-width:0}
 @media (max-width:900px){main{grid-template-columns:minmax(0,1fr);padding:8px}}
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:12px;overflow-x:auto}
@@ -122,7 +123,11 @@ ul.lv li i{display:inline-block;width:11px;height:11px;border-radius:2px;vertica
 .lvdo{font-size:13px;background:#fbf3e8;border-left:4px solid #c62828;padding:6px 10px;margin:6px 0;border-radius:4px}
 .mode{display:inline-flex;gap:0;flex-wrap:nowrap}.mode button{font:inherit;font-size:14px;font-weight:700;border:1px solid #888;background:#fff;color:#444;padding:4px 12px;cursor:pointer}
 .mode button:first-child{border-radius:7px 0 0 7px}.mode button:last-child{border-radius:0 7px 7px 0;border-left:none}
-.mode button.on{background:#222;color:#fff;border-color:#222}.mode button small{font-weight:400;font-size:11px;margin-left:4px;opacity:.85}
+.mode button.on{background:#222;color:#fff;border-color:#222}
+.focus{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 2px}.focus>b{font-size:15px}
+.focus button{font:inherit;font-size:15px;font-weight:700;border:2px solid #ccc;background:#fff;color:#333;border-radius:10px;padding:5px 12px;cursor:pointer;line-height:1.3}.focus button small{display:block;font-size:12px;font-weight:400;color:#666}
+.focus button.on{border-color:#222;background:#222;color:#fff}.focus button.on small{color:#ddd}.focus button.adv{font-size:13px;font-weight:400;border-style:dashed}
+.fsum{flex-basis:100%;font-size:15px;margin:2px 0 0}.mode button small{font-weight:400;font-size:11px;margin-left:4px;opacity:.85}
 .mode button:disabled{opacity:.4;cursor:default}
 #rb{position:absolute;left:8px;top:8px;z-index:3;background:#fff;color:#222;border:1px solid #222;font-size:12px;font-weight:700;border-radius:3px;padding:2px 8px;pointer-events:none}
 .kp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
@@ -163,12 +168,13 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
 </header>
 <div class="controls">
   <div class="mode" id="mode" role="tablist"><button data-m="live" role="tab">看即時<small><span data-frozen>回放</span></small></button><button data-m="now" class="on" role="tab">看現況</button><button data-m="plan" role="tab">看提案<small>研究建議</small></button></div>
+  <div class="focus now-only nolive" id="focus"></div>
   <input type="search" id="q" list="qlist" placeholder="找地名、站名或路線，例如 三重、307" aria-label="找地名或站名"><datalist id="qlist"></datalist><span id="qmsg"></span>
   <details class="layers" open><summary>圖層</summary><span class="now-only">
   <label class="tg"><input type="checkbox" id="l-cell" checked> 區域格子</label>
   <label class="tg"><input type="checkbox" id="l-stop" checked> 公車站點 ▲■</label>
   <label class="tg"><input type="checkbox" id="l-mrt"> 捷運進出站 <svg width="74" height="22" viewBox="0 0 74 22" style="vertical-align:-6px" aria-label="圓圈大小：5 千、1.5 萬、3 萬人次／時"><title>進＋出站人次／時：5 千、1.5 萬、3 萬以上</title><circle cx="8" cy="11" r="5" fill="none" stroke="#5e5a96" stroke-opacity=".6"/><circle cx="26" cy="11" r="8" fill="none" stroke="#5e5a96" stroke-opacity=".6"/><circle cx="52" cy="11" r="10.5" fill="none" stroke="#5e5a96" stroke-width="1.6" stroke-opacity=".8"/></svg></label>
-  <label class="tg" title="勾選時會關掉區塊提案，讓流向清楚"><input type="checkbox" id="l-flow" checked> 捷運人流（去哪、從哪來）</label>
+  <label class="tg" title="勾選時會關掉區塊提案，讓流向清楚"><input type="checkbox" id="l-flow"> 捷運人流（去哪、從哪來）</label>
   <label class="tg" title="離峰多數時段人少、連在一起的格子。要開什麼車，看「看提案」"><input type="checkbox" id="l-plan"> 人少的區塊（待評估）</label>
   <label class="tg" title="每一段站到站之間有幾條公車路線共用；彩色＝和那條捷運線平行"><input type="checkbox" id="l-ovr"> 公車路線重疊</label>
   <label class="tg" title="主要河川：過不去的地形邊界"><input type="checkbox" id="l-river"> 河川</label>
@@ -272,7 +278,10 @@ const HOUR={early:6,am_peak:8,midday:12,pm_peak:18,evening:20,night:23};
 const SHORT={early:'清晨',am_peak:'早尖峰',midday:'白天',pm_peak:'晚尖峰',evening:'晚間',night:'深夜'};
 const HRS=OV.hours.map(f=>f.h),HF=h=>OV.hours.find(f=>f.h===h)||{bus:[],mrt:[]};
 const PER=h=>{const p=Object.keys(OV.span).find(p=>OV.span[p][0]<=h&&h<OV.span[p][1]);return D.periods.includes(p)?p:D.periods[0];};
-const st={h:8,p:'am_peak',playing:false,timer:null,sel:null,vb:[0,0,1000],tab:'more',blkAll:false,mode:'now'};
+const st={h:8,p:'am_peak',playing:false,timer:null,sel:null,vb:[0,0,1000],tab:'more',blkAll:false,mode:'now',focus:'short'};
+const ACC_STRONG=3;   // 累積 lists and colours what came back on 3 weekdays or more; 2-day items stay pale and folded
+// 看現況 asks one question at a time: only that kind of cell and stop is coloured, the rest goes pale
+const FOC={short:{k:'mismatch',stop:6,lab:'哪裡車不夠',sub:'人多車少'},extra:{k:'overlap',stop:1,lab:'哪裡車太多',sub:'車多人少'},gap:{k:'gap',stop:null,lab:'哪裡沒公車',sub:'有人住、附近沒站牌'},all:{lab:'全部一起看',sub:'進階'}};
 // 看即時 (pipeline.live): D.live = replays of frozen weekdays, every 5 minutes; window.LIVE_NOW = web/live.js, written every 5 minutes
 const LV=D.live||null;st.lv={src:'replay',d:LV?LV.days.length-1:0,i:0,playing:false,timer:null};let LN=null;
 const ACC=D.acc||null;   // pipeline.recur: alarms that came back on ≥ 2 days → what to change in the network
@@ -435,8 +444,9 @@ const selXY=s=>s.t==='stop'?P(OV.stops[s.i][0],OV.stops[s.i][1]):P(...cc(s.k));
 function select(s,toMap=false){st.sel=s;const [x,y]=selXY(s);fly(x,y,Math.min(st.vb[2],280));if(toMap)g('map').scrollIntoView({behavior:'smooth',block:'nearest'});}
 function stops(f,u,showCells){
   const sm=g('stopm'),dt=g('dots'),sl=g('slab'),zoomed=DET();sm.innerHTML='';dt.innerHTML='';sl.innerHTML='';
-  const mark=f.bus.filter(b=>b[1]===1||b[1]===6||(zoomed&&b[1]===0)).sort((a,b)=>(a[1]===6)-(b[1]===6));
-  if(zoomed)for(const [i,k,b,e,sx] of f.bus){if(k===0||k===1||k===6)continue;const [x,y]=P(OV.stops[i][0],OV.stops[i][1]);if(!inView(x,y)||underHud(x,y))continue;
+  const FO=st.mode==='now'&&st.focus!=='all'?FOC[st.focus]:null;
+  const mark=f.bus.filter(b=>FO?b[1]===FO.stop:(b[1]===1||b[1]===6||(zoomed&&b[1]===0))).sort((a,b)=>(a[1]===6)-(b[1]===6));
+  if(zoomed&&!FO)for(const [i,k,b,e,sx] of f.bus){if(k===0||k===1||k===6)continue;const [x,y]=P(OV.stops[i][0],OV.stops[i][1]);if(!inView(x,y)||underHud(x,y))continue;
     tip(el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:1.7*u,fill:'#a8a395','fill-opacity':.75,'data-i':i,style:'cursor:pointer'},dt),`${OV.stops[i][2]}｜${b} 班／時、${secT(e,sx)}｜${KN[k]}`);}
   const named=[...g('lab').querySelectorAll('text')].map(t=>{const w=t.textContent.length*12*u;return ['',+t.getAttribute('x')-w/2,+t.getAttribute('y')-4*u,w];});
   for(const [i,k,b,e,sx] of mark){const s=OV.stops[i],[x,y]=P(s[0],s[1]);if(!inView(x,y)||(k===0&&underHud(x,y)))continue;
@@ -461,6 +471,7 @@ function draw(){
   if(LIVE)liveClock();
   g('hour').value=st.h;
   g('per').innerHTML=D.periods.map(p=>`<button data-v="${p}" class="${st.p===p?'on':''} ${D.data[p].thin?'thin':''}">${SHORT[p]}</button>`).join('');
+  const FQ=!PLAN&&!LIVE&&st.focus!=='all'?FOC[st.focus]:null;focusBar(G,f,FQ);
   const showPop=!PLAN&&!LIVE&&g('l-pop').checked,tier=g('l-tier').checked,showCells=PLAN||LIVE||g('l-cell').checked,showStops=!PLAN&&!LIVE&&g('l-stop').checked,showMrt=!PLAN&&!LIVE&&g('l-mrt').checked;
   for(const l of g('lines').children){const zi=DET();l.setAttribute('opacity',PLAN?.3:zi?.5:.35);l.setAttribute('stroke-width',zi?2:1.6);}
   const fade=!showCells?0:LIVE?.55:PLAN?.9:showStops||showMrt?.45:1,CL=PLAN||LIVE?GREY:COL;
@@ -469,11 +480,12 @@ function draw(){
   document.querySelectorAll('[data-sw]').forEach(e=>e.style.opacity=op(e.dataset.sw)||.85);
   for(const k of keys){const r=rects[k],c=G[k];
     if(showPop){const v=D.pop[k]||0;r.setAttribute('fill',v?POPC[POPB.filter(b=>v>=b).length]:'#fff');r.setAttribute('opacity',v?.9:0);continue;}   // 人口 replaces the hot/cold colours, one slate ramp (designer: keeps the MRT line colours readable)
+    if(FQ){const on=c&&c.k===FQ.k;r.setAttribute('fill',on?CL[c.k]:c?'#e4e0d4':'#fff');r.setAttribute('opacity',on?.92:c?.45:0);if(tier&&(denseSet.has(k)||coarseKid.has(k)))r.setAttribute('opacity',0);continue;}
     r.setAttribute('fill',c?CL[c.k]:'#fff');r.setAttribute('opacity',c?op(c.k):0);
     if(tier&&(denseSet.has(k)||coarseKid.has(k)))r.setAttribute('opacity',0);}
   const FP=TI.fine[st.p]||{};
-  for(const [fk,r] of Object.entries(fineRects)){const k=FP[fk];r.setAttribute('fill',k?CL[k]:'#fff');r.setAttribute('opacity',tier&&!showPop&&k?op(k):0);r.style.visibility=+r.getAttribute('opacity')?'visible':'hidden';}
-  for(const [x,r] of coarseRects){const k=x.k[st.p];r.setAttribute('fill',CL[k]);r.setAttribute('opacity',tier&&!showPop?op(k):0);r.style.visibility=+r.getAttribute('opacity')?'visible':'hidden';}
+  for(const [fk,r] of Object.entries(fineRects)){const k=FP[fk];if(FQ){r.setAttribute('opacity',0);r.style.visibility='hidden';continue;}r.setAttribute('fill',k?CL[k]:'#fff');r.setAttribute('opacity',tier&&!showPop&&k?op(k):0);r.style.visibility=+r.getAttribute('opacity')?'visible':'hidden';}
+  for(const [x,r] of coarseRects){const k=x.k[st.p];if(FQ){r.setAttribute('opacity',0);r.style.visibility='hidden';continue;}r.setAttribute('fill',CL[k]);r.setAttribute('opacity',tier&&!showPop?op(k):0);r.style.visibility=+r.getAttribute('opacity')?'visible':'hidden';}
   const pl=g('plan');pl.innerHTML='';g('lab').innerHTML='';
   // quiet blocks: where, not what to run (the outline only; 看提案 says what)
   if(!PLAN&&!LIVE&&g('l-plan').checked)D.blocks.forEach((b0,bi)=>{const b={...b0,...b0.per[st.p]};if(!QUIET(b.offer))return;const soft=b.offer==='basic'||b.offer==='gapres';
@@ -584,6 +596,16 @@ ${st}`);const t=txt(x,y+4*u,String(i+1),12,'#fff',g('ctop'));t.setAttribute('str
   if(showStops)stopList(f);
   drawSel();info();
 }
+function focusBar(G,f,FO){const box=g('focus');if(!box)return;const n=k=>Object.values(G).filter(c=>c.k===k).length;
+  box.innerHTML='<b>我想看：</b>'+Object.entries(FOC).map(([v,q])=>`<button data-f="${v}" class="${st.focus===v?'on':''} ${v==='all'?'adv':''}">${q.lab}<small>${q.sub}</small></button>`).join('')+`<p class="fsum" id="fsum"></p>`;
+  if(!FO){g('fsum').innerHTML='全部顏色一起看。看不懂顏色時，先按上面三個按鈕之一。';return;}
+  // the three towns with the most cells of that kind (nearest town label)
+  const T=[...g('towns').querySelectorAll('text')].map(t=>[t.dataset.t||t.textContent,+t.getAttribute('x'),+t.getAttribute('y')]),cnt={};
+  for(const[k,c]of Object.entries(G)){if(c.k!==FO.k)continue;const[x,y]=P(...cc(k));let b=null,bd=1e18;for(const[nm,tx,ty]of T){const d=(tx-x)**2+(ty-y)**2;if(d<bd){bd=d;b=nm;}}if(b)cnt[b]=(cnt[b]||0)+1;}
+  const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>x[0]).join('、'),N=n(FO.k),ns=FO.stop!=null?f.bus.filter(b=>b[1]===FO.stop).length:0,per=SHORT[st.p];
+  g('fsum').innerHTML=st.focus==='short'?`${per}，全市 <b>${N} 格車不夠</b>：班次少，每班上下車的人多${top?`，多在${top}`:''}。▲ 是 ${hh(st.h)} 點車不夠的站（${ns} 站）。`
+    :st.focus==='extra'?`${per}，全市 <b>${N} 格車太多</b>：班次多，站上幾乎沒人上下${top?`，多在${top}`:''}。車上可能是滿的，要刷卡資料確認。■ 是 ${hh(st.h)} 點的站（${ns} 站）。`
+    :`全市 <b>${N} 格有人住，但走 400 m 找不到公車站</b>${top?`，多在${top}`:''}。這是用人口和站牌位置算的，要現場核實。`;}
 function stopList(f){const ok=b=>!/暫時裁撤/.test(OV.stops[b[0]][2]);   // a stop marked 暫時裁撤 has no buses to judge
   // ▲ first; an hour without any ▲ opens on ■, until the reader picks a tab
   if(!st.tabUser)st.tab=f.bus.some(b=>b[1]===6&&ok(b))?'more':'less';
@@ -1021,6 +1043,7 @@ g('info').onclick=e=>{const ra=e.target.closest('[data-route]');if(ra){e.prevent
   const c=e.target.closest('[data-cell]');if(c){e.preventDefault();select({t:'cell',k:c.dataset.cell},false);}};
 g('mis').onclick=e=>{const t=e.target.closest('tr[data-i]');if(t)select({t:'stop',i:+t.dataset.i},true);};
 g('tab').onclick=e=>{const b=e.target.closest('button');if(b){st.tab=b.dataset.v;st.tabUser=true;draw();}};
+g('focus').onclick=e=>{const b=e.target.closest('button[data-f]');if(!b)return;st.focus=b.dataset.f;if(st.focus==='short'||st.focus==='extra'){st.tab=st.focus==='short'?'more':'less';st.tabUser=true;}draw();};
 g('blk').onclick=e=>{if(e.target.id==='blkall'){e.preventDefault();st.blkAll=!st.blkAll;draw();return;}const t=e.target.closest('tr[data-b]');if(t){const b=D.blocks[+t.dataset.b];select({t:'cell',k:b.cells[0].join(',')},true);}};
 g('per').onclick=e=>{const b=e.target.closest('button');if(b){const p=b.dataset.v;if(PER(st.h)!==p)st.h=HOUR[p];draw();}};
 g('hour').oninput=e=>{st.h=+e.target.value;draw();};
@@ -1191,29 +1214,31 @@ liveDef();
 function accDays(){return ACC.days.length;}
 function accLab(x){return `${accDays()} 天裡 ${x.n} 天`;}
 function accClock(){g('clk').textContent='累積';g('clksub').textContent=`${accDays()} 個平日的回放`;
-  g('lvwhat').textContent=`同一格（缺車：同一條路線的同一個方向）在同一個時段 ${ACC.recur_days} 天以上都響過，才列出來。天數越多，清單越準。`;const b=g('lvstale');b.style.display='none';}
-function accCap(){const rts=new Set(ACC.gap.map(x=>x.route)),cs=new Set(ACC.crowd.map(x=>ckey(x.cell))),S1=ACC.single||{};
-  const P=[cs.size?`<span style="color:#c62828">${cs.size} 格一再上下車變多</span>`:'',rts.size?`<span style="color:#5b3fa0">${rts.size} 條路線一再缺車</span>`:''].filter(Boolean),one=[S1.crowd?`上下車變多 ${S1.crowd} 次`:'',S1.gap?`缺車 ${S1.gap} 次`:''].filter(Boolean);
-  return `${accDays()} 個平日裡：${P.length?P.join('・')+ACC_CHIP:'還沒有一再出現的警報'}<div class="note">${P.length?ACC_THR:''}一格是 500 m 見方。${one.length?`只出現 1 天的不列：${one.join('、')}。`:''}</div>`;}
+  g('lvwhat').textContent=`同一格（缺車：同一條路線的同一個方向）在同一個時段 ${ACC_STRONG} 天以上都響過，才列進清單；${ACC.recur_days} 天的用淺色畫在地圖上。天數越多，清單越準。`;const b=g('lvstale');b.style.display='none';}
+function accCap(){const rts=new Set(ACC.gap.filter(x=>x.n>=ACC_STRONG).map(x=>x.route)),cs=new Set(ACC.crowd.filter(x=>x.n>=ACC_STRONG).map(x=>ckey(x.cell))),S1=ACC.single||{},w2=ACC.gap.filter(x=>x.n<ACC_STRONG).length+ACC.crowd.filter(x=>x.n<ACC_STRONG).length;
+  const P=[cs.size?`<span style="color:#c62828">${cs.size} 格一再上下車變多</span>`:'',rts.size?`<span style="color:#5b3fa0">${rts.size} 條路線一再缺車</span>`:''].filter(Boolean),pre=`${accDays()} 天裡出現 ${ACC_STRONG} 天以上：`,one=[S1.crowd?`上下車變多 ${S1.crowd} 次`:'',S1.gap?`缺車 ${S1.gap} 次`:''].filter(Boolean);
+  return `${pre}${P.length?P.join('・')+ACC_CHIP:'還沒有'}<div class="note">${P.length?ACC_THR:''}一格是 500 m 見方。${w2?`只出現 2 天的 ${w2} 項用淺色畫，不列進清單。`:''}${one.length?`只出現 1 天的不列：${one.join('、')}。`:''}</div>`;}
 function drawAcc(u,L){const NS_={'vector-effect':'non-scaling-stroke'},C=n=>n>=4?'#8a1c12':n>=3?'#c62828':'#e57373';
   const box=(c,a)=>{const [x,y]=P(...cc(ckey(c)));return el('rect',{x:x-CW/2,y:y-CH/2,width:CW,height:CH,'data-k':ckey(c),style:'cursor:pointer',...NS_,...a},L);};
-  if(g('l-lgap').checked)for(const x of ACC.gap)for(const c of x.cells)tip(box(c,{fill:'#5b3fa0','fill-opacity':.08,stroke:'#5b3fa0','stroke-width':1.6,'stroke-dasharray':'5 3'}),`${x.route}：${x.stop}，${x.band}，${accLab(x)}缺車`);
-  if(g('l-lcrowd').checked)for(const x of ACC.crowd)tip(box(x.cell,{fill:C(x.n),'fill-opacity':.85,stroke:'#fff','stroke-width':1}),`${(x.stops||[])[0]||''}：${x.band}，${accLab(x)}上下車變多`);
+  if(g('l-lgap').checked)for(const x of [...ACC.gap].sort((a,b)=>a.n-b.n))for(const c of x.cells){const on=x.n>=ACC_STRONG;tip(box(c,on?{fill:'#5b3fa0','fill-opacity':.12,stroke:'#5b3fa0','stroke-width':2,'stroke-dasharray':'5 3'}:{fill:'#5b3fa0','fill-opacity':.03,stroke:'#5b3fa0','stroke-opacity':.18,'stroke-width':1,'stroke-dasharray':'3 3'}),`${x.route}：${x.stop}，${x.band}，${accLab(x)}缺車`);}
+  if(g('l-lcrowd').checked)for(const x of ACC.crowd)tip(box(x.cell,{fill:C(x.n),'fill-opacity':x.n>=ACC_STRONG?.85:.35,stroke:'#fff','stroke-width':1}),`${(x.stops||[])[0]||''}：${x.band}，${accLab(x)}上下車變多`);
   // stop names: skip one that would sit on a name already drawn (on a phone the text is 12 px, so measure at the size it shows)
   const fs=Math.max(12*u,12*st.vb[2]/Math.max(1,g('map').clientWidth)),seen=[];
-  for(const x of ACC.crowd.slice(0,8)){const [px,py]=P(...cc(ckey(x.cell))),t=(x.stops||[])[0]||'';if(!t||!inView(px,py))continue;const w=t.length*fs;
+  for(const x of ACC.crowd.filter(x=>x.n>=ACC_STRONG).slice(0,8)){const [px,py]=P(...cc(ckey(x.cell))),t=(x.stops||[])[0]||'';if(!t||!inView(px,py))continue;const w=t.length*fs;
     const y=[py-CH/2-fs/2,py+CH/2+fs*1.2].find(yy=>!seen.some(([a,b,ww])=>Math.abs(a-px)<(w+ww)/2+fs/2&&Math.abs(b-yy)<fs*1.3));if(y==null)continue;seen.push([px,y,w]);txt(px,y,t,12,'#8a1c12',L);}}
 // the list: one group per network change; a gap route once, with its stops
 function accCards(){g('lvtitle').textContent='一再出現 → 路網可以怎麼改';
-  const grp={};for(const x of ACC.crowd)(grp[x.cause]??=[]).push(['c',x]);
-  const byR={};for(const x of ACC.gap)(byR[x.route]??=[]).push(x);
+  const STRONG=ACC_STRONG,weakC=ACC.crowd.filter(x=>x.n<STRONG),weakG=ACC.gap.filter(x=>x.n<STRONG);   // listed: back on 3 weekdays or more
+  const grp={};for(const x of ACC.crowd.filter(x=>x.n>=STRONG))(grp[x.cause]??=[]).push(['c',x]);
+  const byR={};for(const x of ACC.gap.filter(x=>x.n>=STRONG))(byR[x.route]??=[]).push(x);
   for(const [r,v] of Object.entries(byR)){v.sort((a,b)=>b.n-a.n||b.wait-a.wait);(grp[v[0].cause]??=[]).push(['g',v]);}
   const order=['stop','freq','routes','long','dup','unsteady','unknown','count'];
   const li=([k,x])=>k==='c'?`<li data-k="${ckey(x.cell)}"><i style="background:${x.n>=4?'#8a1c12':x.n>=3?'#c62828':'#e57373'}"></i><b>${esc((x.stops||[])[0]||'')}</b> 一帶・${x.band}・${accLab(x)}上下車變多<div class="note">${esc(x.why)} → ${esc(x.action)}</div></li>`
     :`<li data-k="${ckey(x[0].cell)}"><i style="background:none;border:2px dashed #5b3fa0"></i><b>${esc(x[0].route)}</b>・一再缺車 ${x.length} 項；${accDays()} 天裡最多 ${x[0].n} 天；最久 ${Math.max(...x.map(y=>y.wait))} 分鐘沒車<div class="note">${esc(x[0].why)} → ${esc(x[0].action)}</div></li>`;
   const g1=order.find(c=>(grp[c]||[]).some(([k])=>k==='g')),nm_=([k,x])=>k==='c'?esc((x.stops||[])[0]||''):esc(x[0].route);
   const more=xs=>{const ks=new Set(xs.map(([k])=>k)),u=ks.size>1?'項':ks.has('g')?'條':'格';return `<p class="note">還有 ${xs.length} ${u}：${xs.map(nm_).join('、')}。地圖上都有。</p>`;};
-  g('lvlist').innerHTML=(order.some(c=>grp[c])?`<p class="note" style="margin:0 0 4px">${ACC_CHIP} ${ACC_THR}</p>`:'')+(order.filter(c=>grp[c]).map(c=>`<h3>${ACT[c][0]} → ${ACT[c][1]}（${grp[c].length}）</h3>${c===g1?'<p class="note" style="margin:0">缺車的一項＝一條路線的一個方向、一個時段。</p>':''}<ul class="lv">${grp[c].slice(0,8).map(li).join('')}</ul>${grp[c].length>8?more(grp[c].slice(8)):''}`).join('')||'<p class="note">還沒有一再出現的警報。</p>')+
+  g('lvlist').innerHTML=(order.some(c=>grp[c])?`<p class="note" style="margin:0 0 4px">${ACC_CHIP} ${ACC_THR}</p>`:'')+(order.filter(c=>grp[c]).map(c=>`<h3>${ACT[c][0]} → ${ACT[c][1]}（${grp[c].length}）</h3>${c===g1?'<p class="note" style="margin:0">缺車的一項＝一條路線的一個方向、一個時段。</p>':''}<ul class="lv">${grp[c].slice(0,8).map(li).join('')}</ul>${grp[c].length>8?more(grp[c].slice(8)):''}`).join('')||'<p class="note">還沒有 5 天裡出現 3 天以上的警報。</p>')+
+    (weakC.length+weakG.length?`<details class="note"><summary>另外 ${weakC.length+weakG.length} 項只出現 2 天（${accDays()} 天裡），先不列</summary>${weakC.length?`上下車變多：${weakC.map(x=>esc((x.stops||[])[0]||'')+'一帶').join('、')}。`:''}${weakG.length?`缺車：${[...new Set(weakG.map(x=>x.route))].map(esc).join('、')}。`:''}地圖上用淺色標出。</details>`:'')+
     `<details class="note"><summary>怎麼判斷原因</summary>${(T=>`上下車變多：這一格有走廊最擠、停車格推估不夠的站，或響最多次的站每小時 ${T.big_bph} 班以上 → 站牌容量；增加最多的路線，${ACC.recur_days} 天以上的警報裡都在；在響的站，同一個方向的班次合起來，這個時段超過 ${T.low_hw} 分鐘才一班（早尖峰的班表） → 班次少；響最多次的站有 ${T.many_routes} 條以上路線 → 多條路線擠一站；都不是 → 到現場數人。缺車：單程 ${T.long_km} km 以上 → 長路線；${Math.round(T.dup_share*100)}% 以上的站和另一條路線共用，而且那條路線班次差不多（${T.dup_bph!=null?`每小時 ${T.dup_bph} 班以上、至少是這條的 ${Math.round(T.dup_ratio*100)}%`:'每小時至少幾班、也不比這條少太多'}）→ 聯合排點；都不是 → 班距不穩。`)(ACC.thresholds)}這些是從公開資料推的方向，要現場確認。</details>`;
   accDay();}
 function accDay(){g('lvday-h').textContent=`${accDays()} 個平日：一再出現幾項`;const B_=['清晨','早尖峰','白天','晚尖峰','晚間','深夜'];g('lvday-tab').innerHTML='<tr><th>時段</th><th class="n">一再上下車變多（格）</th><th class="n">一再缺車（路線×方向×時段）</th></tr>'+B_.map(b=>`<tr><td>${b}</td><td class="n">${ACC.crowd.filter(x=>x.band===b).length}</td><td class="n">${ACC.gap.filter(x=>x.band===b).length}</td></tr>`).join('');
