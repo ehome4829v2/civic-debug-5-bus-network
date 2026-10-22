@@ -162,7 +162,7 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
   <details class="src"><summary>資料來源</summary><ul style="margin:4px 0 0 18px;padding:0"><li>只收臺北市公車，新北客運不在資料裡。進出臺北的新北乘客可能被低估。</li><li>冷熱：公車停站秒數，真資料，來自公車動態資料（車機回報的進出站紀錄）。10/14 晚間＋10/15、10/16、10/19、10/20、10/21 5 個平日；<span data-frozen>定稿版，不再加入新的平日。</span>週末也在收，但週末的班次和人潮跟平日不同，這頁只用平日。</li><li>捷運：各站每小時進出站人次，實測。2026 年 9 月平日平均。</li><li>人口與 65 歲以上人口：內政部最小統計區，只有臺北市。</li><li>河川與跨河橋：© OpenStreetMap 貢獻者（ODbL）。只畫主要河川；橋只算跨過河面的道路橋。</li><li>上下車人次是推估：年報每條路線一年載多少人（實測），分到平日、各小時、各站。分到各站時，路線多的站分得多，不看捷運。冷熱看停站秒數（真），人次只看大約多少。</li></ul></details>
 </header>
 <div class="controls">
-  <div class="mode" id="mode" role="tablist"><button data-m="now" class="on" role="tab">看現況</button><button data-m="plan" role="tab">看提案<small>研究建議</small></button><button data-m="live" role="tab">看即時<small><span data-frozen>回放</span></small></button></div>
+  <div class="mode" id="mode" role="tablist"><button data-m="live" role="tab">看即時<small><span data-frozen>回放</span></small></button><button data-m="now" class="on" role="tab">看現況</button><button data-m="plan" role="tab">看提案<small>研究建議</small></button></div>
   <input type="search" id="q" list="qlist" placeholder="找地名、站名或路線，例如 三重、307" aria-label="找地名或站名"><datalist id="qlist"></datalist><span id="qmsg"></span>
   <details class="layers" open><summary>圖層</summary><span class="now-only">
   <label class="tg"><input type="checkbox" id="l-cell" checked> 區域格子</label>
@@ -441,7 +441,7 @@ function stops(f,u,showCells){
   const named=[...g('lab').querySelectorAll('text')].map(t=>{const w=t.textContent.length*12*u;return ['',+t.getAttribute('x')-w/2,+t.getAttribute('y')-4*u,w];});
   for(const [i,k,b,e,sx] of mark){const s=OV.stops[i],[x,y]=P(s[0],s[1]);if(!inView(x,y)||(k===0&&underHud(x,y)))continue;
     const t=`${s[2]}｜${hh(st.h)} 點 ${b} 班（${every(b)}）、${secT(e,sx)}｜${KN[k]}`;
-    if(k===6){const z=(6+Math.min(5,(e-40)/8))*u;tip(el('path',{d:`M${x},${y-z}l${z*.95},${z*1.65}h${-z*1.9}z`,fill:'var(--mis)',stroke:'#fff','stroke-width':1.8*u,'data-i':i,style:'cursor:pointer'},sm),t);}
+    if(k===6){const z=(3.4+Math.min(1.6,(e-40)/40))*u;tip(el('path',{d:`M${x},${y-z}l${z*.95},${z*1.65}h${-z*1.9}z`,fill:'var(--mis)',stroke:'#fff','stroke-width':1.8*u,'data-i':i,style:'cursor:pointer'},sm),t);}
     else if(k===1){const z=4.5*u,nr=s[5]<=300;tip(el('rect',{x:x-z,y:y-z,width:2*z,height:2*z,fill:'var(--ovl)',stroke:nr?'#000':'#fff','stroke-width':(nr?1.6:1.2)*u,'data-i':i,style:'cursor:pointer'},sm),t);}
     else{el('circle',{cx:x,cy:y,r:6*u,fill:'none',stroke:'#fff','stroke-width':4.6*u},sm);tip(el('circle',{cx:x,cy:y,r:6*u,fill:'var(--hot)','fill-opacity':.8,stroke:'#fff','stroke-width':1.6*u,'data-i':i,style:'cursor:pointer'},sm),t);}
     const lw=s[2].length*14*u,[vx,vy,vw]=st.vb,vh=vw*ASP(),hits=lx=>named.some(([nm,a,b,w])=>nm===s[2]||(Math.abs(b-y)<16*u&&lx<a+w+8*u&&a<lx+lw+8*u))||(lx+lw>vx+vw-56*u&&y>vy+vh-190*u);
@@ -1038,7 +1038,7 @@ g('play').onclick=()=>setPlay(!st.playing);
 const H=decodeURIComponent(location.hash),hm=H.match(/[#&]h=(\d+)/),pm=H.match(/[#&]p=(\w+)/),sm=H.match(/[#&]sel=([cs]):([^&]+)/),fom=H.match(/[#&]fo=([^&]+)/);if(fom)fOnly=fom[1];if(/[#&]mrt=1/.test(H)){g('l-mrt').checked=true;g('l-flow').checked=false;}if(/[#&]ovr=1/.test(H)){g('l-ovr').checked=true;g('l-flow').checked=false;}
 if(hm&&HRS.includes(+hm[1]))st.h=+hm[1];else if(pm&&HOUR[pm[1]])st.h=HOUR[pm[1]];
 if(/[#&]mode=plan/.test(H)&&PL){st.mode='plan';document.body.classList.add('plan');g('mode').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m==='plan'));}
-if(/[#&]mode=live/.test(H)&&LV){st.lv.seen=1;liveFromHash(H);st.mode='live';document.body.classList.add('live');g('mode').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m==='live'));liveBar();}
+if((/[#&]mode=live/.test(H)||!/[#&]mode=/.test(H))&&LV){st.lv.seen=1;liveFromHash(H);st.mode='live';document.body.classList.add('live');g('mode').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m==='live'));liveBar();}
 if(/[#&]flow=1/.test(H)){g('l-flow').checked=true;g('l-mrt').checked=false;g('l-plan').checked=false;}
 if(st.mode==='plan')fitPlan(0);else goHome(0);anim();requestAnimationFrame(()=>requestAnimationFrame(()=>g('cells').classList.add('ready')));
 if(sm){if(sm[1]==='c'&&keys.has(sm[2]))select({t:'cell',k:sm[2]},false);else if(sm[1]==='s'){const i=/^\d+$/.test(sm[2])?+sm[2]:stopIdx[sm[2]];if(OV.stops[i])select({t:'stop',i},false);}}
