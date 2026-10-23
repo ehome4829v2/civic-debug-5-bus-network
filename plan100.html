@@ -175,7 +175,7 @@ a{color:#2c6fa8}
 <li>一天的正常工時加上加班，最多 12 小時：勞基法第 32 條第 2 項 <span class="tag real">真</span>。</li>
 <li>輪班換班之間休 11 小時：勞基法第 34 條。</li>
 <li>繼續工作 4 小時，至少休 30 分。輪班制或工作有連續性、緊急性的，可以在工作時間內另外調配休息：勞基法第 35 條 <span class="tag real">真</span>。</li>
-<li><span class="tag real">真</span> 營業大型車業者的駕駛：每天開車最多 10 小時。連續開 4 小時，至少休 30 分；可以分次，每次至少 15 分。工作具連續性或交通壅塞時，可以另外調配：最多連續開 6 小時，而且要一次休滿 45 分。兩個工作日之間，至少連續休 10 小時。排班需要時，可以縮到 8 小時：一週最多 2 次，不可以連續兩天。出處：汽車運輸業管理規則第 19 條之 2（115/5/6 修正，<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0040003&amp;flno=19-2">全國法規資料庫</a>）。</li>
+<li><span class="tag real">真</span> 營業大型車業者的駕駛：每天開車最多 10 小時。連續開 4 小時，至少休 30 分；可以分次，每次至少 15 分。工作具連續性或交通壅塞時，可以另外調配：最多連續開 6 小時，而且要一次休滿 45 分。兩個工作日之間，至少連續休 10 小時。排班需要時，可以縮到 8 小時：一週最多 2 次，不可以連續兩天。出處：汽車運輸業管理規則第 19 條之 2（115 年 5 月修正，<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0040003&amp;flno=19-2">全國法規資料庫</a>）。</li>
 <li>出勤紀錄要記到分鐘，保存 5 年：勞基法第 30 條。</li>
 <li>待命時間算工作時間：勞動部的一貫見解。</li>
 <li>雙北公車從 2019 年起，上下車都要刷卡。可是只付一段票的人，下車常常不刷卡（<a href="https://news.tvbs.com.tw/life/1056078">TVBS</a>、<a href="https://www.ithome.com.tw/news/139452">iThome</a>）。</li>
@@ -219,7 +219,7 @@ const CNT1=[CK('acc').n?(()=>{const S=N.count.acc.filter(x=>x[2]>=N.acc.strong),
 const CNT2=[CK('hot').n?`${CK('hot').n} 個尖峰時段（${N.count.hot_routes} 條路線）可能太擠`:'',CK('watch').n?`${CK('watch').n} 處沿線公車推估很擠（${N.count.watch.map(nm).join('、')}）`:''].filter(Boolean).join('；');
 const CNTN1=C1.places?`約 ${C1.places} 處`:'',CNTN2=[C2.slots?`${C2.slots} 個尖峰時段`:'',C2.places?`${C2.places} 處地點`:''].filter(Boolean).join('和 ');
 const CNTW=`每處 ${N.count.people} 人 × ${N.count.days} 天，每人每小時 ${N.count.wage.join('–')} 元`,MB=N.count.acc.filter(x=>x[1].length>1),CNTM1=`每處每個時段數 ${N.count.h} 小時${MB.length?`（${MB.map(x=>`${esc(nm(x[0]))}有 ${x[1].length} 個時段`).join('、')}）`:''}：${C1.places} 處共 ${C1.hours} 小時；${CNTW}；共 ${f(C1.person_h)} 人時`,CNTM2=[CK('hot').n?`${CK('hot').n} 個尖峰時段各數它自己的 ${N.count.hot_h.join('–')} 小時`:'',CK('watch').n?`${CK('watch').n} 處各數 ${N.count.h} 小時`:''].filter(Boolean).join('，')+`；${CNTW}；共 ${f(C2.person_h)} 人時`;
-const BUY1=C1.small?`。建議控制在 ${N.count.small_buy} 萬元內，用小額採購`:`。第 1–7 天辦第 1 輪採購：超過 ${N.count.small_buy} 萬元，要公開取得報價`;
+const BUY1=C1.small?`。建議控制在 ${N.count.small_buy} 萬元內，用小額採購`:`。第 1–7 天辦第 1 輪採購，合併一案辦理：超過 ${N.count.small_buy} 萬元，要公開取得報價`;
 const R2W='第 61–100 天內、228 連假後（3/2 起）',R2END=`${N.count_end} 前數完；試辦驗收用到 ${N.count_end} 的資料`;
 const WM=a=>one_(a.map(x=>(Math.round(x*10)/10).toLocaleString()));   // 萬元 to one decimal: the counting costs and the 100-day total
 const M100=N.money100,MI=N.mini,MINI=MI.n?`接駁小巴有 ${MI.n} 個候選地點。這些地點都已經有公車到同一個捷運站，每小時 ${MI.bph} 班以上 ${T('real','真')}。${MI.enough?`${MI.enough} 處，公開資料看不出有人上不了車。`:''}${MI.survey?`${MI.survey} 處尖峰過站不停的比例，比同一站白天離峰多 15 個百分點以上，例如 30% 變 45%（${N.survey.map(nm).join('、')}）。這些地方要先到現場數人。`:''}${L1.length?'':'建議 100 天內不開小巴。'}`:'';
@@ -238,7 +238,7 @@ $('probs').innerHTML=[
  pl.length?`重疊路線：${pl.map(p=>`${esc(nm2(p.title))}${esc(p.trunk_label.replace(/^[^（(]*/,''))}合計每小時 ${p.trunk[0]} 班`).join('；')} ${T('real','真')}。各排各的班表，車來得不平均。`:'',
  `人數：刷卡資料沒有公開。每站幾人是我們用年報算的 ${T('est','推估')}。`,
 ].filter(Boolean).map(x=>`<li>${x}</li>`).join('');}
-{const fd=N.places.find(p=>p.kind==='feeder'),rs=N.places.find(p=>p.kind==='rest');$('ridersum').innerHTML=['如果照這份建議做：100 天內，現有路線的走法不變。',fd?`建議${nm(fd.far)}→捷運${fd.hub}站多開一條小巴，只在${FH(fd)}開。`:'',rs?`建議 ${esc(rs.route)} 試辦在終點站換駕駛。班次不變。`:'',!fd&&MI.n?`建議接駁小巴 100 天內不開，先到現場數人。`:'',`建議${CUTDEF}最快在 2027/${D[2][1]} 以後生效，生效前先公告。<a href="#riders-h">看全部</a>`].filter(Boolean).map(x=>`<li>${x}</li>`).join('');}
+{const fd=N.places.find(p=>p.kind==='feeder'),rs=N.places.find(p=>p.kind==='rest');$('ridersum').innerHTML=['如果照這份建議做：100 天內，現有路線的走法不變。',fd?`建議${nm(fd.far)}→捷運${fd.hub}站多開一條小巴，只在${FH(fd)}開。`:'',rs?`建議 ${esc(rs.route)} 試辦在終點站換駕駛。班次不變。`:'',!fd&&MI.n?`建議接駁小巴 100 天內不開，先到現場數人。`:'',`建議${CUTDEF}最快在 2027/${D[2][1]} 以後生效，生效前先公告。截短不是廢線：路線照開，只是不再開進和捷運重疊的那一段。<a href="#riders-h">看全部</a>`,`要多轉一次車的人：轉乘站要有無障礙動線，保留低地板車；坐輪椅可以轉介復康巴士。`].filter(Boolean).map(x=>`<li>${x}</li>`).join('');}
 
 const ends2=(e,i)=>`${esc(e.stop)}${i?'':' 每天'}掉頭約 ${e.n} 次，${i?'':'車停 15 分以上的占 '}${pct(e.ge15)}`;
 const kv=rows=>`<div class="kv">${rows.filter(Boolean).map(([k,v])=>`<b>${k}</b><span>${v}</span>`).join('')}</div>`;
@@ -269,7 +269,7 @@ $('placesBox').innerHTML=N.places.map((p,i)=>{
    ['終點站和休息',p.cuts.map(c=>`${esc(c.route)} 停 15 分以上：${c.ends.map(e=>`${esc(e.stop)} ${pct(e.ge15)}${c.gone?(e.stop===c.gone?'（收回）':'（保留）'):''}`).join('；')}${c.ends.length<2?'；另一端沒有資料':''} ${T('real','真')}。`).join('<br>')+`<br>新終點站${[...new Set(p.cuts.map(c=>esc(c.cut)))].join('、')}要能掉頭、停 15 分以上，有休息室和廁所，要現勘。<span class="note">GPS 會漏掉一些掉頭。</span>`],
    ['目的',save?'省下的車和駕駛，建議先補同一家業者路線的休息。':'讓主線更密、更準，不是省人。'],
    ['誰做',`公運處主辦。區公所、里辦公處、業者（${p.ops.join('、')}）`],
-   ['程序',`<b>聯合排點</b>：${p.joint.map(([op,rs])=>`${esc(op)}的 ${rs.map(esc).join('、')}`).join('；')} 送出聯合班表（沒截短的也一起排）。<br><b>截短</b>：改路線要開會通過（路線審議）。建議 100 天內送審。送審前開說明會，由區公所通知，邀里長、里民和轄區議員。生效前在站牌和車上公告。${p.ntp.length?`<br>${p.ntp.map(esc).join('、')} 有一端在新北市，建議請新北市政府交通局協同處理（看路線由哪一市核定）。`:''}`],
+   ['程序',`<b>聯合排點</b>：${p.joint.map(([op,rs])=>`${esc(op)}的 ${rs.map(esc).join('、')}`).join('；')} 送出聯合班表（沒截短的也一起排）。<br><b>截短</b>：改路線要開會通過（路線審議）。建議 100 天內送審。送審前開說明會，由區公所通知，邀里長、里民和轄區議員。生效前在站牌和車上公告。${p.ntp.length?`<br>${p.ntp.map(esc).join('、')} 有一端在新北市。跨市路線改起訖或截短，兩市都要同意；請新北市政府交通局一起現勘、一起送審（核定機關請公運處確認）。`:''}`],
    ['錢',`收回路段的乘客改轉公車，如果第二段免費，市府每年最多約少收 ${f(p.money[1])} 萬元 ${T('asm','假設')}（假設 50–70% 付單次票）。改搭捷運的已有轉乘優惠，實際會更少。<br>業者的里程和票收少多少還沒估，建議公運處第 1–30 天用業者資料算。聯合排點的花費，等和工會談好排班（勤務協商）才知道。`],
   ];
  }else if(p.kind==='feeder'){
@@ -404,7 +404,7 @@ $('riders').innerHTML=[
 const ph=[
  {t:'調資料、到現場數人',k:'拿到三份資料（刷卡、勤務表、出勤紀錄）、訂評鑑和晚發規則、現勘終點站、數第 1 輪。',d:[
    '刷卡資料：公運處向悠遊卡公司和一卡通調各路線、各站、各時段的上下車人數。下車資料不完整，先確認缺多少。',
-   '勤務表、行車紀錄、14 天出勤紀錄（含週末）：請業者提供拿掉姓名的版本，只做全市統計；不提供，再依稽查權調閱。',
+   '勤務表、行車紀錄、14 天出勤紀錄（含週末）：請業者自願提供。只做全市統計。卡號和駕駛編號在交出前，由資料提供方換成代碼。公運處保管，用完刪除，不公開逐筆資料。業者不提供時，公運處先和法務確認可用的調閱依據。',
    '先和工會講清楚：資料只用來算全市要多少人，不處罰個別駕駛。',
    `公運處確認 ${HC} 位駕駛包含哪些業者。`,
    `串車最常開始的 ${N.bunch.onset.length} 個站（表在<a href="#riders-h">對乘客的影響</a>）：尖峰查這一站和前 3 個路口。交工處查號誌、劃紅線；公運處看站牌；警察局交通大隊取締違停。${N.bunch.onset.some(o=>!o.tpe)?'新北的站，建議請新北市政府交通局協同處理。':''}`,
@@ -480,12 +480,12 @@ $('exc').innerHTML=`<b style="font-size:16px">例外規定影響很大</b> ${T('
 const nt=N.daily.night;
 $('drvline').innerHTML=`三個問題，解法不一樣：每週工時（照法定上限${cm.mid?`約 ${f(cm.mid)} 人`:'可能不用加人'}；降到每週 40 小時約 ${f(S.all.w40.lo)}–${f(S.all.w40.hi)} 人）、班內休息（約 ${W(R.people)} 人）、一天太長（要改排班）${T('est','推估')}。`;
 $('day').innerHTML=`<ul><li>GPS${DAY}：有過夜紀錄的 ${f(nt.buses)} 台車裡，${pct(nt.under_10)} 兩天之間停不到 10 小時，${pct(nt.under_8)} 停不到 8 小時；${pct(N.daily.drive10)} 的車一天開超過 10 小時，${(N.daily.work12*100).toFixed(1)}% 一天工作超過 12 小時 ${T('real','真')}。一位駕駛開整天就超過上限，兩位輪流就沒有。是不是同一位駕駛，要用勤務表確認。</li>
-<li>法規：排班需要時，休息可縮到 8 小時，一週最多 2 次，不可以連續兩天（汽車運輸業管理規則第 19 條之 2）${T('real','真')}。輪班制依勞基法，換班之間休 11 小時（勞動部公告可縮短的除外，待查）。</li>
+<li>法規：排班需要時，休息可縮到 8 小時，一週最多 2 次，不可以連續兩天（汽車運輸業管理規則第 19 條之 2）${T('real','真')}。輪班制依勞基法第 34 條，換班之間休 11 小時；條文允許特定情形縮短，待查。</li>
 <li>跨度（第一次上班到最後下班）沒有直接上限，算起來最多約 14 小時（縮成 8 小時那天約 16 小時）。參考日本公車的 13 小時，可由工會爭取寫進團體協約。</li>
 <li>兩頭班（早晚各開一段）會拉長一天。要同時訂三件事：第一班到最後一班不超過 13 小時、中午有地方休息、中午停太久要算薪水。</li></ul>`;
 
 $('tools').innerHTML=[
- ['駕駛工時稽查','建議由臺北市抽查自己核定路線的勤務表和行車紀錄。一般違規先輔導；嚴重的（連開超過 6 小時、兩天之間休不到 8 小時）依公路法處罰。','公運處；新北核定的路線，建議請新北市政府交通局協同處理'],
+ ['駕駛工時稽查','建議由臺北市抽查自己核定路線的勤務表和行車紀錄。一般違規先輔導；違反休息規定的，依公路法第 77 條處罰業者，不是處罰駕駛（我們認為連開超過 6 小時、兩天之間休不到 8 小時較重）。依公路法處罰。','公運處；新北核定的路線，建議請新北市政府交通局協同處理'],
  ['路線經營權','建議路線到期換發和新路線核准時，審查工時和休息。','交通局'],
  ['補貼和評鑑','建議先公開每週工時和休息排進班表的比例，不扣分，一年後再和補貼、評鑑掛鉤。補貼要反映加人和休息的成本。','公運處'],
  ['資料條款','建議修改<a href="https://laws.gov.taipei/law/LawSearch/LawExport/FL026380?type=0" target="_blank" rel="noopener">《臺北市聯營公車服務路線營運虧損補貼審議作業規定》</a>：定期交勤務表和出勤紀錄，才能申請補貼。修改要提服務品質督導及評鑑委員會審議。之前先請業者自願提供。','公運處'],
@@ -515,9 +515,10 @@ if(location.hash)setTimeout(()=>openTo(decodeURIComponent(location.hash.slice(1)
  const WK=N.wk.all,A=N.acc,c=+N.cap,ST=A?A.strong:3;
  // three lines on the card (the three steps; what first; how much); everything else folded
  $('mayorBox').innerHTML=`<ul style="margin:4px 0 8px;padding-left:20px;font-size:17px">
-<li><b>看得見 → 一再出現 → 改路網</b>：同一個地方 ${ST} 天以上出問題，就列進${ACCL}。市府每週用這份清單改路網。</li>
-<li><b>100 天先做</b>：拿到刷卡和排班資料、改評鑑規則、試辦 ${tr.join('、')}。</li>
-<li><b>花多少</b>：100 天內，${MON} ${T('asm','假設')}。${rp?`${esc(rp.route)} 換駕駛試辦的錢還沒估。`:''}2028 年度起要加駕駛，每年要另編預算，見<a href="#drv">駕駛過勞：要加多少人、花多少錢</a>。</li>
+<li><b>問題</b>：路線重疊、各排各的班表，乘客等很久，又常一次來好幾台。駕駛一天太長：${p1(N.daily.drive10)} 的車一天開超過 10 小時 ${T('real','真')}（車的數字，不是駕駛的數字）。</li>
+<li><b>100 天內，公運處做 4 件事</b>：① 第 1–30 天調刷卡、勤務表、出勤紀錄。② 第 1–30 天擬新的評鑑算法，送委員會。③ 每週用${ACCL}（同一個地方 ${ST} 天以上出問題）檢討路網。④ 2/23–4/3 試辦 ${tr.join('、')}。</li>
+<li><b>第 100 天交付</b>：三份資料到手、評鑑算法送審、${rp?`${esc(rp.route)} 試辦結果`:'試辦結果'}、截短方案送路線審議。</li>
+<li><b>花多少</b>：100 天內，${MON} ${T('asm','假設')}。${rp?`${esc(rp.route)} 換駕駛：試辦的錢還沒估${(c_=>c_?`；正式做，一個換班點每年約 ${c_[0]}–${c_[1]} 萬元 ${T('asm','假設')}`:'')((N.fixes.find(x=>x.crew)||{}).crew)}。`:''}2028 年度起要加駕駛，每年要另編預算，見<a href="#drv">駕駛過勞：要加多少人、花多少錢</a>。</li>
 <li><b>市長要決定</b>：要不要截短重疊路線（最快 2027/${D[2][1]} 以後生效）；要不要在 2028 年度預算編錢加駕駛（機關概算 2027 年 4–5 月要定）。</li></ul>
 <details><summary>三步怎麼做、發現、100 天內做的事、市長要決定的事</summary>
 <b>三步怎麼做</b>${li([
@@ -540,7 +541,7 @@ if(location.hash)setTimeout(()=>openTo(decodeURIComponent(location.hash.slice(1)
   `每週用${ACCL}檢討路網：一再出現的地方和路線，各對一種改法。公運處，第 1 天起每週一次。要 1 台主機和公運處 1 位承辦（現有編制內）。`,
   `請中央解釋休息的例外規定。照一般規定，${S0S}。照例外，只有 ${p1(Z.lenient)} ${T('sim','模擬')}。公運處、勞動局，第 1–30 天。不另外花錢。`,
   `和工會現勘終點站的休息室和廁所。公運處，第 1–30 天。`,
-  `改評鑑的等車指標：每小時 5 班以上看「比班表多等的時間」，每小時未滿 5 班看起站準點率。「串車多等的時間」只用來找串車的地方，不計分。第一年只算、不計分。評鑑和補貼的連動寫在補貼審議作業規定第八點。公運處第 1–30 天擬算法，提服務品質督導及評鑑委員會審議（<a href="https://laws.gov.taipei/law/LawSearch/LawPrint/FL055087?type=2" target="_blank" rel="noopener">《臺北市市區汽車客運業營運與服務評鑑執行要點》</a>）。不另外花錢。`,
+  `改評鑑的等車指標：每小時 5 班以上看「比班表多等的時間」，每小時未滿 5 班看起站準點率。「串車多等的時間」只用來找串車的地方，不計分。第一年只算、不計分。評鑑和補貼的連動寫在補貼審議作業規定第八點。公運處第 1–30 天擬算法，由交通局提市區公車營運與服務品質督導及評鑑委員會審議（<a href="https://laws.gov.taipei/law/LawSearch/LawPrint/FL055087?type=2" target="_blank" rel="noopener">《臺北市市區汽車客運業營運與服務評鑑執行要點》</a>）。不另外花錢。`,
   rp?`${esc(rp.route)} 在終點站換駕駛，2027/${D[2][0]}–${D[2][1]} 試辦。公運處、業者、工會。${BASE(rp.route)}。如果勤務表的比例不到模擬的一半，${N.fallback?`建議換到 ${esc(N.fallback)} 試辦`:'先不試辦，用各路線的勤務表重找最需要換駕駛的路線'}。試辦期的費用，由公運處在第 1–30 天估價、編列，不由業者先墊。正式做，一個換班點每年約 ${W(fx.crew)} 萬元 ${T('asm','假設')}。`:'',
   `到現場數人，分兩輪。第 1 輪${CNTN1}，1/20 前數完：${CNT1}。約 ${WM(C1.cost)} 萬元 ${T('asm','假設')}${BUY1}。${CNTN2?`第 2 輪 ${CNTN2}，在${R2W}數，${R2END}。約 ${WM(C2.cost)} 萬元 ${T('asm','假設')}。`:''}公運處。`,
   pl.length?`${pl.map(p=>esc(nm2(p.title).replace(/：.*/,''))).join('、')}：重疊路線聯合排點。100 天內公運處核定原則和時刻表格式，業者送出聯合班表。上線要等和工會談好排班（勤務協商），最快第 100 天以後。`:'',

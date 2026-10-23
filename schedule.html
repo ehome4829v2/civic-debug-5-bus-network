@@ -106,7 +106,7 @@ details.fold>summary{cursor:pointer;font-size:16px}
 </section>
 <details id="ext" style="margin:12px 0 0" hidden><summary class="sec" style="padding:0 16px"><h2 style="display:inline;font-size:18px">延伸：排班模擬，要幾台車、幾個駕駛？（<span id="ext-r"></span>）</h2><br><span class="note" id="ext-note"></span></summary>
 <header>
-  <p class="sub" style="color:#222;font-size:14px">選路線，再選做法，看要幾台車、幾個駕駛班。綠段＝休息，紅框＝違反休息規定。</p>
+  <p class="sub" style="color:#222;font-size:14px">選路線，再選做法，看要幾台車、幾個駕駛班。綠段＝休息，紅框＝不符本專案的休息規則。</p>
   <p class="sub" style="font-size:12px">範圍：一條路線、一個平日。<b>駕駛是模擬的</b>。開放資料只有車，沒有駕駛。行駛時間、首末班、班距是真資料<span class="badge real">真</span>。
   車和駕駛的班表是我們照規則排的<span class="badge sim">模擬</span>。</p>
   <details class="sub" style="font-size:12px"><summary>怎麼排</summary>「假設：駕駛跟車不換駕駛」是我們假設的，不是業者現在的排法。一位駕駛整天開同一台車。做滿 10 小時或快違反休息規定，才換人。每段工作交給最早有空的駕駛（先到先排）。所以駕駛班數是上限。</details>
@@ -182,7 +182,7 @@ function render(){
     (M?`<br>實測（一個方向）：${M.ew0!=null?`${ph} 點平均 ${(2*M.ew0).toFixed(1)} 分一班（一半在 ${M.p50} 分內）`:`${ph} 點一半的班距在 ${M.p50} 分內`}，最長空窗 ${M.max} 分，串車 ${M.pairs} 對（<a href="flow.html#route=${encodeURIComponent(st.route)}&t=${ph*60}">路線查證頁的時空圖</a>）<span class="badge real">真＋假設</span>。`:''):'';
   const endsTxt=()=>['0','1'].map(e=>{const x=S.ends[e];return `${x.stop} ${x.turn_min} 分${x.rest?'（休息端，'+Math.round(x.share*100)+'% 停 ≥15 分）':'（不是休息端，'+Math.round(x.share*100)+'% 停 ≥15 分）'}`;}).join('、');
   document.getElementById('kpinote').textContent=`約 ${Math.ceil(r.drivers*S.relief)} 位駕駛＝駕駛班 × ${S.relief}，含輪休、請假、備勤（假設）。約 ${Math.ceil(r.vehicles*(1+S.spare))} 台車，含 ${Math.round(S.spare*100)}% 備用車。行駛時間取 100 趟裡第 ${Math.round(S.run_quantile*100)} 慢的。折返：${endsTxt()}。模擬照${st.hw==='long_headway'?'班距長':'班距短'}排，一天 ${r.trips} 趟單程${D.gps!=null||(MINE[st.route]&&MINE[st.route].tt)?`（${D.gps!=null?`GPS 實測約 ${D.gps} 班次`:''}${D.gps!=null&&MINE[st.route]&&MINE[st.route].tt?'，':''}${MINE[st.route]&&MINE[st.route].tt?`班表 ${RG(MINE[st.route].tt.thu)}`:''}）`:''}。上班時數（跨度合計）${r.paid_hours} 小時；駕駛跟車不換駕駛時 ${b.paid_hours} 小時。只開 1–2 趟的零碎班 ${r.short_duties} 個（先到先排造成的）。`;
-  document.getElementById('gtitle').textContent=`${SC[st.sc]}：${st.view==='bus'?'車輛班表（一列＝一台車；綠段＝停 ≥15 分，可休息）':'駕駛班表（一列＝一個駕駛班；綠段＝休息，紅框＝違反休息規定）'}`;
+  document.getElementById('gtitle').textContent=`${SC[st.sc]}：${st.view==='bus'?'車輛班表（一列＝一台車；綠段＝停 ≥15 分，可休息）':'駕駛班表（一列＝一個駕駛班；綠段＝休息，紅框＝不符本專案的休息規則）'}`;
   document.getElementById('legend').innerHTML=`<span><span class="sq" style="background:var(--a)"></span>開車：去程</span><span><span class="sq" style="background:var(--b)"></span>開車：回程</span><span title="區間車：只跑上下車多的那一段"><span class="sq" style="background:var(--st)"></span>開車：區間車</span>
    <span><span class="sq" style="background:var(--rest)"></span>停 ≥15 分（算休息）</span><span><span class="sq" style="background:var(--short)"></span>停 <15 分（只是折返）</span>`;
   document.getElementById('gantt').innerHTML=gantt();
@@ -14791,7 +14791,7 @@ function dl(){
      <li>前一晚有開的 ${f(V.night.buses)} 台車，夜裡停的中位數只有 ${V.night.rest_h_median} 小時，${pc(V.night.under_8)}（${DD(DL.day)}）停不到 8 小時。同一人開就低於汽車運輸業管理規則第 19 條之 2 的最低休息，所以推定換駕駛</li></ul></div></div>
    <p class="note">人數：${DL.headcount.map(h=>`${f(h.n)}（${h.when}，${FLAT(h.source)}）`).join('；')}。人數是 2025 年的數字，工時用 ${WK.d0}–${WK.d1} 的 ${WK.n} 個平日。這兩段時間之間，駕駛加薪 8,000 元。
    車隊：${f(DL.fleet.n)} 台（${DL.fleet.when}，${FLAT(DL.fleet.source)}）。
-   法規：勞動基準法（2024-07-31 修正）第 30、32 條規定每天正常 8 小時、每週 40 小時。一天的正常工時加上加班，最多 12 小時。每月加班 ≤46 小時。經工會同意（沒有工會的，經勞資會議同意），可到 54 小時，每 3 個月合計最多 138 小時。汽車運輸業管理規則第 19 條之 2（115/5/6 修正，全國法規資料庫）<span class="badge real">真</span>另外規定：每天開車 ≤10 小時。連續開 4 小時至少休 30 分，可以分次，每次至少 15 分。工作具連續性或交通壅塞時，可以另外調配：最多連續開 6 小時，而且要一次休滿 45 分。兩個工作日之間至少連續休 10 小時。排班需要時可以縮到 8 小時，一週最多 2 次，不可以連續兩天。這是參照換算，不是違法判定。</p>
+   法規：勞動基準法（2024-07-31 修正）第 30、32 條規定每天正常 8 小時、每週 40 小時。一天的正常工時加上加班，最多 12 小時。每月加班 ≤46 小時。經工會同意（沒有工會的，經勞資會議同意），可到 54 小時，每 3 個月合計最多 138 小時。汽車運輸業管理規則第 19 條之 2（115 年 5 月修正，全國法規資料庫）<span class="badge real">真</span>另外規定：每天開車 ≤10 小時。連續開 4 小時至少休 30 分，可以分次，每次至少 15 分。工作具連續性或交通壅塞時，可以另外調配：最多連續開 6 小時，而且要一次休滿 45 分。兩個工作日之間至少連續休 10 小時。排班需要時可以縮到 8 小時，一週最多 2 次，不可以連續兩天。這是參照換算，不是違法判定。</p>
    <table style="font-size:12px;max-width:760px"><tr><th>規定（公車駕駛）</th><th>臺灣</th><th>日本（2024 起）</th><th>英國（市區路線）</th><th>這裡看到的</th></tr>
    <tr><td>一天開車</td><td>≤10 小時</td><td>2 天平均 ≤9 小時</td><td>≤10 小時</td><td></td></tr>
    <tr><td>連續開車後休息</td><td>4 小時休 30 分（工作具連續性或交通壅塞時：最多 6 小時，一次休 45 分）</td><td>4 小時中斷 30 分（每次 ≥10 分）</td><td>5.5 小時休 30 分</td><td>車的資料看不出駕駛何時換班；模擬見各路線</td></tr>
@@ -14831,12 +14831,12 @@ function pickRoute(q){q=(q||'').trim();if(!q)return;
 function findings(){const V=DL.vehicles,f=x=>(x??0).toLocaleString(),p1=x=>(x*100).toFixed(1)+'%';
   const M_=' <span class="badge sim">模擬</span>',R_=' <span class="badge real">真</span>',E_=' <span class="badge est">推估</span>';
   const nCh=EH.routes.flatMap(r=>r.ends).filter(e=>e.way==='change').length;
-  const mf=document.getElementById('m-find'),mfo=mf.querySelector('details')?.open?' open':'';
+  const mf=document.getElementById('m-find'),d0=mf.querySelector('details'),mfo=(d0?d0.open:true)?' open':'';   // open on the first screen
   mf.innerHTML=`<details class="fold"${mfo}><summary><b>發現的問題・行動方案</b></summary><div class="two"><div><h2>發現的問題</h2><ol>
     <li><b>${p1(V.drive_over_10)} 的車一天開超過 10 小時</b>${R_}<br>全市 ${f(V.buses)} 台車，${DD(DL.day)}。這是車，不是人：一台車可能兩位駕駛輪流開。</li>
     ${V.night&&V.night.under_8!=null?`<li><b>${p1(V.night.under_8)} 的車夜間停不到 8 小時</b>${R_}<br>算的是 ${DD(DL.windows[0])} 夜間有開、${DD(DL.day)} 早上又出車的 ${f(V.night.buses)} 台車。這是車，不是人。</li>`:''}
-    <li><b>全市駕駛每週工作約 ${Math.round(WK.mid)} 小時</b>${E_}<br>法定上限（含加班）約 ${CAP} 小時。<details class="note"><summary>範圍與假設</summary>正常工時是每週 40 小時。${WKT}。${PRE(f(DL.headcount[0].n))}。</details></li>
-    <li>${S0C.strict!=null?`<b>班內休息：每 100 個駕駛班約 ${Math.round(S0C.strict*100)} 個排不進</b>${M_}<br>駕駛班＝一位駕駛一天的班。這是上限：假設駕駛整天開同一台車。最多的路線是 ${S0C.worst.slice(0,3).join('、')}。<details class="note"><summary>規則與例外</summary>規則是連續開 4 小時要休 30 分。用例外寬限（工作具連續性或交通壅塞時）算是 ${p1(S0C.lenient)}。</details>`:'排班模擬資料不夠。'}</li>
+    <li><b>全市駕駛每週工作約 ${Math.round(WK.mid)} 小時</b>${E_}（只算總公司在臺北的業者，約 ${Math.round(WK.tp)} 小時；要看勤務表）<br>法定上限（含加班）約 ${CAP} 小時。<details class="note"><summary>範圍與假設</summary>正常工時是每週 40 小時。${WKT}。${PRE(f(DL.headcount[0].n))}。</details></li>
+    <li>${S0C.strict!=null?`<b>班內休息：每 100 個駕駛班約 ${Math.round(S0C.strict*100)} 個排不進</b>${M_}<br>電腦照時刻表排出的上限，不是業者實際的班表。駕駛班＝一位駕駛一天的班；假設駕駛整天開同一台車。最多的路線是 ${S0C.worst.slice(0,3).join('、')}。<details class="note"><summary>規則與例外</summary>規則是連續開 4 小時要休 30 分。用例外寬限（工作具連續性或交通壅塞時）算是 ${p1(S0C.lenient)}。</details>`:'排班模擬資料不夠。'}</li>
     ${EH.routes.length?`<li><b>${EH.routes.length} 條路線休息最不夠，${EH.routes.length*2} 個終點站裡只有 ${nCh} 個接班駕駛到得了</b>（500 m 內有捷運站或業者場站）。${EH.hubs.length?`${EH.hubs.map(h=>h.stops.join('和')+'（'+h.routes.join('、')+'）').join('；')} 相距不到 ${EH.rule.hub_m} m，可以共用一個休息點。`:''}<a href="#ends">終點站卡片</a></li>`:''}</ol></div>
    <div><h2>行動方案</h2><ol>
     <li>請中央解釋休息的例外規定。（<a href="plan100.html#exc">100 天</a>）</li>

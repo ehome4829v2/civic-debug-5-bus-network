@@ -161,9 +161,9 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
 <header>
   <h1 class="now-only">地區：這個時段哪裡人多、哪裡人少</h1><h1 class="plan-only">看提案：怎麼改路網</h1><h1 class="live-only">看即時：哪裡上下車比平常多、哪條路線比平常久沒車</h1>
   <div id="simbar"></div>
-  <p class="sub now-only">這頁看平常的冷熱。我們把幾個平日合起來，看每個時段哪裡人多、哪裡人少。比平常多、一再出現的問題，看「<a href="#" data-mode="live" data-acc>看即時</a>」。怎麼改路網，看「<a href="#" data-mode="plan">看提案</a>」。按 ▶ 看一天怎麼變。輸入地名或站名，找你家。</p>
+  <p class="sub now-only"><b>問題：有些地方車不夠，有些地方車太多。行動：市府分站牌、調班表、改路線（看提案）。</b>冷熱用公車停站的秒數算 <span class="b real">真</span>；拿到刷卡資料，用同一套規則重算。這頁看平常的冷熱：幾個平日合起來，看每個時段哪裡人多、哪裡人少。比平常多、一再出現的問題，看「<a href="#" data-mode="live" data-acc>看即時</a>」。怎麼改路網，看「<a href="#" data-mode="plan">看提案</a>」。按 ▶ 看一天怎麼變。輸入地名或站名，找你家。</p>
   <div class="now-only plain" id="find"></div>
-  <p class="sub plan-only"><span class="tag t-plan">研究建議，尚未定案</span> 市府管路線和班表，所以答案是改路網：站牌、班表、路線。要改的地方有兩個來源。第一，這次分析挑出的第一批地點（見 <a href="plan100.html#places">100 天</a>）。第二，「看即時」<a href="#" data-mode="live" data-acc>累積清單</a>裡一再出現的地方；建議每週檢討。建議 100 天內不減班。離峰減班要等刷卡資料，100 天後再檢討。</p>
+  <p class="sub plan-only"><span class="tag t-plan">研究建議，尚未定案</span> 市府管路線和班表，所以答案是改路網：站牌、班表、路線。人少的地方加預約專車（DRTS，需求反應式公車：有人預約才開），現有公車不減班。要改的地方有兩個來源。第一，這次分析挑出的第一批地點（見 <a href="plan100.html#places">100 天</a>）。第二，「看即時」<a href="#" data-mode="live" data-acc>累積清單</a>裡一再出現的地方；建議每週檢討。建議 100 天內不減班。離峰減班要等刷卡資料，100 天後再檢討。</p>
   <!-- 行動方案: closed on every screen, so the map comes first; the three headline cards sit inside with the list -->
   <details class="plan-only plain" id="todod"><summary style="cursor:pointer"><b>行動方案</b></summary><div id="act"></div><div id="todo"></div></details>
   <p class="sub live-only"><b>看得見 → 一再出現 → 改路網。</b>「回放」和「現在」是看得見；「累積」是一再出現；「<a href="#" data-mode="plan">看提案</a>」是改路網。</p>
@@ -1233,7 +1233,7 @@ function liveInfo(k){if(st.lv.src==='acc')return accInfo(k);const s=liveStep();i
       <p class="note">進站路段的行車時間 ${B.real}：${a.link==null?'資料不夠，沒有比':a.link<LV.traffic?`和平常差不多（平常的 ${a.link} 倍）`:`比平常久（平常的 ${a.link} 倍）`}。到平常的 ${LV.traffic} 倍以上，改標「塞車」。</p>
       ${a.gaps&&a.gaps.length?`<p class="note"><b>這一格同時缺車：</b>${a.gaps.map(gapTxt).join('；')}。</p>`:''}
       <div class="lvdo"><b>建議：</b>${act}</div>`;};
-  const gq=gp.length?`<h3>缺車（${gp.length} 條）</h3><ul class="lv">${gp.map(a=>`<li>${gapTxt(a)}${a.recur?`<div class="note">${recurTxt(a)}</div>`:''}</li>`).join('')}</ul><p class="note">平常這段時間約有 ${gp.map(a=>Math.round(a.expect)).join('、')} 班車經過。車距：有回報的車是實測 ${B.real}；開過了但還沒回報的車，用最後的位置和平常的站間行車時間推算 ${B.est}。</p><div class="lvdo" style="border-color:#5b3fa0"><b>建議：</b>調度員查這條路線的車在哪裡：有沒有脫班、是不是兩台黏在一起。下一班可以從起站提早發。</div>`:'';
+  const gq=gp.length?`<h3>缺車（${gp.length} 條）</h3><ul class="lv">${gp.map(a=>`<li>${gapTxt(a)}${a.recur?`<div class="note">${recurTxt(a)}</div>`:''}</li>`).join('')}</ul><p class="note">平常這段時間約有 ${gp.map(a=>Math.round(a.expect)).join('、')} 班車經過。車距：有回報的車是實測 ${B.real}；開過了但還沒回報的車，用最後的位置和平常的站間行車時間推算 ${B.est}。</p><div class="lvdo" style="border-color:#5b3fa0"><b>建議：</b>調度員先查車機：這段時間有沒有回報？沒回報，請業者修車機。有回報仍沒車，才是少開或兩台黏在一起；下一班可以從起站提早發。</div>`:'';
   const oq=ot.length?`<p class="note">${ot.map(o=>`<b>不是警報（${LT[o.type]}）</b>：${o.type==='holding'?`${esc((o.routes||[['']])[0][0])} 一條路線占增加量的 ${Math.round(((o.routes||[[0,0]])[0][1])*100)}%：可能是車在站上等發車時刻。交給業者調度。`:o.type==='traffic'?`進站路段的行車時間是平常的 ${o.link} 倍：停站變長可能是塞車，不是上下車的人變多。交給交通工程單位。`:`經過的車 ${Math.round(o.buses_base)} → ${o.buses} 台，每台車多停不到平常的 ${LV.per_bus} 倍：可能是改道或加開。不用處理。`}`).join('<br>')}</p>`:'';
   return head+here.map(one).join('')+gq+oq;}
 // the definitions, from the thresholds pipeline.live used
