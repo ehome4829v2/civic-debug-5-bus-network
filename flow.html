@@ -160,7 +160,7 @@ function bunch(){const x=D[R],B=x.bun||[];
      <li>建議公運處核定上限：起站晚發加中途放慢，一個來回最多 6 分。這 6 分加進班表，不扣駕駛休息（看 ${sch}）。</li>
      <li>建議調度系統自動標出慢班：前一趟比這時段 100 趟裡的 85 趟還慢。這些班的駕駛回到終點站後，照樣休滿再發車。每個來回至少休 15 分；路線越長休越久（開 4 小時休 30 分）<span class="badge asm">假設</span>。因此晚發時，建議不罰業者和站務員。</li>
      <li>建議公運處先核定跳站和區間車的規則，調度員才能用。下面兩種不算過站不停：照規則跳站；違停擋住站牌（用行車影像確認）。</li>
-     <li>建議公運處照班次多少，用兩種評鑑。${bph!=null?`${R} 這一小時約 ${bph} 班，${bph>=5?'用第一種':'用第二種'}。`:''}<br>第一種（每小時 5 班以上）：看「比班表多等的時間」。就是實際平均等車時間，減掉照班表應等的時間（倫敦的算法）。業者要交計畫發車時刻。<br>第二種（每小時未滿 5 班）：看起站準點率。例如提早 2.5 分到晚 5 分內發車的比例 <span class="badge asm">假設</span>。<br>上面的「串車多等」（這一小時 ${(v[4]-v[5]).toFixed(1)} 分）只用來找串車，不計分。它以實際班距為基準，少開班的業者反而分數好看。</li>
+     <li>建議公運處照班次多少，用兩種評鑑。${bph!=null?`${R} 這一小時約 ${bph} 班，${bph>=5?'用第一種':'用第二種'}。`:''}<br>第一種（每小時 5 班以上）：看「比班表多等的時間」。就是實際平均等車時間，減掉照班表應等的時間（倫敦的算法，<a href="https://foi.tfl.gov.uk/FOI-0143-2122/QSI%20Statistics%20Explained%20v2.0%2009.12.13.pdf" target="_blank" rel="noopener">TfL</a>）。業者要交計畫發車時刻。<br>第二種（每小時未滿 5 班）：看起站準點率。例如提早 2.5 分到晚 5 分內發車的比例 <span class="badge asm">假設</span>。<br>上面的「串車多等」（這一小時 ${(v[4]-v[5]).toFixed(1)} 分）只用來找串車，不計分。它以實際班距為基準，少開班的業者反而分數好看。</li>
      <li>串車開始的站和前 3 個路口：交工處查號誌、劃紅線；公運處檢查站牌位置；警察局交通大隊在尖峰取締違停。新北市路段，建議請新北市政府交通局協同處理。</li>
      <li>交通局：公車專用道；號誌讓公車先走。</li>
      <li>業者和交通局：多門上車；站牌夠停。</li></ul></details></details>`:'')+
@@ -230,12 +230,12 @@ function summary(){const x=D[R],S=x.sim,ss=x.simsum,hw=x.hw||{},OT=x.ot&&x.ot[7]
   const fixed=lohi&&Math.round(lohi[0])===Math.round(lohi[1]);
   L.push(`${R} 平日一天約發 ${f(Math.round(sum(depH(x))))} 班次（兩個方向合計）。${x.partial?'<b title="有一個方向只公布部分時段">TDX（交通部公開資料平台）公布的班表不完整</b>。所以這裡不和班表比。':lohi?(fixed?`班表是 ${f(Math.round(lohi[0]))} 班次。`:`班表寫 ${f(Math.round(lohi[0]))}–${f(Math.round(lohi[1]))} 班次。`)+(B?`和班表比（每個方向、每個小時算一個時段）：${B[0]+B[1]+B[2]} 個時段中，${B[0]} 個${fixed?'和班表一樣':'在班表範圍內'}（差 1 班次以內算符合）。${fixed||!where?'':where+'。'}`:''):''}`);
   // the simulation against GPS at that hour: over 10% apart, say it in tenths (成) and why (slow running times, p85)
-  const gp=sr?(Math.round(sr[pk])-Math.round(ar[pk]))/Math.max(1,Math.round(ar[pk])):0,gs=sr?(Math.abs(gp)>.1?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*100)}%。${gp>0?'因為模擬用偏慢的行車時間（100 趟裡第 85 慢）。':''}`:`模擬 ${sr[pk].toFixed(0)} 台，相差不到 10%。`):'';
+  const gp=sr?(Math.round(sr[pk])-Math.round(ar[pk]))/Math.max(1,Math.round(ar[pk])):0,gs=sr?(Math.abs(gp)>.1?`這條路線 ${pk} 點，模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*100)}%（全市 6–22 點平均見駕駛頁）。${gp>0?'因為模擬用偏慢的行車時間（100 趟裡第 85 慢）。':''}`:`模擬 ${sr[pk].toFixed(0)} 台，相差不到 10%。`):'';
   L.push(`同時在路上的車，${pk} 點最多：${ND} 個平日平均 ${ar[pk].toFixed(0)} 台。${gs}`);
   // the key lines come first; the counts above go one level down
   const K=OT?`準點＝提早 2.5 分到晚 5 分內從起站出發。我們只量起站。`:extra!=null?`串車＝幾台車黏在一起來。多等的分鐘是全天平均。如果車排得完全整齊，最多也只能少等這麼多。`:'';
   if(!OT&&extra!=null)L.unshift('多等的分鐘只用來找串車，不用來評鑑業者。');
-  $('why').innerHTML=sr?`上排是實際的車 <span class="badge real">真</span>。下排是照班表排的車 <span class="badge simb">模擬</span>。${pk} 點同時在路上的車最多：實際 ${ar[pk].toFixed(0)} 台（${ND} 個平日平均），模擬 ${sr[pk].toFixed(0)} 台。${Math.abs(gp)>.1?`模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*100)}%。所以<a href="schedule.html#route=${encodeURIComponent(R)}">駕駛排班頁</a>算的駕駛人數${Math.abs(gp)>.25?'只能當範圍':'只能參考'}。`:`兩者相差不到 10%。<a href="schedule.html#route=${encodeURIComponent(R)}">駕駛排班頁</a>算的駕駛人數可以參考。`}`:'這條路線沒有排班模擬。這裡只播放實際的車。';
+  $('why').innerHTML=sr?`上排是實際的車 <span class="badge real">真</span>。下排是照班表排的車 <span class="badge simb">模擬</span>。${pk} 點同時在路上的車最多：實際 ${ar[pk].toFixed(0)} 台（${ND} 個平日平均），模擬 ${sr[pk].toFixed(0)} 台。${Math.abs(gp)>.1?`這條路線 ${pk} 點，模擬的車${gp>0?'多':'少'}約 ${Math.round(Math.abs(gp)*100)}%（全市 6–22 點平均見駕駛頁）。所以<a href="schedule.html#route=${encodeURIComponent(R)}">駕駛排班頁</a>算的駕駛人數${Math.abs(gp)>.25?'只能當範圍':'只能參考'}。`:`兩者相差不到 10%。<a href="schedule.html#route=${encodeURIComponent(R)}">駕駛排班頁</a>算的駕駛人數可以參考。`}`:'這條路線沒有排班模擬。這裡只播放實際的車。';
   $('ans').innerHTML=`<b>${lead}</b>${!OT&&extra!=null?` <span class="badge real">真＋假設</span> <span style="font-size:13px;color:#555">門檻是我們選的（<a href="#bhow" onclick="const e=document.getElementById('bhow');if(e)e.open=true;">見說明</a>）。</span>`:''}<details style="font-size:14px"><summary>怎麼算</summary>${K?`${K}<details style="font-size:14px"><summary>細節</summary>`:''}<ul style="margin:4px 0">${L.map(s=>`<li>${s}</li>`).join('')}</ul>${K?'</details>':''}</details>`;
 
 }
