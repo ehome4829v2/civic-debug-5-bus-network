@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>我的公車駕駛有沒有可能過勞？｜市政 Debug #5</title>
+<title>駕駛：公車的一天是不是太長？｜市政 Debug #5</title>
 <style>
 :root{--st:#5d6d7e;--fg:#222;--mut:#666;--line:#ddd;--a:#2c7bb6;--b:#f28e2b;--rest:#4daf4a;--short:#d0d0d0;--bad:#d7301f}
 *{box-sizing:border-box}
@@ -88,8 +88,8 @@ details.fold>summary{cursor:pointer;font-size:16px}
 
 <div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="on">② 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
 <section class="mine">
-  <h1>駕駛：公車駕駛有沒有可能過勞</h1>
-  <p class="sub"><b>問題：車的一天太長（37.6% 的車一天開超過 10 小時，真）；駕駛一週工時可能超過上限，要看勤務表確認。班內休息：全市每 100 個駕駛班約 6 個排不進，307 最多（模擬）。行動：市府改班表和終點站，不是每分鐘的調度。</b></p>
+  <h1>駕駛：公車的一天是不是太長？駕駛過勞要看勤務表</h1>
+  <p class="sub"><b>問題：</b>① 車的一天太長：37.6% 的車一天開超過 10 小時（真）。② 駕駛一週工時可能超過上限，公運處第 1–30 天用勤務表確認。③ 班內休息：全市每 100 個駕駛班約 6 個休息不夠，307 最多（模擬）。<br><b>行動：</b>公運處改班表和終點站，不是每分鐘的調度。</p>
   <div class="find" id="m-find"></div>
   <div class="card" id="ends" style="margin:0 0 10px;scroll-margin-top:12px"></div>
   <p class="sub" style="margin-top:8px">輸入一條路線，看這條路線的駕駛。</p>
@@ -14764,9 +14764,9 @@ function dl(){
   s+='</svg></div>';
   const G40=w=>Math.max(0,r10(hc.n*w/40-hc.n));
   document.getElementById('dl').innerHTML=`<details><summary class="sec"><h2 style="display:inline">全市一個平日：駕駛夠不夠？<span class="badge real">真：車</span><span class="badge asm">假設：人</span></h2></summary>
-   <p class="plain"><b>駕駛每週工時約 ${WK.mid.toFixed(1)} 小時（${WK.n} 個平日的中位），正常是 40 小時。</b>${WKT}<span class="badge est">推估</span>。${PRE(f(hc.n))}。照這個前提，現在的人數不夠讓每人每週只做 40 小時。所以駕駛每天做超過 8 小時，或休假日也上班。${CG.hi>0?`要符合法定加班上限，中間情境約要加 ${f(CG.mid)} 人（${f(CG.lo)}–${f(CG.hi)} 人）<span class="badge est">推估</span>。`:''}<span class="note">（駕駛人數只有全市的數字。週末開多少班，用 TDX 公布的班表推估。）</span></p>
+   <p class="plain"><b>駕駛每週工時約 ${WK.mid.toFixed(1)} 小時（${WK.n} 個平日的中位），正常是 40 小時。</b>${WKT}<span class="badge est">推估</span>。${PRE(f(hc.n))}。照這個前提，現在的人數不夠讓每人每週只做 40 小時。這是推估，不是任何駕駛或業者的實際工時；要看勤務表確認。${CG.hi>0?`要符合法定加班上限，中間情境約要加 ${f(CG.mid)} 人（${f(CG.lo)}–${f(CG.hi)} 人）<span class="badge est">推估</span>。`:''}<span class="note">（駕駛人數只有全市的數字。週末開多少班，用 TDX 公布的班表推估。）</span></p>
    <div class="note" style="color:#222;font-size:13px;margin:0 0 6px">
-   <div><b>可以說：</b>照實測的車輛運行時間，加班是常態，不是偶發。前提是 ${f(hc.n)} 位涵蓋全部 15 家業者。</div>
+   <div><b>可以說：</b>照實測的車輛運行時間推估，加班不少；勤務表到手才確定。前提是 ${f(hc.n)} 位涵蓋全部 15 家業者。</div>
    <div><b>結論多穩：</b>我們用 ${WK.n} 個平日的中位算。要壓到每週 40 小時，中間情境要多約 ${f(G40(WK.mid))} 人。三個假設取最輕到最重，要多 ${f(G40(M40.lo))}–${f(G40(M40.hi))} 人（和 100 天頁的算法相同）。極端寬鬆的算法只要多約 ${f(Math.max(0,r10(M40.gen-hc.n)))} 人。這個算法不算出退勤（報到、收車），週末只開平日一半，也假設沒人請假。以上都以 15 家計。如果現在的駕駛比 2025 年多約 ${f(Math.max(0,r10(M40.gen-hc.n)))} 人，這個極端算法下人就夠了。${DL2.length>1&&DL2.every(x=>x.week.mid>40)?`每個平日各自重算，${WK.n} 個平日都高於 40 小時（見「算法、假設與出處」）。`:''}</div>
    <div><b>駕駛安全（車的數字）：</b>兩頭班（早晚各開一段）的車，從第一班到最後一班的中位數是 ${V.split.spread_h_median.toFixed(1)} 小時（${DD(DL.day)}）。日本的原則是 13 小時，最多 15 小時。臺灣沒有直接限制跨度。兩班之間至少休 10 小時，等於一天最多約 14 小時（縮成 8 小時的那天約 16 小時）。一台兩頭班的車可能是兩個人開。</div>
    <div><b>不能說：</b>誰違法、哪家業者讓駕駛超時。平均數也看不出加班是大家分攤，還是集中在少數人。</div>
@@ -14841,9 +14841,9 @@ function findings(){const V=DL.vehicles,f=x=>(x??0).toLocaleString(),p1=x=>(x*10
     <li>${S0C.strict!=null?`<b>班內休息：每 100 個駕駛班約 ${Math.round(S0C.strict*100)} 個排不進</b>${M_}<br>電腦照時刻表排出的上限，不是業者實際的班表。駕駛班＝一位駕駛一天的班；假設駕駛整天開同一台車。最多的路線是 ${S0C.worst.slice(0,3).join('、')}。<details class="note"><summary>規則與例外</summary>規則是連續開 4 小時要休 30 分。用例外寬限（工作具連續性或交通壅塞時）算是 ${p1(S0C.lenient)}。</details>`:'排班模擬資料不夠。'}</li>
     ${EH.routes.length?`<li><b>${EH.routes.length} 條路線休息最不夠，${EH.routes.length*2} 個終點站裡只有 ${nCh} 個接班駕駛到得了</b>（500 m 內有捷運站或業者場站）。${EH.hubs.length?`${EH.hubs.map(h=>h.stops.join('和')+'（'+h.routes.join('、')+'）').join('；')} 相距不到 ${EH.rule.hub_m} m，可以共用一個休息點。`:''}<a href="#ends">終點站卡片</a></li>`:''}</ol></div>
    <div><h2>行動方案</h2><ol>
-    <li>請中央解釋休息的例外規定。（<a href="plan100.html#exc">100 天</a>）</li>
+    <li>公運處請中央解釋休息的例外規定。（<a href="plan100.html#exc">100 天</a>）</li>
     <li>休息不夠的路線：車在終點站多等，或在終點站換駕駛。（<a href="plan100.html#fix">三種改法</a>）</li>
-    <li>和工會去看終點站的休息室和廁所。（<a href="plan100.html#ends">終點站休息室</a>）</li>
+    <li>公運處和工會去看終點站的休息室和廁所。（<a href="plan100.html#ends">終點站休息室</a>）</li>
     ${EH.routes.length?`<li>這 ${EH.routes.length} 條路線的兩端：接班駕駛到得了的，在那裡換駕駛；到不了的，讓車多等，先量停車位。${EH.hubs.length?'能共用的終點站，請路線改停到同一處，一起建休息點。':''}（<a href="#ends">終點站卡片</a>）</li>`:''}
     <li>拿到業者的排班表（勤務表）和出勤紀錄，確認是不是同一位駕駛。（<a href="plan100.html#four">三份真資料</a>）</li>
     <li>算出要加多少人：照法定上限算一次，照每週 40 小時算一次。（<a href="plan100.html#drv">駕駛過勞</a>）</li></ol></div></div>
