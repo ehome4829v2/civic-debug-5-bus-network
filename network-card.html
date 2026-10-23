@@ -297,7 +297,7 @@ const FOC={short:{k:'mismatch',stop:6,lab:'哪裡車不夠',sub:'人多車少'},
 const LV=D.live||null;st.lv={src:'replay',d:LV?LV.days.length-1:0,i:0,playing:false,timer:null};let LN=null;
 const ACC=D.acc||null;   // pipeline.recur: alarms that came back on ≥ 2 days → what to change in the network
 const ACT={stop:['站牌容量','分站牌、幾條路線一起排時刻表（聯合排點）'],freq:['班次少','加班次、區間車'],routes:['多條路線擠一站','幾條路線一起排時刻表，錯開到站'],count:['原因看不出來','到現場數人'],
-  long:['長路線','路線縮短（截短）或拆段'],dup:['和別條路線走同一段路','兩線一起排時刻表，錯開來'],unsteady:['車沒有照固定間隔來','查業者的行車紀錄'],unknown:['車沒有照固定間隔來','查業者的行車紀錄']};
+  long:['長路線','路線縮短（截短）或拆段'],dup:['和別條路線走同一段路','兩線一起排時刻表，錯開來'],unsteady:['車沒有照固定間隔來','到現場看車有沒有來'],unknown:['車沒有照固定間隔來','到現場看車有沒有來']};
 const LT={crowd:'上下車變多',both:'上下車變多又缺車',burst:'突然變多',gap:'缺車',holding:'車在站上等時刻',traffic:'塞車',supply:'班次變多'};
 const LCOL={red:'#c62828',yellow:'#f2a516'};
 const LCOL2={red:'#c62828',yellow:'#f2a516',burst:'#fbe3a6'};
