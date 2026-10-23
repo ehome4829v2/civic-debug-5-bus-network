@@ -80,6 +80,8 @@ nav.tabs{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none}nav.tab
 @media(max-width:600px){#m-strip{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}}
 details.fold>summary{cursor:pointer;font-size:16px}
 .endg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(460px,100%),1fr));gap:10px}.endc table{width:100%;border-collapse:collapse;font-size:13px}.endc th,.endc td{border:1px solid var(--line,#ddd);padding:4px 6px;text-align:left;vertical-align:top}.endc th.rt{font-size:16px}.endc tr>th:first-child{width:34%;background:#f6f6f0}
+
+@media (max-width:640px){.sub{font-size:15px;color:#333}.note{font-size:14px;color:#444}}
 </style>
 </head>
 <body>
@@ -87,7 +89,7 @@ details.fold>summary{cursor:pointer;font-size:16px}
 <div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="on">② 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
 <section class="mine">
   <h1>駕駛：公車駕駛有沒有可能過勞</h1>
-  <p class="sub">駕駛的一天太長、一週工時太多；班內休息比較少出問題。市府要改的是班表和終點站，不是每分鐘的調度。</p>
+  <p class="sub"><b>問題：車的一天太長（37.6% 的車一天開超過 10 小時，真）；駕駛一週工時可能超過上限，要看勤務表確認。班內休息：全市每 100 個駕駛班約 6 個排不進，307 最多（模擬）。行動：市府改班表和終點站，不是每分鐘的調度。</b></p>
   <div class="find" id="m-find"></div>
   <div class="card" id="ends" style="margin:0 0 10px;scroll-margin-top:12px"></div>
   <p class="sub" style="margin-top:8px">輸入一條路線，看這條路線的駕駛。</p>
@@ -15009,7 +15011,7 @@ function eff(r,m){
       <details style="font-size:13px"><summary style="cursor:pointer;color:#555">怎麼算</summary><p class="note">灰色${MISS!=null?'照公布的班表算':'照這些班次本身算'}，只有加班次能縮短。${MISS!=null?(MISS>=.1?`橘色：班表有、路上沒看到的班（少開，或車沒回報位置），平均多等 ${MISS.toFixed(1)} 分。`:`班表有、路上沒看到的班（橘）影響很小${MISS<-.1?'：實際跑的班次比班表還多':''}。`):''}黑色含班距忽長忽短。${longHw?'這條路線班距超過 10 分，很多人先看 App 再出門，實際多等的更少。':'這是調度能拿回的上限。'}</p></details>${longHw?'':`<details style="font-size:13px"><summary style="cursor:pointer;color:#555">芝加哥的試辦拿回多少</summary><div class="note">換算到這條路線，約少等 ${rec.toFixed(1)} 分<span class="badge asm">假設</span>。依據：<a href="https://arxiv.org/abs/2509.08231" target="_blank" rel="noopener">芝加哥 66 路 2023 年試辦（預印本）</a><ul style="margin:2px 0;padding-left:18px"><li>讓車在中途放慢；每天班次 43.3 → 41.7 班。</li><li>試辦 2 週，芝加哥發出的放慢指示約 57% 被執行。</li><li>平均每人等車少約 6%。</li></ul>長期、全面做的效果還沒有數字。拉開黏在一起的車，有時反而要多一點時間或車。</div></details>`}
       ${MISS==null&&m.tt?`<details style="font-size:13px"><summary style="cursor:pointer;color:#555">為什麼拆不出「照班表要等的」</summary><p class="note"><b>重點：</b>這條路線只公布「5–10 分一班」這種範圍，沒有每班的時刻，所以算不出照班表本來要等幾分。要請公運處公開業者送審的發車時刻。</p><details><summary style="cursor:pointer;color:#555">細節</summary><p class="note">灰色只能用實際跑的班次。${BAND?`先用公布的範圍估：照計畫平均要等最短班距的一半到最長班距的一半。照倫敦的算法，「比班表多等的時間」（實際減計畫）落在 <b>${Math.max(0,BAND[0]).toFixed(1)}–${BAND[1].toFixed(1)} 分</b>之間${BAND[0]<0?'（下限低於 0：照最寬的計畫，實際可能沒有多等）':''}。這個範圍很寬。`:''}倫敦用「比班表多等的時間」考核業者${BAND?'。有了計畫時刻，才能把範圍縮成一個數字':''}。</p></details></details>${BAND?`<details style="font-size:13px"><summary style="cursor:pointer;color:#555">倫敦式區間怎麼讀</summary><p class="note">${BAND[0]<(ew-ew0)?'下限比上面串車的分鐘數小：照最寬的計畫（班距最長）算時，實際多跑的車抵掉了串車。':''}實際跑的班距：${[[BAND[2],'的時段落在公布的範圍裡'],[BAND[3],'比範圍還密'],[BAND[4],'比範圍還疏（比承諾還疏的時段，才是可以要求業者說明的）']].filter(x=>Math.round(x[0]*100)>0).map(x=>`${Math.round(x[0]*100)}% ${x[1]}`).join('、')}。</p></details>`:''}`:''}
       ${EWT!=null?`<details style="font-size:13px"><summary style="cursor:pointer;color:#555">和倫敦比</summary><p class="note">照倫敦的算法，這條路線多等 ${EWT.toFixed(1)} 分（實際等車減照班表的等車，只算每小時 ≥5 班的時段）。倫敦全網 2019/20–2022/23 年平均 0.61–1.15 分（<a href="https://foi.tfl.gov.uk/FOI-3002-2324/FOI-3002-2324%20EWT%20Performance%202019-20%20P01%20-%202023-24%20P08.pdf" target="_blank" rel="noopener">TfL</a>）。算法不同（倫敦按站挑監測點，這裡各站等權），不能拿來排名。</p></details>`:''}
-      <details style="font-size:13px"><summary style="cursor:pointer;color:#555">市府替業者打分數（評鑑）：建議</summary><div class="note">建議市府評鑑業者時，依班次分兩種：<ul><li>每小時 5 班以上的時段：用「比班表多等的時間」（實際平均等車減照班表應等的）。業者要交計畫發車時刻。</li><li>每小時未滿 5 班：用起站準點率，例如提早 2.5 分到晚 5 分內發車的比例<span class="badge asm">假設</span>。</li></ul>黑色的「串車多等的」只用來找串車，不計分：它用實際班距當基準，少開班的業者分數反而好看。</div></details>
+      <details style="font-size:13px"><summary style="cursor:pointer;color:#555">市府替業者打分數（評鑑）：建議</summary><div class="note">建議市府評鑑業者時，依班次分兩種：<ul><li>每小時 5 班以上的時段：用「比班表多等的時間」（實際平均等車減照班表應等的）。業者要交計畫發車時刻。</li><li>每小時未滿 5 班：用起站準點率，例如提早 2.5 分到晚 5 分內發車的比例<span class="badge asm">假設</span>。</li></ul>黑色的「串車多等的」只用來找串車，不計分：它用實際班距當基準，少開的班不會被算進去，分數反而好看。</div></details>
       <div class="legend"><span><span class="kq" style="background:#cfcfc8"></span>${MISS!=null?'照班表就要等的':'班次決定的等車'}</span>${MISS!=null?'<span><span class="kq" style="background:#e0a96d"></span>班表有、路上沒看到的班</span>':''}<span><span class="kq" style="background:#222;opacity:.8"></span>串車、班距不穩多等的</span><span><span class="kq" style="border:1px dashed #bbb"></span>那一小時沒有資料</span></div>${s}`:
     `${otTxt}<h3>乘客等車</h3><p class="note">這條路線的班距資料不夠，算不出串車讓大家多等多久。</p>`;
   let crew='';
