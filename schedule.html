@@ -14833,7 +14833,7 @@ function pickRoute(q){q=(q||'').trim();if(!q)return;
 function findings(){const V=DL.vehicles,f=x=>(x??0).toLocaleString(),p1=x=>(x*100).toFixed(1)+'%';
   const M_=' <span class="badge sim">模擬</span>',R_=' <span class="badge real">真</span>',E_=' <span class="badge est">推估</span>';
   const nCh=EH.routes.flatMap(r=>r.ends).filter(e=>e.way==='change').length;
-  const mf=document.getElementById('m-find'),d0=mf.querySelector('details'),mfo=(d0?d0.open:true)?' open':'';   // open on the first screen
+  const mf=document.getElementById('m-find'),mfo=mf.querySelector('details')?.open?' open':'';   // folded: the sub line says the problems and the action
   mf.innerHTML=`<details class="fold"${mfo}><summary><b>發現的問題・行動方案</b></summary><div class="two"><div><h2>發現的問題</h2><ol>
     <li><b>${p1(V.drive_over_10)} 的車一天開超過 10 小時</b>${R_}<br>全市 ${f(V.buses)} 台車，${DD(DL.day)}。這是車，不是人：一台車可能兩位駕駛輪流開。</li>
     ${V.night&&V.night.under_8!=null?`<li><b>${p1(V.night.under_8)} 的車夜間停不到 8 小時</b>${R_}<br>算的是 ${DD(DL.windows[0])} 夜間有開、${DD(DL.day)} 早上又出車的 ${f(V.night.buses)} 台車。這是車，不是人。</li>`:''}

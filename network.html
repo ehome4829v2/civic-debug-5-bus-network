@@ -163,13 +163,15 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
 <header>
   <h1 class="now-only">地區：這個時段哪裡人多、哪裡人少</h1><h1 class="plan-only">看提案：怎麼改路網</h1><h1 class="live-only">看即時：哪裡上下車比平常多、哪條路線比平常久沒車</h1>
   <div id="simbar"></div>
-  <p class="sub now-only"><b>問題：有些地方車不夠，有些地方車太多。行動：公運處分站牌、調班表、改路線（看提案）。</b><br>冷熱＝公車停在站牌的秒數 <span class="b real">真</span>，停越久，上下車的人越多；這不是刷卡人數。拿到刷卡資料，用同一套規則重算。這頁看平常的冷熱：幾個平日合起來，看每個時段哪裡人多、哪裡人少。比平常多、一再出現的問題，看「<a href="#" data-mode="live" data-acc>看即時</a>」。怎麼改路網，看「<a href="#" data-mode="plan">看提案</a>」。按 ▶ 看一天怎麼變。輸入地名或站名，找你家。</p>
+  <p class="sub now-only"><b>問題：有些地方車不夠，有些地方車太多。行動：公運處分站牌、調班表、改路線（看提案）。</b></p>
+  <details class="sub now-only"><summary>怎麼讀這頁</summary>冷熱＝公車停在站牌的秒數 <span class="b real">真</span>，停越久，上下車的人越多；這不是刷卡人數。拿到刷卡資料，用同一套規則重算。這頁看平常的冷熱：幾個平日合起來，看每個時段哪裡人多、哪裡人少。比平常多、一再出現的問題，看「<a href="#" data-mode="live" data-acc>看即時</a>」。怎麼改路網，看「<a href="#" data-mode="plan">看提案</a>」。按 ▶ 看一天怎麼變。輸入地名或站名，找你家。</details>
   <div class="now-only plain" id="find"></div>
-  <p class="sub plan-only"><span class="tag t-plan">研究建議，尚未定案</span> 市府管路線和班表，所以答案是改路網：站牌、班表、路線。人少的地方加預約專車（DRTS，需求反應式公車：有人預約才開），現有公車不減班。要改的地方有兩個來源。第一，這次分析挑出的第一批地點（見 <a href="plan100.html#places">100 天</a>）。第二，「看即時」<a href="#" data-mode="live" data-acc>累積清單</a>裡一再出現的地方；建議每週檢討。建議 100 天內不減班。離峰減班要等刷卡資料，100 天後再檢討。</p>
+  <p class="sub plan-only"><span class="tag t-plan">研究建議，尚未定案</span> 市府管路線和班表，所以答案是改路網：站牌、班表、路線。人少的地方加預約專車（DRTS，需求反應式公車：有人預約才開），現有公車不減班。</p>
+  <details class="sub plan-only"><summary>要改的地方從哪裡來</summary>要改的地方有兩個來源。第一，這次分析挑出的第一批地點（見 <a href="plan100.html#places">100 天</a>）。第二，「看即時」<a href="#" data-mode="live" data-acc>累積清單</a>裡一再出現的地方；建議每週檢討。建議 100 天內不減班。離峰減班要等刷卡資料，100 天後再檢討。</details>
   <!-- 行動方案: closed on every screen, so the map comes first; the three headline cards sit inside with the list -->
   <details class="plan-only plain" id="todod"><summary style="cursor:pointer"><b>行動方案</b></summary><div id="act"></div><div id="todo"></div></details>
-  <p class="sub live-only"><b>問題：同一個地方一再車不夠，或上下車比平常多。行動：業者先查車機；公運處每週用「累積」清單檢討班表、站牌、路線。</b>看得見 → 一再出現 → 改路網。「回放」和「現在」是看得見；「累積」是一再出現；「<a href="#" data-mode="plan">看提案</a>」是改路網。</p>
-  <p class="sub live-only noacc">系統每 5 分鐘檢查一次，和平常的同一時段比。「回放」：一步一步看一個過去的平日。「現在」：<span data-frozen>定稿版不再抓資料，請看「回放」和「累積」。</span></p>
+  <p class="sub live-only"><b>問題：同一個地方一再車不夠，或上下車比平常多。行動：業者先查車機；公運處每週用「累積」清單檢討班表、站牌、路線。</b></p>
+  <details class="sub live-only"><summary>怎麼讀這頁</summary>看得見 → 一再出現 → 改路網。「回放」和「現在」是看得見；「累積」是一再出現；「<a href="#" data-mode="plan">看提案</a>」是改路網。<span class="noacc">系統每 5 分鐘檢查一次，和平常的同一時段比。「回放」：一步一步看一個過去的平日。「現在」：<span data-frozen>定稿版不再抓資料，請看「回放」和「累積」。</span></span></details>
   <details class="src"><summary>資料來源</summary><ul style="margin:4px 0 0 18px;padding:0"><li>只有臺北市公車；新北乘客可能被低估。</li><li>冷熱看公車停站秒數，來自車機（公車上的 GPS 機器）回報的進出站紀錄（真）。10/14 晚間＋10/15、10/16、10/19、10/20、10/21、10/22 6 個平日；<span data-frozen>定稿版，不再加入新的平日。</span>只用平日。</li><li>捷運：各站每小時進出站人次（實測），2026 年 9 月平日平均。</li><li>人口與 65 歲以上人口：內政部最小統計區，只有臺北市。</li><li>河川與跨河橋：© OpenStreetMap 貢獻者（ODbL）。只畫主要河川；橋只算跨過河面的道路橋。</li><li>上下車人次是推估：年報每條路線的乘客（實測），分到各小時、各站；路線多的站分得多。只看大約多少。</li></ul></details>
 </header>
 <div class="controls">
