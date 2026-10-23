@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>路線：車怎麼跑｜市政 Debug #5</title>
+<title>路線查證：車怎麼跑｜市政 Debug #5</title>
 <style>
 :root{--fg:#222;--mut:#555;--line:#ddd;--act:#2c7bb6;--sim:#555;--rest:#8a8a8a;--turn:#b8b8b8;--sch:#e4e4dc}
 *{box-sizing:border-box}
@@ -54,9 +54,10 @@ nav.tabs{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none}nav.tab
 </head>
 <body>
 
-<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="flow.html" class="on">② 路線<span class="tl">：車怎麼跑</span></a><a href="schedule.html" class="">③ 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
+<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="">② 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
 <main>
-<h1>路線：這條路線的車怎麼跑</h1>
+<p class="note"><a href="learn.html">← 說明與教學</a>　深入查證頁</p>
+<h1>路線查證：這條路線的車怎麼跑</h1>
 <p class="sub">這頁看得到串車。問題一再出現的路線，會進<a href="network.html#mode=live&src=acc">累積清單</a>。市府能改的是班表規則，和市府替業者打分數（評鑑）的方法。每分鐘的調度由業者負責。選一條路線，先看一小時內的串車，再播放一天。</p>
 <div class="pick"><input id="q" list="rl" placeholder="輸入路線，例如 307" autocomplete="off"><datalist id="rl"></datalist>
   <span class="note">例如：</span><span class="seg" id="ex"></span></div>

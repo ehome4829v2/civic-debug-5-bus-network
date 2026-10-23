@@ -84,7 +84,7 @@ details.fold>summary{cursor:pointer;font-size:16px}
 </head>
 <body>
 
-<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="flow.html" class="">② 路線<span class="tl">：車怎麼跑</span></a><a href="schedule.html" class="on">③ 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
+<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="on">② 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
 <section class="mine">
   <h1>駕駛：公車駕駛有沒有可能過勞</h1>
   <p class="sub">駕駛休息不夠。市府要改的是班表和終點站，不是每分鐘的調度。</p>
@@ -171,7 +171,7 @@ function render(){
   const r=row(st.sc,st.hw,10), b=row('S0',st.hw,10);
   const dlt=(v,w,u='')=>{const d=Math.round((v-w)*10)/10;return d===0?'<span class="same">相同</span>':`<span class="up">${d>0?'+':''}${d}${u}</span>`;};
   document.getElementById('kpi').innerHTML=`
-   <div><div class="k">${r.vehicles}</div><div class="d">台車（模擬）${D.obsPeak?`<br>真：${D.obsH} 點這一小時出現過的車最多（${D.obsPeak} 台）。這是一小時內出現過的車數。路線頁用的是同時在路上的車數`:''} ${st.sc==='S0'?'':'<br>比「駕駛跟車不換駕駛」'+dlt(r.vehicles,b.vehicles,' 台')}</div></div>
+   <div><div class="k">${r.vehicles}</div><div class="d">台車（模擬）${D.obsPeak?`<br>真：${D.obsH} 點這一小時出現過的車最多（${D.obsPeak} 台）。這是一小時內出現過的車數。路線查證頁用的是同時在路上的車數`:''} ${st.sc==='S0'?'':'<br>比「駕駛跟車不換駕駛」'+dlt(r.vehicles,b.vehicles,' 台')}</div></div>
    <div><div class="k">${r.drivers}</div><div class="d">個駕駛班（先到先排，上限） ${st.sc==='S0'?'':dlt(r.drivers,b.drivers,' 個駕駛班')}</div></div>
    <div><div class="k">${Math.round(r.legal_share*100)}%</div><div class="d">駕駛班符合休息規定（${Math.round(r.legal_share*r.drivers)}／${r.drivers}）</div></div>
    <div><div class="k">${Math.round(r.round_trip_rest_share*100)}%</div><div class="d">每個來回都有休息（${Math.round(S.rest_need_min)>15?st.route+' 路線長，':''}每次至少 ${Math.round(S.rest_need_min)} 分，本專案的規則）</div></div>`;
@@ -179,7 +179,7 @@ function render(){
   const simv=ph&&RC[ph][st.hw==='long_headway'?'sim_long':'sim_short'],obsv=ph&&RC[ph].observed,gap=simv&&obsv?Math.round((simv-obsv)/obsv*100):null,M=D.m&&D.m[ph];
   document.getElementById('real').innerHTML=ph?`<b>和真資料比（${ph} 點）：</b>真資料這一小時出現過 ${obsv} 台車（平日最多的一天）。這個班距的模擬是 ${simv} 台（模擬裡這一小時有跑的車）`+(gap!=null?`（${gap>0?'多':'少'} ${Math.abs(gap)}%）`:'')+
     (gap!=null&&Math.abs(gap)>10?`<span class="up">。差超過一成。車數和駕駛班只能當上限的參考，還不能下結論。</span>`:'。差距在一成內。')+
-    (M?`<br>實測（一個方向）：${M.ew0!=null?`${ph} 點平均 ${(2*M.ew0).toFixed(1)} 分一班（一半在 ${M.p50} 分內）`:`${ph} 點一半的班距在 ${M.p50} 分內`}，最長空窗 ${M.max} 分，串車 ${M.pairs} 對（<a href="flow.html#route=${encodeURIComponent(st.route)}&t=${ph*60}">路線頁的時空圖</a>）<span class="badge real">真＋假設</span>。`:''):'';
+    (M?`<br>實測（一個方向）：${M.ew0!=null?`${ph} 點平均 ${(2*M.ew0).toFixed(1)} 分一班（一半在 ${M.p50} 分內）`:`${ph} 點一半的班距在 ${M.p50} 分內`}，最長空窗 ${M.max} 分，串車 ${M.pairs} 對（<a href="flow.html#route=${encodeURIComponent(st.route)}&t=${ph*60}">路線查證頁的時空圖</a>）<span class="badge real">真＋假設</span>。`:''):'';
   const endsTxt=()=>['0','1'].map(e=>{const x=S.ends[e];return `${x.stop} ${x.turn_min} 分${x.rest?'（休息端，'+Math.round(x.share*100)+'% 停 ≥15 分）':'（不是休息端，'+Math.round(x.share*100)+'% 停 ≥15 分）'}`;}).join('、');
   document.getElementById('kpinote').textContent=`約 ${Math.ceil(r.drivers*S.relief)} 位駕駛＝駕駛班 × ${S.relief}，含輪休、請假、備勤（假設）。約 ${Math.ceil(r.vehicles*(1+S.spare))} 台車，含 ${Math.round(S.spare*100)}% 備用車。行駛時間取 100 趟裡第 ${Math.round(S.run_quantile*100)} 慢的。折返：${endsTxt()}。模擬照${st.hw==='long_headway'?'班距長':'班距短'}排，一天 ${r.trips} 趟單程${D.gps!=null||(MINE[st.route]&&MINE[st.route].tt)?`（${D.gps!=null?`GPS 實測約 ${D.gps} 班次`:''}${D.gps!=null&&MINE[st.route]&&MINE[st.route].tt?'，':''}${MINE[st.route]&&MINE[st.route].tt?`班表 ${RG(MINE[st.route].tt.thu)}`:''}）`:''}。上班時數（跨度合計）${r.paid_hours} 小時；駕駛跟車不換駕駛時 ${b.paid_hours} 小時。只開 1–2 趟的零碎班 ${r.short_duties} 個（先到先排造成的）。`;
   document.getElementById('gtitle').textContent=`${SC[st.sc]}：${st.view==='bus'?'車輛班表（一列＝一台車；綠段＝停 ≥15 分，可休息）':'駕駛班表（一列＝一個駕駛班；綠段＝休息，紅框＝違反休息規定）'}`;
@@ -14946,7 +14946,7 @@ function mine(){
   dayHot.forEach(x=>items.push(fixItem('加車候選：班次少，全天停站很久',`${dr(x)}：可加班次。`,`這條路線的車全天合起來，每班多停 ≥40 秒。一小時不到 4 班，看不出是哪幾點。車上擠不擠，要跟車確認。班次少，差一兩班影響就很大。還沒檢查站牌的公車停靠位（同時能停幾台公車）和公車專用道。`)));
   cold.forEach(x=>items.push(fixItem('減班：車多人少',`${rng(x)}：可拉長班距。${net(x)}`,`這條路線的車在這段幾乎沒人上下，同一站還有很多其他路線的車。做法：這幾個小時拉長班距，或把重疊的一段讓給其他路線。省下的駕駛工時可以補休息，或補上下車多的段。`)));
   if(bunch.length){const ws=bunch.filter(h=>m.hw[h][3]!=null),ex=ws.length?ws.reduce((a,h)=>a+m.hw[h][3]-m.hw[h][4],0)/ws.length:null;
-    items.push(fixItem('串車：起站照間隔發車（業者的調度）',`${spans(bunch)}常兩台黏在一起來${ex!=null?`。車排得完全整齊，每人最多也只少等約 ${ex.toFixed(1)} 分`:''}。<a href="flow.html#route=${encodeURIComponent(r)}&t=${bunch[0]}:00">在路線頁看時空圖和「讓車放慢」的模擬</a>`,`兩台黏著開，等於少一班。少等的分鐘是這幾小時的平均。調度多半不必多派人。我們找到的一個可比試辦（芝加哥 66 路，預印本）只拿回一小部分（見下面「效率」）。起站晚發的時間要加進班表，不從駕駛休息扣。調度是業者的事，市府只核定規則。`));}
+    items.push(fixItem('串車：起站照間隔發車（業者的調度）',`${spans(bunch)}常兩台黏在一起來${ex!=null?`。車排得完全整齊，每人最多也只少等約 ${ex.toFixed(1)} 分`:''}。<a href="flow.html#route=${encodeURIComponent(r)}&t=${bunch[0]}:00">在路線查證頁看時空圖和「讓車放慢」的模擬</a>`,`兩台黏著開，等於少一班。少等的分鐘是這幾小時的平均。調度多半不必多派人。我們找到的一個可比試辦（芝加哥 66 路，預印本）只拿回一小部分（見下面「效率」）。起站晚發的時間要加進班表，不從駕駛休息扣。調度是業者的事，市府只核定規則。`));}
   if(S0&&S0[2]<1)items.push(`<b>休息：在休息端換駕駛。</b><br>${sim.ends.filter(e=>e[3]).map(e=>esc2(e[0])).join('、')||'兩端都只短停'}是車真的會停的地方。<details class="eff"><summary>怎麼算</summary>${sim.both?'一個來回就超過連續開 4 小時，所以兩端都要能休息、換駕駛。':'在休息端換駕駛接著開，比讓車多等省車。'}效果（模擬）：跟車要 ${S0[1]} 個駕駛班，約 ${pct(1-S0[2])} 休息不夠。換駕駛（先到先排）要 ${S2[1]} 個才全排得進${m.opt&&m.opt.opt?`；電腦排班只要 ${m.opt.opt.drivers} 個${m.opt.opt.drivers<=S0[1]?'，和跟車一樣多':''}`:''}。前提：<ul style="margin:2px 0;padding-left:18px"><li>那一端有休息室、廁所。</li><li>交接要有交通車，交接時間算薪水。</li><li>業者多半讓駕駛固定開一台車，改排班要和工會協商。</li></ul></details>`);
   if(sim&&sim.s3.length){const nA=[...new Set(sim.s3)].length,dB=S3[0]-S0[0],dD=S3[1]-S0[1],DF=(d,u)=>d?`${d>0?'多':'少'} ${Math.abs(d)} ${u}`:'';
     items.push(fixItem(`站點調整：${nA} 項全部做<span class="badge sim">模擬</span>`,`站點調整＝在某些時段減班、開區間車，或截短（路線只開到某站）。${nA} 項全部做，要 ${S3[0]} 台車、${S3[1]} 個駕駛班。${dB||dD?`比駕駛整天開同一台車${[DF(dB,'台車'),DF(dD,'個駕駛班')].filter(Boolean).join('、')}。`:''}這和 <a href="plan100.html#fix">100 天頁</a>的「在終點站換駕駛」是不同做法：那個做法只換駕駛，不改班次。`,`（時段｜區間｜原因）${S3L(sim.s3)}`));}

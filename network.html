@@ -157,7 +157,7 @@ ul.ls{list-style:none;padding:0;margin:4px 0 0;font-size:13px}ul.ls li{padding:3
 </head>
 <body>
 
-<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="on">① 地區<span class="tf">：哪裡人多、哪裡人少</span></a><a href="flow.html" class="">② 路線<span class="tf">：車怎麼跑</span></a><a href="schedule.html" class="">③ 駕駛<span class="tf">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tf">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tf">與教學</span></a></nav>
+<div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="on">① 地區<span class="tf">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="">② 駕駛<span class="tf">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tf">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tf">與教學</span></a></nav>
 <header>
   <h1 class="now-only">地區：這個時段哪裡人多、哪裡人少</h1><h1 class="plan-only">看提案：怎麼改路網</h1><h1 class="live-only">看即時：哪裡上下車比平常多、哪條路線比平常久沒車</h1>
   <div id="simbar"></div>
@@ -422,7 +422,7 @@ function showRoute(r){st.route=r;const ix=[...new Set(OV.routes[r].flat())],xy=i
   const w=Math.max(WMIN*2,(Math.max(...X)-Math.min(...X))*1.25,(Math.max(...Y)-Math.min(...Y))*1.25/ASP());st.sel=null;
   fly((Math.min(...X)+Math.max(...X))/2,(Math.min(...Y)+Math.max(...Y))/2,w);routeMsg();}
 function routeMsg(){const r=st.route;if(!r)return;const set=new Set(OV.routes[r].flat()),b=HF(st.h).bus.filter(x=>set.has(x[0])),ri=D.rinfo[r];
-  g('qmsg').innerHTML=`<b>${esc(r)}</b>：單向約 ${Math.max(...OV.routes[r].map(l=>l.length))} 站。${hh(st.h)} 點 ${STN([[b.filter(x=>x[1]===6).length,'▲ 人多車少','var(--mis)'],[b.filter(x=>x[1]===1).length,'■ 車多人少','var(--ovl)'],[b.filter(x=>x[1]===0).length,'熱點站','']],'、')||'沒有標記的站'}${ri?`；和捷運平行 ${Math.round(ri[0]*100)}%`:''}。${D.sched.includes(r)?` <a href="flow.html#route=${encodeURIComponent(r)}&t=${st.h*60}">② 串車和時空圖</a>`:''} <button data-clear="1">清除</button>`;}
+  g('qmsg').innerHTML=`<b>${esc(r)}</b>：單向約 ${Math.max(...OV.routes[r].map(l=>l.length))} 站。${hh(st.h)} 點 ${STN([[b.filter(x=>x[1]===6).length,'▲ 人多車少','var(--mis)'],[b.filter(x=>x[1]===1).length,'■ 車多人少','var(--ovl)'],[b.filter(x=>x[1]===0).length,'熱點站','']],'、')||'沒有標記的站'}${ri?`；和捷運平行 ${Math.round(ri[0]*100)}%`:''}。${D.sched.includes(r)?` <a href="flow.html#route=${encodeURIComponent(r)}&t=${st.h*60}">串車和時空圖（查證）</a>`:''} <button data-clear="1">清除</button>`;}
 g('qmsg').onclick=e=>{if(e.target.closest('[data-clear]')){st.route=null;g('q').value='';g('qmsg').innerHTML='';draw();return;}const b=e.target.closest('[data-s]');if(b){g('qmsg').innerHTML='';select({t:'stop',i:stopIdx[b.dataset.s]},false);}};
 const flags=b=>(b.split?'<span class="flag">超過 5 km²</span>':'')+(b.far?'<span class="flag">離捷運超過 3 km</span>':'')+(b.ntp?'<span class="flag">新北：建議請新北市政府交通局協同處理</span>':'');
 // zoom: the map scales, markers and text do not
@@ -590,7 +590,7 @@ ${st}`);const t=txt(x,y+4*u,String(i+1),12,'#fff',g('ctop'));t.setAttribute('str
   g('find').innerHTML=`<details${fo}><summary style="cursor:pointer"><b>發現的問題</b>（${esc(D.label[st.p])}）</summary><ul style="margin:4px 0 0 18px;padding:0">
     ${n.mismatch?`<li>人多車少：${n.mismatch} 格${nk(6)?`（${hh(st.h)} 點有 ${nk(6)} 站）`:''}。規則：站在這小時 3–6 班（約 10–20 分一班），每班比這站最空的時候多停 40 秒以上。格子用同一個規則，算整個時段。要跟車確認車上滿不滿。</li>`:''}
     ${n.overlap?`<li>車多人少：${n.overlap} 格。站上幾乎沒人上下。車上可能是滿的，要用刷卡資料確認。</li>`:''}
-    ${D.ovr&&D.ovr.corr?`<li>路線重疊：${D.ovr.corr.length} 條走廊有 10 條以上路線共用。每條路線都少來。站牌擠，容易串車。看 <a href="flow.html">② 路線</a>。</li>`:''}</ul></details>`;
+    ${D.ovr&&D.ovr.corr?`<li>路線重疊：${D.ovr.corr.length} 條走廊有 10 條以上路線共用。每條路線都少來。站牌擠，容易串車。看<a href="flow.html">路線查證頁</a>。</li>`:''}</ul></details>`;
   if(PLAN)planCards();if(LIVE)liveCards();
   g('ptitle').textContent=`${D.label[st.p]}：格子的狀況`;
   // plain label first, then what it means; no word repeated between the two
@@ -805,7 +805,7 @@ if(PL){if(NOF)g('l-feedt').textContent='接駁小巴（評估後不開）';{cons
   ${(PL.pilots||[]).length?`<li>${PL.pilots.map(Q=>esc(DN(Q))).join('、')}：重疊的路線一起排時刻表（聯合排點），捷運站分站牌停，之後路線縮短，只開到捷運站（截短）。100 天內先聯合排點。<a href="#pilot">重劃提案</a></li>`:''}
   <li>公車停靠位（站牌同時能停幾台公車）最不夠的站牌：先量停靠位、數人，再決定分站牌或聯合排點。數到很多人上不了車，才加班次。<a href="plan100.html#places">100 天</a></li>
   ${ACC?`<li>每週用<a href="#" data-mode="live" data-acc>累積清單</a>檢討：一再上下車變多的地方、一再缺車的路線，各對一種改法。</li>`:''}
-  <li>串車（兩車黏在一起來）：查從哪一站、哪個路口開始。建議市府替業者打分數（評鑑）時，依班次分兩種指標，見 <a href="flow.html">② 路線</a>的「誰可以做」。</li>
+  <li>串車（兩車黏在一起來）：查從哪一站、哪個路口開始。建議市府替業者打分數（評鑑）時，依班次分兩種指標，見 <a href="plan100.html">100 天</a>。</li>
   <li>終點站（端點）：和工會一起到現場看駕駛在哪裡休息、換班。<a href="plan100.html#ends">100 天</a></li>
   <li>${pkT.length?'人少的地方（多半在離峰）':'離峰：人少的地方'}試辦預約車（預約專車或計程車媒合）。先數人，確認後才花錢。<a href="#pol">細節</a></li>
   ${nl?`<li>尖峰：試辦接駁小巴 ${nl} 線，只在${FHRS()}開：${[...new Map([...am,...pm].map(x=>[x.far+x.hub,x])).values()].map(x=>`${esc(x.far)}→捷運${esc(x.hub)}站${x.hub_ntp?'（終點在新北，建議請新北市政府交通局協同處理）':''}`).join('；')}。寒假前先數 5 個平日的人；試辦後連 4 週每班不到 15 人就停。<a href="plan100.html#places">100 天</a></li>`:`<li>尖峰接駁小巴：${short}<a href="#pol">細節</a></li>`}</ol>`;
