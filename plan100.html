@@ -526,10 +526,11 @@ if(location.hash)setTimeout(()=>openTo(decodeURIComponent(location.hash.slice(1)
   `<b>一再出現</b>：同一格或同一條路線，${ST} 天以上出問題，才算一再出現。${A?`一再出現（${A.strong} 天以上）：${A.places3} 格、${A.routes3} 條路線 ${TH}。`:''}串車和累積清單的${THR('learn.html#live')}。`,
   '<b>改路網</b>：建議市府每週用這份清單，檢討哪裡要分站牌、加班次，或讓幾條路線一起排時刻表（聯合排點）。也可以讓路線只開到某站（截短）。'])}
 <b>發現</b>${li([
-  `駕駛班是一位駕駛一天的班。${S0S} ${T('sim','模擬')}。${rp?`${esc(rp.route)} 休息不夠的駕駛班最多：${rp.fail}／${rp.duties} 個。`:''}`,
-  `${nr.map(x=>esc(x.name)).join('、')}：每天掉頭幾百次，車停 15 分以上的最多只有 ${pct(Math.max(...nr.map(x=>x.rest)))} ${T('real','真')}。${GPSOUT}駕駛可能沒有時間休息。`,
+  `<b>過勞主要是一天太長</b>：${p1(N.daily.drive10)} 的車一天開超過 10 小時，${p1(N.daily.night.under_8)} 的車兩天之間停不到 8 小時 ${T('real','真')}。這是車的數字，一台車可能是兩位駕駛輪流開，要用勤務表確認。`,
   `駕駛每週工時的中位約 ${WK.med.toFixed(1)} 小時 ${T('est','推估')}。這${WK.med>c?'略高於':WK.med<c?'略低於':'等於'}含加班的法定上限：每週約 ${c.toFixed(1)} 小時。正常工時是每週 40 小時。`,
   `前提：${HC} 位駕駛涵蓋全部 ${N.ops_n} 家業者。只算總公司在臺北的 ${N.tpe_ops_n} 家，中位約 ${N.wk.taipei_ops.med.toFixed(1)} 小時。`,
+  `班內休息比較少出問題：照模擬，每 100 個駕駛班約 ${Math.round(Z.strict*100)} 個排不進休息 ${T('sim','模擬')}。這是上限：假設駕駛整天跟同一台車。${rp?`集中在少數路線，${esc(rp.route)} 最多：${rp.fail}／${rp.duties} 個駕駛班。`:''}`,
+  `${nr.map(x=>esc(x.name)).join('、')}：每天掉頭幾百次，車停 15 分以上的最多只有 ${pct(Math.max(...nr.map(x=>x.rest)))} ${T('real','真')}。${GPSOUT}駕駛可能沒有時間休息。`,
   `尖峰每個平日約 ${f(N.bunch.pairs)} 次串車 ${TH}。${pct(N.bunch.early)} 從起站附近開始，其餘分散在路上。`,
   pl.length?`${pl.map(p=>esc(nm2(p.title).replace(/：.*/,''))).join('、')}：幾條路線重疊，各排各的班表，車來得不平均。`:'',
   MINI2||MINI,

@@ -87,7 +87,7 @@ details.fold>summary{cursor:pointer;font-size:16px}
 <div class="event">市政Debug松 #5公車路網如何即時反應需求</div><nav class="tabs"><a href="network.html" class="">① 地區<span class="tl">：哪裡人多、哪裡人少</span></a><a href="schedule.html" class="on">② 駕駛<span class="tl">過勞與效率</span></a><a href="plan100.html" class="">100 天<span class="tl">：給新市府的建議</span></a><a href="learn.html" class="">說明<span class="tl">與教學</span></a></nav>
 <section class="mine">
   <h1>駕駛：公車駕駛有沒有可能過勞</h1>
-  <p class="sub">駕駛休息不夠。市府要改的是班表和終點站，不是每分鐘的調度。</p>
+  <p class="sub">駕駛的一天太長、一週工時太多；班內休息比較少出問題。市府要改的是班表和終點站，不是每分鐘的調度。</p>
   <div class="find" id="m-find"></div>
   <div class="card" id="ends" style="margin:0 0 10px;scroll-margin-top:12px"></div>
   <p class="sub" style="margin-top:8px">輸入一條路線，看這條路線的駕駛。</p>
@@ -14833,9 +14833,11 @@ function findings(){const V=DL.vehicles,f=x=>(x??0).toLocaleString(),p1=x=>(x*10
   const nCh=EH.routes.flatMap(r=>r.ends).filter(e=>e.way==='change').length;
   const mf=document.getElementById('m-find'),mfo=mf.querySelector('details')?.open?' open':'';
   mf.innerHTML=`<details class="fold"${mfo}><summary><b>發現的問題・行動方案</b></summary><div class="two"><div><h2>發現的問題</h2><ol>
+    <li><b>${p1(V.drive_over_10)} 的車一天開超過 10 小時</b>${R_}<br>全市 ${f(V.buses)} 台車，${DD(DL.day)}。這是車，不是人：一台車可能兩位駕駛輪流開。</li>
+    ${V.night&&V.night.under_8!=null?`<li><b>${p1(V.night.under_8)} 的車夜間停不到 8 小時</b>${R_}<br>算的是 ${DD(DL.windows[0])} 夜間有開、${DD(DL.day)} 早上又出車的 ${f(V.night.buses)} 台車。這是車，不是人。</li>`:''}
     <li><b>全市駕駛每週工作約 ${Math.round(WK.mid)} 小時</b>${E_}<br>法定上限（含加班）約 ${CAP} 小時。<details class="note"><summary>範圍與假設</summary>正常工時是每週 40 小時。${WKT}。${PRE(f(DL.headcount[0].n))}。</details></li>
-    <li>${S0C.strict!=null?`<b>全市 ${p1(S0C.strict)} 的駕駛班休息不夠</b>${M_}<br>駕駛班＝一位駕駛一天的班。這裡假設駕駛整天開同一台車。最多的路線是 ${S0C.worst.slice(0,3).join('、')}。<details class="note"><summary>規則與例外</summary>規則是連續開 4 小時要休 30 分。用例外寬限（工作具連續性或交通壅塞時）算是 ${p1(S0C.lenient)}。</details>`:'排班模擬資料不夠。'}</li>
-    ${V.night&&V.night.under_8!=null?`<li><b>${pct(V.night.under_8)} 的車夜間停不到 8 小時</b>${R_}<br>算的是 ${DD(DL.windows[0])} 夜間有開、${DD(DL.day)} 早上又出車的 ${f(V.night.buses)} 台車。這是車，不是人。</li>`:''}${EH.routes.length?`<li><b>${EH.routes.length} 條路線休息最不夠，${EH.routes.length*2} 個終點站裡只有 ${nCh} 個接班駕駛到得了</b>（500 m 內有捷運站或業者場站）。${EH.hubs.length?`${EH.hubs.map(h=>h.stops.join('和')+'（'+h.routes.join('、')+'）').join('；')} 相距不到 ${EH.rule.hub_m} m，可以共用一個休息點。`:''}<a href="#ends">終點站卡片</a></li>`:''}</ol></div>
+    <li>${S0C.strict!=null?`<b>班內休息：每 100 個駕駛班約 ${Math.round(S0C.strict*100)} 個排不進</b>${M_}<br>駕駛班＝一位駕駛一天的班。這是上限：假設駕駛整天開同一台車。最多的路線是 ${S0C.worst.slice(0,3).join('、')}。<details class="note"><summary>規則與例外</summary>規則是連續開 4 小時要休 30 分。用例外寬限（工作具連續性或交通壅塞時）算是 ${p1(S0C.lenient)}。</details>`:'排班模擬資料不夠。'}</li>
+    ${EH.routes.length?`<li><b>${EH.routes.length} 條路線休息最不夠，${EH.routes.length*2} 個終點站裡只有 ${nCh} 個接班駕駛到得了</b>（500 m 內有捷運站或業者場站）。${EH.hubs.length?`${EH.hubs.map(h=>h.stops.join('和')+'（'+h.routes.join('、')+'）').join('；')} 相距不到 ${EH.rule.hub_m} m，可以共用一個休息點。`:''}<a href="#ends">終點站卡片</a></li>`:''}</ol></div>
    <div><h2>行動方案</h2><ol>
     <li>請中央解釋休息的例外規定。（<a href="plan100.html#exc">100 天</a>）</li>
     <li>休息不夠的路線：車在終點站多等，或在終點站換駕駛。（<a href="plan100.html#fix">三種改法</a>）</li>
