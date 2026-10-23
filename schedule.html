@@ -95,7 +95,7 @@ details.fold>summary{cursor:pointer;font-size:16px}
     <span class="note">例如：</span><span class="seg" id="m-route"></span></div>
   <p class="note" id="m-qmsg"></p>
   <div class="ans" id="m-ans"></div>
-  <p class="note" style="margin:0 0 4px">下面的數字多半是車的數字，不是駕駛的數字。駕駛的工時見上面的結論。</p>
+  <p class="note" style="margin:0 0 4px">寫「台」的，數的是 GPS 上真的車；寫「模擬」的，數的是我們照時刻表排出來的駕駛班（一位駕駛一天的班）。單位不同，不能直接比。</p>
   <div class="cards" id="m-kpi" style="margin:0 0 12px"></div>
   <div class="mgrid"><div class="card" style="margin:0"><h2 id="m-stitle"></h2><div class="legend" id="m-legend"></div><p class="note swipe" style="margin:2px 0">左右滑看全線</p><div class="strip" id="m-strip"></div><p class="hotlbl" id="m-hot"></p>
       <p class="cellinfo" id="m-cell">點一格（或滑過）看這一站、這一小時的數字。</p><p class="note" id="m-snote"></p></div>
@@ -14884,7 +14884,7 @@ function mine(){
   document.getElementById('m-kpi').innerHTML=
     card(D.work_h_median!=null?D.work_h_median+' 小時':'—',D.work_h_median>12,R_,`${DD(DL.day)} 一台車在路上的時間（中位數）`,'駕駛一天最多 12 小時（含加班）')+
     card(D.buses?`${D.over12} / ${D.buses} 台`:'—',false,R_,`${DD(DL.day)} 在路上超過 12 小時的車`,D.buses?'超過一人一天的上限，所以中途應有換人；要看勤務表確認':'')+
-    card(S0?(shaky?(sim.fit>0?'≤ ':'≥ '):'')+pct(1-S0[2]):'—',false,M_,`${esc2(r)}：休息不夠的駕駛班（假設整天開同一台車）`,shaky?`模擬${bound}（車數和真資料差 ${pct(Math.abs(sim.fit))}）`:`${S0C.strict!=null?`全市是 ${(S0C.strict*100).toFixed(1)}%。`:''}終點站停不到 15 分就掉頭，湊不滿「開 4 小時休 30 分」。實際有沒有換人，要看勤務表`)+
+    card(S0?(shaky?(sim.fit>0?'≤ ':'≥ '):'')+pct(1-S0[2]):'—',false,M_,`${esc2(r)}：模擬的 ${S0[1]} 個駕駛班裡，${Math.round(S0[1]*(1-S0[2]))} 個休息不夠（假設整天開同一台車）`,shaky?`模擬${bound}（車數和真資料差 ${pct(Math.abs(sim.fit))}）`:`${S0C.strict!=null?`全市是 ${(S0C.strict*100).toFixed(1)}%。`:''}終點站停不到 15 分就掉頭，湊不滿「開 4 小時休 30 分」。實際有沒有換人，要看勤務表`)+
     card(N&&N.n>=5?`${N.under8} / ${N.n} 台`:'—',false,R_,`${DD(DL.windows[0])} 晚間收車到 ${DD(DL.day)} 早上出車，停不到 8 小時的車`,'駕駛兩天之間最少休 8 小時，所以早上應是換人開；要看勤務表確認');
   // ① along the route × the day; ② headway and bunching on the left (stays in view while the strip scrolls)
   const cw=Math.max(8,Math.min(15,620/Math.max(1,n))),LW=96,TH=30,rh=16,W=LW+n*cw+8,H=TH+HRS.length*rh+60;
@@ -15054,13 +15054,13 @@ function ends(){const box=document.getElementById('ends');if(!box||!EH.routes.le
       ${row('第 1–30 天',todo)}</table>
       <p class="note">兩端都排休息要的資源：換駕駛，車不變（${r.s2.buses} 台），駕駛班 ${r.s0.duties} → ${r.s2.duties}；車多等，車 ${r.s0.buses} → ${r.s1.buses} 台，駕駛班 ${r.s0.duties} → ${r.s1.duties}${M_}。</p></div>`;};
   const hubs=EH.hubs.map(h=>`<li><b>${h.stops.map(esc2).join('、')}</b>（${h.routes.map(esc2).join('、')}）相距不到 ${EH.rule.hub_m} m${E_}：可以共用一個休息點。尖峰一小時合計換駕駛 ${h.change} 次，或同時 ${h.wait} 台車在等。</li>`).join('');
-  box.innerHTML=`<h2>終點站休息點：休息最不夠的 ${EH.routes.length} 條路線</h2>
+  box.innerHTML=`<details${box.querySelector('details')?.open?' open':''}><summary style="cursor:pointer"><b>終點站休息點：休息最不夠的 ${EH.routes.length} 條路線，兩端怎麼排休息</b></summary>
     <p>假設駕駛整天開同一台車，這幾條路線休息不夠的駕駛班最多${M_}。每條路線的兩端各選一種做法：</p>
     <ul><li><b>換駕駛</b>：500 m 內有捷運站或業者場站，接班的駕駛到得了。只加駕駛，不加車，也不用多的停車位。</li>
     <li><b>車多等</b>：附近沒有捷運站或場站。車停 15 分以上，駕駛休息。要停車位。</li></ul>
     ${hubs?`<h3>能共用的休息點</h3><ul>${hubs}</ul>`:''}
     <div class="endg">${EH.routes.map(card).join('')}</div>
-    <details class="note"><summary>怎麼算</summary>兩端：每個方向最常發車的終點站${R_}。換班次數、在等的車數：照時刻表排的駕駛班${M_}，換駕駛＝司機在終點站上下車；車多等＝車停 15 分以上。捷運站距離：站牌到捷運出口的直線距離${R_}。業者場站：端點調查（說明頁第 21 篇），沒查到的寫「查不到」，不是沒有。共用：兩條路線的終點站直線距離不到 ${EH.rule.hub_m} m。延到捷運站：終點站離捷運站 ${EH.rule.move_m} m 內才建議。這些都要現場確認。</details>`;}
+    <details class="note"><summary>怎麼算</summary>兩端：每個方向最常發車的終點站${R_}。換班次數、在等的車數：照時刻表排的駕駛班${M_}，換駕駛＝司機在終點站上下車；車多等＝車停 15 分以上。捷運站距離：站牌到捷運出口的直線距離${R_}。業者場站：端點調查（說明頁第 21 篇），沒查到的寫「查不到」，不是沒有。共用：兩條路線的終點站直線距離不到 ${EH.rule.hub_m} m。延到捷運站：終點站離捷運站 ${EH.rule.move_m} m 內才建議。這些都要現場確認。</details></details>`;}
 function esc2(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 dl();
 ends();
