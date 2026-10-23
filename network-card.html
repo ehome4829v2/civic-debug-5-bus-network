@@ -457,7 +457,8 @@ function stops(f,u,showCells){
   const sm=g('stopm'),dt=g('dots'),sl=g('slab'),zoomed=DET();sm.innerHTML='';dt.innerHTML='';sl.innerHTML='';
   const FO=st.mode==='now'&&st.focus!=='all'?FOC[st.focus]:null;
   const mark=f.bus.filter(b=>FO?b[1]===FO.stop:(b[1]===1||b[1]===6||(zoomed&&b[1]===0))).sort((a,b)=>(a[1]===6)-(b[1]===6));
-  if(zoomed&&!FO)for(const [i,k,b,e,sx] of f.bus){if(k===0||k===1||k===6)continue;const [x,y]=P(OV.stops[i][0],OV.stops[i][1]);if(!inView(x,y)||underHud(x,y))continue;
+  // zoomed in, every other stop is a small grey dot, also under 我想看
+  if(zoomed)for(const [i,k,b,e,sx] of f.bus){if(FO?k===FO.stop:(k===0||k===1||k===6))continue;const [x,y]=P(OV.stops[i][0],OV.stops[i][1]);if(!inView(x,y)||underHud(x,y))continue;
     tip(el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:1.7*u,fill:'#a8a395','fill-opacity':.75,'data-i':i,style:'cursor:pointer'},dt),`${OV.stops[i][2]}｜${b} 班／時、${secT(e,sx)}｜${KN[k]}`);}
   const named=[...g('lab').querySelectorAll('text')].map(t=>{const w=t.textContent.length*12*u;return ['',+t.getAttribute('x')-w/2,+t.getAttribute('y')-4*u,w];});
   for(const [i,k,b,e,sx] of mark){const s=OV.stops[i],[x,y]=P(s[0],s[1]);if(!inView(x,y)||(k===0&&underHud(x,y)))continue;
