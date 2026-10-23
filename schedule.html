@@ -14904,7 +14904,7 @@ function mine(){
     if(hw){s+=`<text x="${LW-30}" y="${y+12}" font-size="12" fill="#333" text-anchor="end"${hw[0]>=10?' font-weight="700"':''}>${hw[0]} 分</text>`;
       {const k=BR[h]||0;for(let q=0;q<k;q++)s+=`<circle cx="${LW-20+q*7}" cy="${y+8}" r="2.6" fill="#222"/>`;}}
     for(let i=0;i<n;i++){const c=row[i]||'.',col=LV[c]?LV[c][0]:'#fff';
-      s+=`<rect x="${LW+i*cw}" y="${y}" width="${cw-1}" height="${rh-1}" fill="${col}"${c==='.'?' stroke="#eee"':''} data-i="${i}" data-h="${h}"/>`;}});
+      s+=`<rect x="${LW+i*cw}" y="${y}" width="${cw-1}" height="${rh-1}" fill="${col}"${c==='.'?' stroke="#eee"':''} data-i="${i}" data-h="${h}"><title>${h} 點・${esc2(nm(i))}：${LV[c]?LV[c][1]:'沒有資料'}</title></rect>`;}});
   hot.forEach((x,k)=>{s+=`<rect x="${LW+x.a*cw-1.5}" y="${TH+(x.h0-5)*rh-1.5}" width="${(x.b-x.a+1)*cw+2}" height="${(x.h1-x.h0+1)*rh+2}" fill="none" stroke="#111" stroke-width="2"${k?' stroke-dasharray="5 3"':''} pointer-events="none"/>`;});
   {const y=TH+HRS.length*rh+6,row=m.h.all||'';s+=`<line x1="0" x2="${LW+n*cw}" y1="${y-3}" y2="${y-3}" stroke="#ddd"/><text x="2" y="${y+12}" font-size="12" fill="#333" font-weight="700">全天</text>`;
     for(let i=0;i<n;i++){const c=row[i]||'.';s+=`<rect x="${LW+i*cw}" y="${y}" width="${cw-1}" height="${rh-1}" fill="${LV[c]?LV[c][0]:'#fff'}"${c==='.'?' stroke="#eee"':''} data-i="${i}" data-h="all"/>`;}}
@@ -14922,7 +14922,7 @@ function mine(){
     document.getElementById('m-cell').innerHTML=`<b>${h==='all'?'全天':h+' 點'}・${esc2(nm(i))}</b>（${esc2(stops[i][1]||'')}）：${LV[ch]?LV[ch][1]:'沒有資料'}。${hw?`這小時這個方向${hw[4]!=null?`平均 ${(2*hw[4]).toFixed(1)} 分一班（一半在 ${hw[0]} 分內）`:`一半的班距在 ${hw[0]} 分內`}${hw[1]?`。串車 ${hw[1]} 對（真＋假設）`:''}。`:''}${tt?`班表這小時兩個方向合計約 ${Math.round(tt)} 班。`:''} <a href="network.html#h=${h==='all'?8:h}&q=${encodeURIComponent(nm(i))}">在地圖上看這一站</a>`;};
   box.onmouseover=info;box.onclick=info;
   box.scrollLeft=0;
-  document.getElementById('m-snote').innerHTML=`顏色＝<b>${esc2(r)} 自己的車</b>在這站每班多停幾秒<span class="badge real">真</span>。<details><summary>怎麼算</summary>顏色深不一定是人多：多停的秒數可能是上下車，也可能是排隊進站、刷卡慢。擠不擠要跟車確認。每班多停＝停站秒數扣掉紅燈、開關門的時間。<details><summary>細節</summary>方向：${esc2(nm(0))} → ${esc2(nm(n-1))}。<ul style="margin:2px 0;padding-left:18px"><li>左欄：班距（兩班車隔幾分）中位數，≥10 分加粗。黑點＝串車（兩台車黏著開），門檻是我們選的（<a href="learn.html#bunch">見說明</a>）<span class="badge real">真＋假設</span>。</li><li>一小時不到 4 班的格子留白。</li><li>藍色＝同一站所有路線的車多不多，規則同地圖頁。</li></ul></details></details>`;
+  document.getElementById('m-snote').innerHTML=`顏色＝<b>${esc2(r)} 自己的車</b>在這站每班多停幾秒<span class="badge real">真</span>。滑鼠移到格子上看站名。整天深紅的一欄＝這站每班車平常就停很久，是常態，不是突發；常是串車開始的地方。和地圖「看現況」的實心紅同義。<details><summary>怎麼算</summary>顏色深不一定是人多：多停的秒數可能是上下車，也可能是排隊進站、刷卡慢。擠不擠要跟車確認。每班多停＝停站秒數扣掉紅燈、開關門的時間。<details><summary>細節</summary>方向：${esc2(nm(0))} → ${esc2(nm(n-1))}。<ul style="margin:2px 0;padding-left:18px"><li>左欄：班距（兩班車隔幾分）中位數，≥10 分加粗。黑點＝串車（兩台車黏著開），門檻是我們選的（<a href="learn.html#bunch">見說明</a>）<span class="badge real">真＋假設</span>。</li><li>一小時不到 4 班的格子留白。</li><li>藍色＝同一站所有路線的車多不多，規則同地圖頁。</li></ul></details></details>`;
   // ③ the drivers of this route
   let nights='';
   if(N&&N.n>=5){const b3=[N.under8,N.under10-N.under8,N.n-N.under10],mx=Math.max(...b3,1),lb=['不到 8 小時','8–10 小時','10 小時以上'],cl=['#b2182b','#d0d0d0','#d0d0d0'];
