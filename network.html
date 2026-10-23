@@ -13,9 +13,9 @@ h1{font-size:20px;margin:0 0 4px}
 .sub{color:var(--mut);font-size:13px;margin:0}
 .src{font-size:12px;color:#666;margin:4px 0 0}
 a{color:#2c6fa8}
-.controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:8px 16px;border-bottom:1px solid var(--line);position:relative;background:#fafaf7;z-index:2}
-/* theater mode only: the bar stays on top while the map fills the window; opaque, so the map never shows through */
-body.theater-on .controls{position:sticky;top:0;z-index:20;background:#fafaf7;box-shadow:0 2px 4px rgba(0,0,0,.08);padding-top:6px;padding-bottom:6px}body.theater-on .fsum{display:none}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:8px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fafaf7;z-index:20;box-shadow:0 2px 4px rgba(0,0,0,.08)}
+/* the bar stays on top (opaque, so the map never shows through): the layers can be ticked while looking at the map; theater mode makes it shorter */
+body.theater-on .controls{padding-top:6px;padding-bottom:6px}body.theater-on .fsum{display:none}
 .play{font-size:9px;width:22px;height:20px;border-radius:4px;border:none;background:#444;color:#fff;cursor:pointer;padding:0;line-height:1;flex:none}
 .mapwrap{position:relative}
 .canvas{height:max(360px,calc(100vh - 390px));overflow:hidden;border-radius:8px;cursor:grab;touch-action:none;overscroll-behavior:contain}
