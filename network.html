@@ -491,7 +491,7 @@ function draw(){
   document.querySelectorAll('[data-sw]').forEach(e=>e.style.opacity=op(e.dataset.sw)||.85);
   for(const k of keys){const r=rects[k],c=G[k];
     if(showPop){const v=D.pop[k]||0;r.setAttribute('fill',v?POPC[POPB.filter(b=>v>=b).length]:'#fff');r.setAttribute('opacity',v?.9:0);continue;}   // 人口 replaces the hot/cold colours, one slate ramp (designer: keeps the MRT line colours readable)
-    if(FQ){const on=c&&c.k===FQ.k;r.setAttribute('fill',on?CL[c.k]:c?'#e4e0d4':'#fff');r.setAttribute('opacity',on?.92:c?.45:0);if(tier&&(denseSet.has(k)||coarseKid.has(k)))r.setAttribute('opacity',0);continue;}
+    if(FQ){const on=c&&c.k===FQ.k;r.setAttribute('fill',on?CL[c.k]:c?'#e4e0d4':'#fff');r.setAttribute('opacity',on?.92:c?.45:0);continue;}   // 我想看 shows every 500 m cell (the 250 m and 1 km tiers are hidden), so no cell drops out
     r.setAttribute('fill',c?CL[c.k]:'#fff');r.setAttribute('opacity',c?op(c.k):0);
     if(tier&&(denseSet.has(k)||coarseKid.has(k)))r.setAttribute('opacity',0);}
   const FP=TI.fine[st.p]||{};
